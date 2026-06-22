@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Sabit marka renkleri (her iki temada da aynı) */
+@theme {
+  --color-ink: #14110e;
+  --color-ink-2: #1f1a14;
+  --color-ink-3: #2a231a;
+  --color-bronze: #c08a4d;
+  --color-bronze-light: #d6a76b;
+  --color-bronze-pale: #e7c79b;
+  --color-cream: #f7f3ec;
+  --color-sand: #ece4d8;
+  --color-stone: #6b6258;
+
+  --font-display: var(--font-sora);
+  --font-body: var(--font-inter);
 }
 
+/* Temaya göre değişen anlamsal renkler */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-base: var(--text-base);
+  --color-muted: var(--text-muted);
+  --color-line: var(--line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --surface: #ffffff;
+  --surface-2: #f7f3ec;
+  --card: #ffffff;
+  --text-base: #14110e;
+  --text-muted: #6b6258;
+  --line: #ece4d8;
+}
+
+.dark {
+  --surface: #14110e;
+  --surface-2: #1b1712;
+  --card: #1f1a14;
+  --text-base: #f1eadf;
+  --text-muted: rgba(241, 234, 223, 0.6);
+  --line: rgba(255, 255, 255, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--surface);
+  color: var(--text-base);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
+
+.kicker {
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+::selection {
+  background: var(--color-bronze);
+  color: #fff;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1.08); }
+  to { transform: scale(1.18); }
+}
+.kenburns { animation: kenburns 18s ease-out forwards; }

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+
+# proje yedek/loglar (repoya girmesin)
+dev-server.log
+/public/renders/_orijinal
