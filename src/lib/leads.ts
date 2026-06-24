@@ -54,6 +54,8 @@ export function sourceLabel(source: string | null) {
       return "Sizi Arayalım";
     case "contact-page":
       return "İletişim Sayfası";
+    case "meta-lead":
+      return "Meta Reklam (Lead)";
     default:
       return source || "—";
   }

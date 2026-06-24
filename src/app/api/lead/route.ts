@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { sendMetaCapiLead } from "@/lib/tracking-server";
+import { sendLeadNotification } from "@/lib/mail";
 
 // "Sizi Arayalım / Fiyat Al" form taleplerini (lead) Supabase'e kaydeder.
 // Tablo: public.loft777_leads (Partum projesi)
@@ -52,6 +53,9 @@ export async function POST(request: Request) {
 
     // Meta CAPI'ye sunucu taraflı Lead olayı (token varsa) — kaydı bloke etmez
     await sendMetaCapiLead(lead.phone);
+
+    // info@ adresine bildirim maili (SMTP ayarı varsa) — kaydı bloke etmez
+    await sendLeadNotification(lead);
 
     return NextResponse.json({ ok: true });
   } catch {
