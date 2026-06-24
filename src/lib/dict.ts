@@ -169,6 +169,13 @@ const tr = {
       { value: "1+1-b", label: "1+1 B Tipi" },
       { value: "farketmez", label: "Farketmez" },
     ],
+    budgetPlaceholder: "Ödeme tercihi (opsiyonel)",
+    budgetOptions: [
+      { value: "pesin", label: "Peşin" },
+      { value: "kredi", label: "Banka Kredisi" },
+      { value: "taksit", label: "Taksit / Senet" },
+      { value: "farketmez", label: "Farketmez" },
+    ],
     kvkkText:
       "Kişisel verilerimin, benimle iletişime geçilmesi amacıyla işlenmesine onay veriyorum.",
     kvkkRequired: "Devam etmek için onay kutusunu işaretleyin.",
@@ -450,6 +457,13 @@ const en: typeof tr = {
     unitOptions: [
       { value: "1+1-a", label: "1+1 Type A" },
       { value: "1+1-b", label: "1+1 Type B" },
+      { value: "farketmez", label: "No preference" },
+    ],
+    budgetPlaceholder: "Payment preference (optional)",
+    budgetOptions: [
+      { value: "pesin", label: "Cash" },
+      { value: "kredi", label: "Bank Loan" },
+      { value: "taksit", label: "Installments" },
       { value: "farketmez", label: "No preference" },
     ],
     kvkkText:

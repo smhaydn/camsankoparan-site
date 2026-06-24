@@ -21,6 +21,7 @@ export function ContactForm({
     phone: "",
     message: "",
     unit: "",
+    budget: "",
     kvkk: false,
   });
   const [kvkkErr, setKvkkErr] = useState(false);
@@ -41,17 +42,17 @@ export function ContactForm({
         body: JSON.stringify({
           name: form.name,
           phone: form.phone,
-          message: [form.email ? `E-posta: ${form.email}` : "", form.message]
-            .filter(Boolean)
-            .join(" — "),
+          email: form.email,
+          message: form.message,
           unit_interest: form.unit,
+          budget: form.budget,
           source: "contact-page",
         }),
       });
       if (r.ok) {
         setState("done");
         trackLead();
-        setForm({ name: "", email: "", phone: "", message: "", unit: "", kvkk: false });
+        setForm({ name: "", email: "", phone: "", message: "", unit: "", budget: "", kvkk: false });
       } else {
         setState("error");
       }
@@ -95,18 +96,32 @@ export function ContactForm({
             className="rounded-sm border border-line bg-card px-4 py-3 text-sm outline-none focus:border-bronze"
           />
         </div>
-        <select
-          value={form.unit}
-          onChange={(e) => setForm({ ...form, unit: e.target.value })}
-          className="rounded-sm border border-line bg-card px-4 py-3 text-sm outline-none focus:border-bronze"
-        >
-          <option value="">{extra.unitPlaceholder}</option>
-          {extra.unitOptions.map((o) => (
-            <option key={o.value} value={o.value}>
-              {o.label}
-            </option>
-          ))}
-        </select>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <select
+            value={form.unit}
+            onChange={(e) => setForm({ ...form, unit: e.target.value })}
+            className="rounded-sm border border-line bg-card px-4 py-3 text-sm outline-none focus:border-bronze"
+          >
+            <option value="">{extra.unitPlaceholder}</option>
+            {extra.unitOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+          <select
+            value={form.budget}
+            onChange={(e) => setForm({ ...form, budget: e.target.value })}
+            className="rounded-sm border border-line bg-card px-4 py-3 text-sm outline-none focus:border-bronze"
+          >
+            <option value="">{extra.budgetPlaceholder}</option>
+            {extra.budgetOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </div>
         <textarea
           placeholder={t.formMsg}
           rows={5}

@@ -1,6 +1,6 @@
 import { isAuthed } from "@/lib/admin-auth";
 import { getLeads } from "@/lib/supabase-admin";
-import { statusMeta, sourceLabel, unitLabel } from "@/lib/leads";
+import { statusMeta, sourceLabel, unitLabel, budgetLabel } from "@/lib/leads";
 
 // Talepleri CSV (Excel) olarak indir
 function cell(v: string) {
@@ -23,7 +23,9 @@ export async function GET() {
     "Tarih",
     "Ad Soyad",
     "Telefon",
+    "E-posta",
     "İlgilenilen Daire",
+    "Ödeme Tercihi",
     "Mesaj",
     "Kaynak",
     "Durum",
@@ -34,7 +36,9 @@ export async function GET() {
       new Date(l.created_at).toLocaleString("tr-TR"),
       l.name,
       l.phone,
+      l.email ?? "",
       l.unit_interest ? unitLabel(l.unit_interest) : "",
+      l.budget ? budgetLabel(l.budget) : "",
       l.message ?? "",
       sourceLabel(l.source),
       statusMeta(l.status).label,

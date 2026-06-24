@@ -5,11 +5,13 @@ export type Lead = {
   created_at: string;
   name: string;
   phone: string;
+  email: string | null;
   message: string | null;
   source: string | null;
   status: string;
   notes: string | null;
   unit_interest: string | null;
+  budget: string | null;
 };
 
 // İlgilenilen daire tipi etiketi (CRM/Excel için Türkçe)
@@ -19,6 +21,22 @@ export function unitLabel(value: string | null) {
       return "1+1 A Tipi";
     case "1+1-b":
       return "1+1 B Tipi";
+    case "farketmez":
+      return "Farketmez";
+    default:
+      return value || "—";
+  }
+}
+
+// Ödeme tercihi etiketi (CRM/Excel için Türkçe)
+export function budgetLabel(value: string | null) {
+  switch (value) {
+    case "pesin":
+      return "Peşin";
+    case "kredi":
+      return "Banka Kredisi";
+    case "taksit":
+      return "Taksit / Senet";
     case "farketmez":
       return "Farketmez";
     default:
@@ -51,14 +69,29 @@ export function statusMeta(value: string) {
 export function sourceLabel(source: string | null) {
   switch (source) {
     case "call-form":
-      return "Sizi Arayalım";
+      return "Web · Sizi Arayalım";
     case "contact-page":
-      return "İletişim Sayfası";
+      return "Web · İletişim Sayfası";
     case "meta-lead":
-      return "Meta Reklam (Lead)";
+      return "Instagram / Meta Reklam";
+    case "manual":
+      return "Manuel Giriş";
     default:
       return source || "—";
   }
+}
+
+// Kaynak grupları — panelde filtreleme için (Web / Instagram-Meta / Manuel)
+export const SOURCE_GROUPS = [
+  { value: "web", label: "Web Sitesi", emoji: "🌐", match: ["call-form", "contact-page"] },
+  { value: "meta", label: "Instagram / Meta", emoji: "📷", match: ["meta-lead"] },
+  { value: "manual", label: "Manuel", emoji: "✍️", match: ["manual"] },
+] as const;
+
+export function sourceGroup(source: string | null): "web" | "meta" | "manual" | "other" {
+  const s = source ?? "";
+  const g = SOURCE_GROUPS.find((grp) => (grp.match as readonly string[]).includes(s));
+  return g ? (g.value as "web" | "meta" | "manual") : "other";
 }
 
 // Telefonu WhatsApp linkine çevirir (Türkiye): 0555... → 90555...

@@ -45,6 +45,24 @@ export async function updateLead(
   if (!r.ok) throw new Error("update_failed_" + r.status);
 }
 
+// Panelden manuel talep ekler (telefonla gelen, fuardan tanıdık vb.)
+export async function createLead(lead: {
+  name: string;
+  phone: string;
+  email?: string | null;
+  message?: string | null;
+  unit_interest?: string | null;
+  budget?: string | null;
+}): Promise<void> {
+  if (!ready()) throw new Error("SERVICE_KEY_MISSING");
+  const r = await fetch(`${URL}/rest/v1/${TABLE}`, {
+    method: "POST",
+    headers: { ...authHeaders(), Prefer: "return=minimal" },
+    body: JSON.stringify({ ...lead, source: "manual", status: "new" }),
+  });
+  if (!r.ok) throw new Error("create_failed_" + r.status);
+}
+
 // Bir talebi siler
 export async function deleteLead(id: string): Promise<void> {
   if (!ready()) throw new Error("SERVICE_KEY_MISSING");

@@ -1,12 +1,14 @@
 import nodemailer from "nodemailer";
-import { unitLabel, sourceLabel } from "./leads";
+import { unitLabel, sourceLabel, budgetLabel } from "./leads";
 
 type LeadMail = {
   name: string;
   phone: string;
+  email?: string | null;
   message: string | null;
   source: string | null;
   unit_interest: string | null;
+  budget?: string | null;
 };
 
 function esc(s: unknown) {
@@ -49,7 +51,9 @@ export async function sendLeadNotification(lead: LeadMail): Promise<void> {
         <table style="width:100%;border-collapse:collapse;font-size:15px">
           ${row("Ad Soyad", `<b>${esc(lead.name)}</b>`)}
           ${row("Telefon", `<a href="tel:${esc(lead.phone)}" style="color:#c08a4d">${esc(lead.phone)}</a>`)}
+          ${lead.email ? row("E-posta", `<a href="mailto:${esc(lead.email)}" style="color:#c08a4d">${esc(lead.email)}</a>`) : ""}
           ${lead.unit_interest ? row("İlgilendiği", esc(unitLabel(lead.unit_interest))) : ""}
+          ${lead.budget ? row("Ödeme", esc(budgetLabel(lead.budget))) : ""}
           ${lead.message ? row("Mesaj", esc(lead.message)) : ""}
           ${row("Kaynak", esc(sourceLabel(lead.source)))}
         </table>

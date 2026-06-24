@@ -7,10 +7,13 @@ import { OnlineCount } from "./online-count";
 import {
   type Lead,
   LEAD_STATUSES,
+  SOURCE_GROUPS,
   statusMeta,
   sourceLabel,
+  sourceGroup,
   waLink,
   unitLabel,
+  budgetLabel,
 } from "@/lib/leads";
 
 export function LeadsBoard({
@@ -24,29 +27,55 @@ export function LeadsBoard({
   const [leads, setLeads] = useState<Lead[]>(initialLeads);
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<string>("all");
+  const [srcFilter, setSrcFilter] = useState<string>("all");
+  const [addOpen, setAddOpen] = useState(false);
 
   const counts = useMemo(() => {
     const byStatus: Record<string, number> = {};
+    const bySource: Record<string, number> = {};
     let today = 0;
     const todayStr = new Date().toDateString();
     for (const l of leads) {
       byStatus[l.status] = (byStatus[l.status] ?? 0) + 1;
+      bySource[sourceGroup(l.source)] = (bySource[sourceGroup(l.source)] ?? 0) + 1;
       if (new Date(l.created_at).toDateString() === todayStr) today++;
     }
-    return { total: leads.length, today, byStatus };
+    return { total: leads.length, today, byStatus, bySource };
   }, [leads]);
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return leads.filter((l) => {
       if (filter !== "all" && l.status !== filter) return false;
+      if (srcFilter !== "all" && sourceGroup(l.source) !== srcFilter) return false;
       if (needle) {
-        const hay = `${l.name} ${l.phone} ${l.message ?? ""}`.toLowerCase();
+        const hay = `${l.name} ${l.phone} ${l.email ?? ""} ${l.message ?? ""}`.toLowerCase();
         if (!hay.includes(needle)) return false;
       }
       return true;
     });
-  }, [leads, q, filter]);
+  }, [leads, q, filter, srcFilter]);
+
+  async function addLead(data: {
+    name: string;
+    phone: string;
+    email: string;
+    unit_interest: string;
+    budget: string;
+    message: string;
+  }) {
+    const r = await fetch("/api/admin/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (r.ok) {
+      setAddOpen(false);
+      router.refresh();
+    } else {
+      alert("Eklenemedi. Ad ve telefon zorunlu.");
+    }
+  }
 
   async function patchLead(id: string, body: Partial<Pick<Lead, "status" | "notes">>) {
     setLeads((prev) => prev.map((l) => (l.id === id ? { ...l, ...body } : l)));
@@ -81,6 +110,12 @@ export function LeadsBoard({
         </div>
         <div className="flex items-center gap-3">
           <OnlineCount />
+          <button
+            onClick={() => setAddOpen(true)}
+            className="rounded-full bg-bronze px-4 py-2 text-sm font-semibold text-ink transition hover:bg-bronze-light"
+          >
+            + Manuel Lead
+          </button>
           <Link
             href="/yonetim/icerik"
             className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-bronze hover:text-bronze"
@@ -134,6 +169,18 @@ export function LeadsBoard({
             </Chip>
           ))}
         </div>
+        {/* Kaynak filtresi: Web / Instagram-Meta / Manuel */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs text-white/40">Kaynak:</span>
+          <Chip active={srcFilter === "all"} onClick={() => setSrcFilter("all")}>
+            Tümü
+          </Chip>
+          {SOURCE_GROUPS.map((g) => (
+            <Chip key={g.value} active={srcFilter === g.value} onClick={() => setSrcFilter(g.value)}>
+              {g.emoji} {g.label} ({counts.bySource[g.value] ?? 0})
+            </Chip>
+          ))}
+        </div>
       </div>
 
       {loadError && (
@@ -160,7 +207,136 @@ export function LeadsBoard({
           ))}
         </div>
       )}
+
+      {addOpen && <AddLeadModal onClose={() => setAddOpen(false)} onSave={addLead} />}
     </main>
+  );
+}
+
+function AddLeadModal({
+  onClose,
+  onSave,
+}: {
+  onClose: () => void;
+  onSave: (data: {
+    name: string;
+    phone: string;
+    email: string;
+    unit_interest: string;
+    budget: string;
+    message: string;
+  }) => void;
+}) {
+  const [f, setF] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    unit_interest: "",
+    budget: "",
+    message: "",
+  });
+  const [saving, setSaving] = useState(false);
+
+  const UNITS = [
+    { value: "1+1-a", label: "1+1 A Tipi" },
+    { value: "1+1-b", label: "1+1 B Tipi" },
+    { value: "farketmez", label: "Farketmez" },
+  ];
+  const BUDGETS = [
+    { value: "pesin", label: "Peşin" },
+    { value: "kredi", label: "Banka Kredisi" },
+    { value: "taksit", label: "Taksit / Senet" },
+    { value: "farketmez", label: "Farketmez" },
+  ];
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/70 p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-md rounded-xl border border-white/15 bg-ink p-6 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="font-display text-lg font-semibold text-bronze">Manuel Lead Ekle</h3>
+          <button onClick={onClose} className="text-xl text-white/50 hover:text-white">
+            ×
+          </button>
+        </div>
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
+            if (!f.name.trim() || !f.phone.trim()) return;
+            setSaving(true);
+            await onSave(f);
+            setSaving(false);
+          }}
+          className="flex flex-col gap-3"
+        >
+          <input
+            required
+            placeholder="Ad Soyad *"
+            value={f.name}
+            onChange={(e) => setF({ ...f, name: e.target.value })}
+            className="rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white outline-none focus:border-bronze"
+          />
+          <input
+            required
+            placeholder="Telefon *"
+            value={f.phone}
+            onChange={(e) => setF({ ...f, phone: e.target.value })}
+            className="rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white outline-none focus:border-bronze"
+          />
+          <input
+            placeholder="E-posta (opsiyonel)"
+            value={f.email}
+            onChange={(e) => setF({ ...f, email: e.target.value })}
+            className="rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white outline-none focus:border-bronze"
+          />
+          <div className="grid grid-cols-2 gap-3">
+            <select
+              value={f.unit_interest}
+              onChange={(e) => setF({ ...f, unit_interest: e.target.value })}
+              className="rounded-md border border-white/15 bg-ink px-3 py-2.5 text-sm text-white outline-none focus:border-bronze"
+            >
+              <option value="">Daire tipi</option>
+              {UNITS.map((u) => (
+                <option key={u.value} value={u.value}>
+                  {u.label}
+                </option>
+              ))}
+            </select>
+            <select
+              value={f.budget}
+              onChange={(e) => setF({ ...f, budget: e.target.value })}
+              className="rounded-md border border-white/15 bg-ink px-3 py-2.5 text-sm text-white outline-none focus:border-bronze"
+            >
+              <option value="">Ödeme tercihi</option>
+              {BUDGETS.map((b) => (
+                <option key={b.value} value={b.value}>
+                  {b.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <textarea
+            rows={3}
+            placeholder="Not / mesaj (opsiyonel)"
+            value={f.message}
+            onChange={(e) => setF({ ...f, message: e.target.value })}
+            className="rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white outline-none focus:border-bronze"
+          />
+          <button
+            type="submit"
+            disabled={saving}
+            className="rounded-full bg-bronze px-6 py-2.5 text-sm font-semibold text-ink transition hover:bg-bronze-light disabled:opacity-60"
+          >
+            {saving ? "Ekleniyor…" : "Lead Ekle"}
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
@@ -240,11 +416,18 @@ function LeadCard({
           <div className="mt-0.5 text-xs text-white/40">
             {sourceLabel(lead.source)} · {date}
           </div>
-          {lead.unit_interest && (
-            <div className="mt-1.5 inline-block rounded-full bg-bronze/15 px-2 py-0.5 text-xs text-bronze-pale">
-              İlgilendiği: {unitLabel(lead.unit_interest)}
-            </div>
-          )}
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {lead.unit_interest && (
+              <span className="inline-block rounded-full bg-bronze/15 px-2 py-0.5 text-xs text-bronze-pale">
+                İlgilendiği: {unitLabel(lead.unit_interest)}
+              </span>
+            )}
+            {lead.budget && (
+              <span className="inline-block rounded-full bg-emerald-500/15 px-2 py-0.5 text-xs text-emerald-300">
+                Ödeme: {budgetLabel(lead.budget)}
+              </span>
+            )}
+          </div>
         </div>
 
         <select
@@ -283,6 +466,14 @@ function LeadCard({
         >
           {copied ? "Kopyalandı ✓" : "Kopyala"}
         </button>
+        {lead.email && (
+          <a
+            href={`mailto:${lead.email}`}
+            className="rounded-full border border-white/20 px-3 py-1 text-xs text-white/70 transition hover:border-bronze hover:text-bronze"
+          >
+            ✉ {lead.email}
+          </a>
+        )}
       </div>
 
       {/* Mesaj */}

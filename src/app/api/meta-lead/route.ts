@@ -82,16 +82,47 @@ async function handleLead(leadId: string): Promise<void> {
     [f.first_name, f.last_name].filter(Boolean).join(" ") ||
     "İsimsiz (Meta)";
   const phone = f.phone_number || "—";
+  const email = f.email || null;
+
+  // Standart alanlar dışındaki yanıtları (özel sorular) tarayıp daire tipi /
+  // ödeme tercihini yakala; geri kalanları "mesaj" notuna ekle. Form alan
+  // adları Meta'da serbest olduğu için anahtar kelimeyle eşleştiriyoruz.
+  const STD = new Set(["full_name", "first_name", "last_name", "phone_number", "email"]);
+  let unit: string | null = null;
+  let budget: string | null = null;
   const extras: string[] = [];
-  if (f.email) extras.push(`E-posta: ${f.email}`);
   if (f.city) extras.push(`Şehir: ${f.city}`);
+
+  for (const [key, val] of Object.entries(f)) {
+    if (STD.has(key) || key === "city" || !val) continue;
+    const k = key.toLowerCase();
+    const v = val.toLowerCase();
+    if (!unit && (k.includes("daire") || k.includes("unit") || k.includes("tip"))) {
+      unit = v.includes("a") ? "1+1-a" : v.includes("b") ? "1+1-b" : "farketmez";
+    } else if (
+      !budget &&
+      (k.includes("ödeme") || k.includes("odeme") || k.includes("payment") || k.includes("bütçe") || k.includes("butce") || k.includes("budget"))
+    ) {
+      budget = v.includes("peş") || v.includes("pes") || v.includes("cash")
+        ? "pesin"
+        : v.includes("kredi") || v.includes("loan")
+          ? "kredi"
+          : v.includes("taksit") || v.includes("senet") || v.includes("install")
+            ? "taksit"
+            : "farketmez";
+    } else {
+      extras.push(`${key}: ${val}`);
+    }
+  }
 
   const lead = {
     name: name.slice(0, 200),
     phone: phone.slice(0, 50),
+    email: email ? email.slice(0, 200) : null,
     message: extras.join(" · ") || null,
     source: "meta-lead",
-    unit_interest: null as string | null,
+    unit_interest: unit,
+    budget,
   };
 
   // Supabase CRM'e kaydet (RLS: anon insert izinli)

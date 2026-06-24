@@ -21,11 +21,13 @@ export async function POST(request: Request) {
     const lead = {
       name: String(data.name).trim().slice(0, 200),
       phone: String(data.phone).trim().slice(0, 50),
+      email: data.email ? String(data.email).trim().slice(0, 200) : null,
       message: data.message ? String(data.message).trim().slice(0, 2000) : null,
       source: data.source ? String(data.source).trim().slice(0, 50) : "call-form",
       unit_interest: data.unit_interest
         ? String(data.unit_interest).trim().slice(0, 30)
         : null,
+      budget: data.budget ? String(data.budget).trim().slice(0, 30) : null,
     };
 
     if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {

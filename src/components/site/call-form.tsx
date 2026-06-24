@@ -8,7 +8,14 @@ import { trackLead } from "@/lib/track";
 export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formExtra"] }) {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
-  const [form, setForm] = useState({ name: "", phone: "", message: "", unit: "", kvkk: false });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    message: "",
+    unit: "",
+    budget: "",
+    kvkk: false,
+  });
   const [kvkkErr, setKvkkErr] = useState(false);
 
   async function submit(e: React.FormEvent) {
@@ -29,6 +36,7 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
           phone: form.phone,
           message: form.message,
           unit_interest: form.unit,
+          budget: form.budget,
           source: "call-form",
         }),
       });
@@ -120,6 +128,20 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
                       {extra.unitPlaceholder}
                     </option>
                     {extra.unitOptions.map((o) => (
+                      <option key={o.value} value={o.value} className="bg-ink">
+                        {o.label}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={form.budget}
+                    onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                    className="rounded-sm border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-bronze"
+                  >
+                    <option value="" className="bg-ink">
+                      {extra.budgetPlaceholder}
+                    </option>
+                    {extra.budgetOptions.map((o) => (
                       <option key={o.value} value={o.value} className="bg-ink">
                         {o.label}
                       </option>
