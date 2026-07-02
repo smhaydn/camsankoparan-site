@@ -8,44 +8,47 @@ const AY_ADLARI = [
   "Oca", "Şub", "Mar", "Nis", "May", "Haz",
   "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara",
 ];
+const MIN_AY = 36; // "Ay" modunda en az ~3 yıl
+const SATIR_Y = 40;
+const SOL_GEN = 240;
 
-// En az bu kadar ay göster (çok yıllık eksen için ~3 yıl)
-const MIN_AY = 36;
-const SATIR_Y = 40; // satır yüksekliği (px)
-const SOL_GEN = 240; // sol sabit sütun genişliği (px)
+// Görünüm modları — px/gün ve gün numarası gösterilsin mi
+const MODLAR = [
+  { ad: "Gün", pxGun: 34, gunTick: true, genis3Yil: false },
+  { ad: "Hafta", pxGun: 11, gunTick: false, genis3Yil: false },
+  { ad: "Ay", pxGun: 2.6, gunTick: false, genis3Yil: true },
+] as const;
 
-// Ay içindeki gün sayısı (m: 0-11)
 function ayGun(y: number, m: number): number {
   return new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
 }
-
-type Parcali = { y: number; m: number; d: number };
-function coz(iso: string): Parcali {
+function epoch(y: number, m: number, d: number): number {
+  return Math.floor(Date.UTC(y, m, d) / 86400000);
+}
+function coz(iso: string) {
   const [y, m, d] = iso.split("-").map(Number);
   return { y, m: m - 1, d }; // m 0-tabanlı
 }
-
-// Yakınlaştırma seviyeleri (ay genişliği px)
-const ZOOM = [
-  { ad: "Dar", px: 42 },
-  { ad: "Orta", px: 68 },
-  { ad: "Geniş", px: 104 },
-] as const;
+function epochIso(iso: string): number {
+  const p = coz(iso);
+  return epoch(p.y, p.m, p.d);
+}
 
 export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => void }) {
   const tarihli = useMemo(() => isler.filter((i) => i.baslangic && i.bitis), [isler]);
-  const [zoom, setZoom] = useState(1); // Orta
+  const [mod, setMod] = useState(0); // Gün (varsayılan)
 
-  // "Bugün" render dışında hesaplanır
   const [bugunIso, setBugunIso] = useState<string | null>(null);
   // Geçerli tarihi yalnızca ilk mount'ta oku (render saf kalsın)
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setBugunIso(new Date().toISOString().slice(0, 10)), []);
 
+  const M = MODLAR[mod];
+  const PX = M.pxGun;
+
   const model = useMemo(() => {
     if (tarihli.length === 0) return null;
-    let minKey = Infinity;
-    let maxKey = -Infinity;
+    let minKey = Infinity, maxKey = -Infinity;
     for (const i of tarihli) {
       const b = coz(i.baslangic!);
       const e = coz(i.bitis!);
@@ -54,9 +57,8 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
     }
     const startY = Math.floor(minKey / 12);
     const startM = minKey % 12;
-    const kapsanan = maxKey - minKey + 1; // işlerin kapsadığı ay sayısı
-    const ayAdedi = Math.max(MIN_AY, kapsanan);
-    return { startY, startM, ayAdedi };
+    const kapsanan = maxKey - minKey + 1;
+    return { startY, startM, kapsanan };
   }, [tarihli]);
 
   if (!model) {
@@ -67,62 +69,54 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
     );
   }
 
-  const { startY, startM, ayAdedi } = model;
-  const AY_PX = ZOOM[zoom].px;
+  const { startY, startM, kapsanan } = model;
+  const toplamAy = M.genis3Yil ? Math.max(MIN_AY, kapsanan) : kapsanan;
 
-  // Ay listesi (grid + başlıklar)
-  const aylar = Array.from({ length: ayAdedi }, (_, k) => {
-    const m = (startM + k) % 12;
-    const y = startY + Math.floor((startM + k) / 12);
-    return { k, y, m, gun: ayGun(y, m) };
-  });
+  // Ay listesi
+  const aylar: { y: number; m: number; days: number; solEpoch: number }[] = [];
+  {
+    let y = startY, m = startM;
+    for (let k = 0; k < toplamAy; k++) {
+      aylar.push({ y, m, days: ayGun(y, m), solEpoch: epoch(y, m, 1) });
+      m++; if (m > 11) { m = 0; y++; }
+    }
+  }
+  const domainStart = epoch(startY, startM, 1);
+  const sonAy = aylar[aylar.length - 1];
+  const domainEnd = epoch(sonAy.y, sonAy.m, sonAy.days);
+  const toplamGun = domainEnd - domainStart + 1;
+  const genislik = toplamGun * PX;
 
-  // Yıl bantları (ardışık ayları yıla göre grupla)
+  const xEpoch = (e: number) => (e - domainStart) * PX;
+
+  // Yıl bantları
   const yillar: { yil: number; sol: number; gen: number }[] = [];
   for (const a of aylar) {
     const son = yillar[yillar.length - 1];
-    if (son && son.yil === a.y) son.gen += AY_PX;
-    else yillar.push({ yil: a.y, sol: a.k * AY_PX, gen: AY_PX });
+    const gen = a.days * PX;
+    if (son && son.yil === a.y) son.gen += gen;
+    else yillar.push({ yil: a.y, sol: xEpoch(a.solEpoch), gen });
   }
 
-  const genislik = ayAdedi * AY_PX;
+  const bugunE = bugunIso ? epochIso(bugunIso) : null;
+  const bugunX = bugunE != null && bugunE >= domainStart && bugunE <= domainEnd ? xEpoch(bugunE) : null;
 
-  // Bir tarihin x konumu (ay ızgarasına oturur)
-  function xTarih(iso: string): number {
-    const p = coz(iso);
-    const ai = (p.y - startY) * 12 + (p.m - startM);
-    const dim = ayGun(p.y, p.m);
-    return (ai + (p.d - 1) / dim) * AY_PX;
-  }
-  function xBitis(iso: string): number {
-    const p = coz(iso);
-    const ai = (p.y - startY) * 12 + (p.m - startM);
-    const dim = ayGun(p.y, p.m);
-    return (ai + p.d / dim) * AY_PX; // bitiş günü dahil
-  }
-
-  const bugunX =
-    bugunIso && (() => {
-      const p = coz(bugunIso);
-      const ai = (p.y - startY) * 12 + (p.m - startM);
-      return ai >= 0 && ai < ayAdedi ? xTarih(bugunIso) : null;
-    })();
-
-  const basY = 44; // başlık yüksekliği (yıl + ay)
+  const yilY = 22, ayY = 20, gunY = M.gunTick ? 18 : 0;
+  const basY = yilY + ayY + gunY;
 
   return (
     <div className="rounded-lg border border-white/10">
-      {/* Üst çubuk: yakınlaştırma */}
+      {/* Üst çubuk: mod seçimi */}
       <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
         <span className="text-xs text-white/40">
-          {aylar[0].y} – {aylar[aylar.length - 1].y} · {ayAdedi} ay
+          {aylar[0].y} – {sonAy.y} · {M.ad === "Ay" ? `${toplamAy} ay` : "gün görünümü"}
         </span>
         <div className="flex overflow-hidden rounded-full border border-white/15 text-xs">
-          {ZOOM.map((z, idx) => (
+          {MODLAR.map((z, idx) => (
             <button
               key={z.ad}
-              onClick={() => setZoom(idx)}
-              className={`px-3 py-1 ${idx === zoom ? "bg-bronze text-ink" : "text-white/60 hover:text-white"}`}
+              onClick={() => setMod(idx)}
+              className={`px-3 py-1 ${idx === mod ? "bg-bronze text-ink" : "text-white/60 hover:text-white"}`}
             >
               {z.ad}
             </button>
@@ -131,7 +125,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
       </div>
 
       <div className="flex">
-        {/* Sol sabit sütun: iş adları */}
+        {/* Sol sabit sütun */}
         <div className="shrink-0 border-r border-white/10 bg-white/[0.02]" style={{ width: SOL_GEN }}>
           <div className="flex items-end border-b border-white/10 px-3 pb-1 text-xs text-white/40" style={{ height: basY }}>
             İş
@@ -155,56 +149,94 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
           ))}
         </div>
 
-        {/* Sağ kaydırılabilir zaman çizelgesi */}
+        {/* Sağ kaydırılabilir alan */}
         <div className="overflow-x-auto">
           <div style={{ width: genislik }} className="relative">
             {/* Yıl bandı */}
-            <div className="relative border-b border-white/10" style={{ height: 22 }}>
+            <div className="relative border-b border-white/10" style={{ height: yilY }}>
               {yillar.map((yb) => (
                 <div
                   key={yb.yil}
-                  className="absolute top-0 flex h-[22px] items-center justify-center border-r border-white/15 text-[11px] font-semibold text-bronze"
-                  style={{ left: yb.sol, width: yb.gen }}
+                  className="absolute top-0 flex items-center justify-center border-r border-white/15 text-[11px] font-semibold text-bronze"
+                  style={{ left: yb.sol, width: yb.gen, height: yilY }}
                 >
                   {yb.yil}
                 </div>
               ))}
             </div>
             {/* Ay bandı */}
-            <div className="relative border-b border-white/10" style={{ height: basY - 22 }}>
-              {aylar.map((a) => (
+            <div className="relative border-b border-white/10" style={{ height: ayY }}>
+              {aylar.map((a, k) => (
                 <div
-                  key={a.k}
-                  className={`absolute top-0 flex items-center justify-center border-r border-white/5 text-[10px] ${a.m === 0 ? "text-white/60" : "text-white/40"}`}
-                  style={{ left: a.k * AY_PX, width: AY_PX, height: basY - 22 }}
+                  key={k}
+                  className={`absolute top-0 flex items-center justify-center overflow-hidden border-r border-white/8 text-[10px] ${a.m === 0 ? "text-white/70" : "text-white/45"}`}
+                  style={{ left: xEpoch(a.solEpoch), width: a.days * PX, height: ayY }}
                 >
-                  {AY_ADLARI[a.m]}
+                  {AY_ADLARI[a.m]}{M.ad !== "Gün" ? ` ${a.y}` : ""}
                 </div>
               ))}
             </div>
+            {/* Gün numaraları (yalnızca Gün modu) */}
+            {M.gunTick && (
+              <div className="relative border-b border-white/10" style={{ height: gunY }}>
+                {aylar.map((a) =>
+                  Array.from({ length: a.days }, (_, di) => {
+                    const e = a.solEpoch + di;
+                    const dow = new Date(e * 86400000).getUTCDay();
+                    const hs = dow === 0 || dow === 6;
+                    return (
+                      <div
+                        key={e}
+                        className={`absolute top-0 text-center text-[9px] leading-[18px] ${hs ? "bg-white/[0.05] text-white/35" : "text-white/50"}`}
+                        style={{ left: xEpoch(e), width: PX, height: gunY }}
+                      >
+                        {di + 1}
+                      </div>
+                    );
+                  }),
+                )}
+              </div>
+            )}
 
             {/* Gövde */}
             <div className="relative">
-              {/* Ay ızgara çizgileri */}
-              {aylar.map((a) => (
-                <div
-                  key={a.k}
-                  className={`absolute top-0 bottom-0 border-r ${a.m === 0 ? "border-white/12" : "border-white/[0.04]"}`}
-                  style={{ left: (a.k + 1) * AY_PX - 1, width: 0 }}
-                />
-              ))}
+              {/* Dikey ızgara: Gün modunda günlük, diğerinde aylık */}
+              {M.gunTick
+                ? aylar.map((a) =>
+                    Array.from({ length: a.days }, (_, di) => {
+                      const e = a.solEpoch + di;
+                      const dow = new Date(e * 86400000).getUTCDay();
+                      const hs = dow === 0 || dow === 6;
+                      return (
+                        <div
+                          key={e}
+                          className={`absolute top-0 bottom-0 ${hs ? "bg-white/[0.03]" : ""} border-r ${di === 0 ? "border-white/12" : "border-white/[0.04]"}`}
+                          style={{ left: xEpoch(e), width: PX }}
+                        />
+                      );
+                    }),
+                  )
+                : aylar.map((a, k) => (
+                    <div
+                      key={k}
+                      className={`absolute top-0 bottom-0 border-r ${a.m === 0 ? "border-white/12" : "border-white/[0.04]"}`}
+                      style={{ left: xEpoch(a.solEpoch) + a.days * PX - 1, width: 0 }}
+                    />
+                  ))}
+
               {/* Bugün çizgisi */}
               {bugunX != null && (
-                <div className="pointer-events-none absolute top-0 bottom-0 z-10 w-px bg-red-500/70" style={{ left: bugunX }}>
-                  <span className="absolute -top-0 left-1 text-[9px] text-red-400">bugün</span>
+                <div className="pointer-events-none absolute top-0 bottom-0 z-10 w-px bg-red-500/80" style={{ left: bugunX }}>
+                  <span className="absolute left-1 text-[9px] text-red-400">bugün</span>
                 </div>
               )}
+
               {tarihli.map((i, idx) => {
-                const sol = xTarih(i.baslangic!);
-                const gen = Math.max(8, xBitis(i.bitis!) - sol);
+                const sol = xEpoch(epochIso(i.baslangic!));
+                const gen = Math.max(4, (epochIso(i.bitis!) - epochIso(i.baslangic!) + 1) * PX);
                 const renk = durumMeta(i.durum).color;
                 const yuzde = Math.max(0, Math.min(100, Number(i.gerc_yuzde) || 0));
-                const darBar = gen < 70;
+                const darBar = gen < 64;
                 return (
                   <div
                     key={i.id}
@@ -215,12 +247,8 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                       onClick={() => onSelect(i)}
                       className="absolute flex items-center overflow-hidden rounded-md shadow"
                       style={{
-                        left: sol,
-                        width: gen,
-                        top: (SATIR_Y - 22) / 2,
-                        height: 22,
-                        backgroundColor: renk + "44",
-                        border: `1px solid ${renk}`,
+                        left: sol, width: gen, top: (SATIR_Y - 22) / 2, height: 22,
+                        backgroundColor: renk + "44", border: `1px solid ${renk}`,
                       }}
                       title={`${isOzeti(i)} · %${yuzde}`}
                     >
@@ -231,7 +259,6 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                         </span>
                       )}
                     </button>
-                    {/* Dar çubuklarda etiketi çubuğun sağına yaz */}
                     {darBar && (
                       <span
                         className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-white/70"
