@@ -232,22 +232,61 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
               )}
 
               {tarihli.map((i, idx) => {
-                const sol = xEpoch(epochIso(i.baslangic!));
-                const gen = Math.max(4, (epochIso(i.bitis!) - epochIso(i.baslangic!) + 1) * PX);
+                const bx = xEpoch(epochIso(i.baslangic!));
+                const ex = xEpoch(epochIso(i.bitis!));
                 const renk = durumMeta(i.durum).color;
                 const yuzde = Math.max(0, Math.min(100, Number(i.gerc_yuzde) || 0));
+                // Excel koşullu biçimlendirme: Beton işleri sürekli çubuk değil,
+                // sadece başlangıç + bitiş (döküm) günü işaretlenir.
+                const beton = /beton/i.test(
+                  `${i.imalat ?? ""} ${i.aciklama1 ?? ""} ${i.ana_kalemi ?? ""}`,
+                );
+                const rowCls = `relative border-b border-white/5 ${idx % 2 ? "bg-white/[0.015]" : ""}`;
+
+                if (beton) {
+                  const mw = Math.max(8, PX); // işaret genişliği (1 gün)
+                  const merkez = (SATIR_Y - 16) / 2;
+                  return (
+                    <div key={i.id} className={rowCls} style={{ height: SATIR_Y }}>
+                      {/* döküm günleri arası kesikli bağlantı */}
+                      {ex > bx && (
+                        <div
+                          className="pointer-events-none absolute border-t border-dashed"
+                          style={{ left: bx + mw / 2, width: ex - bx, top: SATIR_Y / 2, borderColor: renk + "99" }}
+                        />
+                      )}
+                      {/* başlangıç ve bitiş işaretleri (döküm) */}
+                      {[bx, ex].map((x, mi) => (
+                        <button
+                          key={mi}
+                          onClick={() => onSelect(i)}
+                          className="absolute rounded-sm shadow"
+                          style={{
+                            left: x, width: mw, top: merkez, height: 16,
+                            backgroundColor: renk, border: "1px solid rgba(0,0,0,0.35)",
+                          }}
+                          title={`${isOzeti(i)} · ${mi === 0 ? "Döküm başlangıç" : "Döküm bitiş"}`}
+                        />
+                      ))}
+                      <span
+                        className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-white/70"
+                        style={{ left: Math.max(bx, ex) + mw + 4, top: (SATIR_Y - 14) / 2 }}
+                      >
+                        🧱 {i.aciklama1 || i.imalat} · Döküm {yuzde > 0 ? `· %${yuzde}` : ""}
+                      </span>
+                    </div>
+                  );
+                }
+
+                const gen = Math.max(4, ex - bx + PX);
                 const darBar = gen < 64;
                 return (
-                  <div
-                    key={i.id}
-                    className={`relative border-b border-white/5 ${idx % 2 ? "bg-white/[0.015]" : ""}`}
-                    style={{ height: SATIR_Y }}
-                  >
+                  <div key={i.id} className={rowCls} style={{ height: SATIR_Y }}>
                     <button
                       onClick={() => onSelect(i)}
                       className="absolute flex items-center overflow-hidden rounded-md shadow"
                       style={{
-                        left: sol, width: gen, top: (SATIR_Y - 22) / 2, height: 22,
+                        left: bx, width: gen, top: (SATIR_Y - 22) / 2, height: 22,
                         backgroundColor: renk + "44", border: `1px solid ${renk}`,
                       }}
                       title={`${isOzeti(i)} · %${yuzde}`}
@@ -262,7 +301,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                     {darBar && (
                       <span
                         className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-white/70"
-                        style={{ left: sol + gen + 4, top: (SATIR_Y - 14) / 2 }}
+                        style={{ left: bx + gen + 4, top: (SATIR_Y - 14) / 2 }}
                       >
                         {i.imalat || i.aciklama1} {yuzde > 0 ? `· %${yuzde}` : ""}
                       </span>
