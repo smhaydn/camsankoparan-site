@@ -76,7 +76,13 @@ export async function isEkle(
   kullanici: string,
 ): Promise<Is> {
   guard();
-  const body = { ...girdi, created_by: kullanici, updated_by: kullanici };
+  const body = {
+    ...girdi,
+    // sira NOT NULL: verilmezse sona ekle (0 = en üst yerine güvenli varsayılan)
+    sira: girdi.sira ?? 0,
+    created_by: kullanici,
+    updated_by: kullanici,
+  };
   const r = await fetch(`${URL}/rest/v1/${T_ISLER}`, {
     method: "POST",
     headers: { ...h(), Prefer: "return=representation" },
