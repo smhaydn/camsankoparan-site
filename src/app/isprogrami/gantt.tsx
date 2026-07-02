@@ -63,7 +63,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
 
   if (!model) {
     return (
-      <p className="py-16 text-center text-white/40">
+      <p className="py-16 text-center text-ink/40">
         Zaman çizelgesi için başlangıç ve bitiş tarihi olan iş gerekiyor.
       </p>
     );
@@ -105,18 +105,18 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
   const basY = yilY + ayY + gunY;
 
   return (
-    <div className="rounded-lg border border-white/10">
+    <div className="rounded-lg border border-black/10">
       {/* Üst çubuk: mod seçimi */}
-      <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
-        <span className="text-xs text-white/40">
+      <div className="flex items-center justify-between border-b border-black/10 px-3 py-2">
+        <span className="text-xs text-ink/40">
           {aylar[0].y} – {sonAy.y} · {M.ad === "Ay" ? `${toplamAy} ay` : "gün görünümü"}
         </span>
-        <div className="flex overflow-hidden rounded-full border border-white/15 text-xs">
+        <div className="flex overflow-hidden rounded-full border border-black/15 text-xs">
           {MODLAR.map((z, idx) => (
             <button
               key={z.ad}
               onClick={() => setMod(idx)}
-              className={`px-3 py-1 ${idx === mod ? "bg-bronze text-ink" : "text-white/60 hover:text-white"}`}
+              className={`px-3 py-1 ${idx === mod ? "bg-bronze text-ink" : "text-ink/60 hover:text-ink"}`}
             >
               {z.ad}
             </button>
@@ -126,8 +126,8 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
 
       <div className="flex">
         {/* Sol sabit sütun */}
-        <div className="shrink-0 border-r border-white/10 bg-white/[0.02]" style={{ width: SOL_GEN }}>
-          <div className="flex items-end border-b border-white/10 px-3 pb-1 text-xs text-white/40" style={{ height: basY }}>
+        <div className="shrink-0 border-r border-black/10 bg-black/[0.02]" style={{ width: SOL_GEN }}>
+          <div className="flex items-end border-b border-black/10 px-3 pb-1 text-xs text-ink/40" style={{ height: basY }}>
             İş
           </div>
           {tarihli.map((i, idx) => (
@@ -135,14 +135,14 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
               key={i.id}
               onClick={() => onSelect(i)}
               title={isOzeti(i)}
-              className={`flex w-full flex-col justify-center border-b border-white/5 px-3 text-left hover:bg-white/5 ${idx % 2 ? "bg-white/[0.015]" : ""}`}
+              className={`flex w-full flex-col justify-center border-b border-black/5 px-3 text-left hover:bg-black/5 ${idx % 2 ? "bg-black/[0.015]" : ""}`}
               style={{ height: SATIR_Y }}
             >
-              <span className="flex items-center gap-1.5 truncate text-xs font-medium text-white/90">
+              <span className="flex items-center gap-1.5 truncate text-xs font-medium text-ink/90">
                 <span className="inline-block h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: durumMeta(i.durum).color }} />
                 <span className="truncate">{i.aciklama1 || i.imalat || "İş"}</span>
               </span>
-              <span className="truncate pl-3.5 text-[11px] text-white/45">
+              <span className="truncate pl-3.5 text-[11px] text-ink/45">
                 {[i.blok, i.kat, i.aciklama2].filter(Boolean).join(" · ")}
               </span>
             </button>
@@ -153,11 +153,11 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
         <div className="overflow-x-auto">
           <div style={{ width: genislik }} className="relative">
             {/* Yıl bandı */}
-            <div className="relative border-b border-white/10" style={{ height: yilY }}>
+            <div className="relative border-b border-black/10" style={{ height: yilY }}>
               {yillar.map((yb) => (
                 <div
                   key={yb.yil}
-                  className="absolute top-0 flex items-center justify-center border-r border-white/15 text-[11px] font-semibold text-bronze"
+                  className="absolute top-0 flex items-center justify-center border-r border-black/15 text-[11px] font-semibold text-bronze"
                   style={{ left: yb.sol, width: yb.gen, height: yilY }}
                 >
                   {yb.yil}
@@ -165,11 +165,11 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
               ))}
             </div>
             {/* Ay bandı */}
-            <div className="relative border-b border-white/10" style={{ height: ayY }}>
+            <div className="relative border-b border-black/10" style={{ height: ayY }}>
               {aylar.map((a, k) => (
                 <div
                   key={k}
-                  className={`absolute top-0 flex items-center justify-center overflow-hidden border-r border-white/8 text-[10px] ${a.m === 0 ? "text-white/70" : "text-white/45"}`}
+                  className={`absolute top-0 flex items-center justify-center overflow-hidden border-r border-black/8 text-[10px] ${a.m === 0 ? "text-ink/70" : "text-ink/45"}`}
                   style={{ left: xEpoch(a.solEpoch), width: a.days * PX, height: ayY }}
                 >
                   {AY_ADLARI[a.m]}{M.ad !== "Gün" ? ` ${a.y}` : ""}
@@ -178,7 +178,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
             </div>
             {/* Gün numaraları (yalnızca Gün modu) */}
             {M.gunTick && (
-              <div className="relative border-b border-white/10" style={{ height: gunY }}>
+              <div className="relative border-b border-black/10" style={{ height: gunY }}>
                 {aylar.map((a) =>
                   Array.from({ length: a.days }, (_, di) => {
                     const e = a.solEpoch + di;
@@ -187,7 +187,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                     return (
                       <div
                         key={e}
-                        className={`absolute top-0 text-center text-[9px] leading-[18px] ${hs ? "bg-white/[0.05] text-white/35" : "text-white/50"}`}
+                        className={`absolute top-0 text-center text-[9px] leading-[18px] ${hs ? "bg-black/[0.05] text-ink/35" : "text-ink/50"}`}
                         style={{ left: xEpoch(e), width: PX, height: gunY }}
                       >
                         {di + 1}
@@ -210,7 +210,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                       return (
                         <div
                           key={e}
-                          className={`absolute top-0 bottom-0 ${hs ? "bg-white/[0.03]" : ""} border-r ${di === 0 ? "border-white/12" : "border-white/[0.04]"}`}
+                          className={`absolute top-0 bottom-0 ${hs ? "bg-black/[0.03]" : ""} border-r ${di === 0 ? "border-black/12" : "border-black/[0.04]"}`}
                           style={{ left: xEpoch(e), width: PX }}
                         />
                       );
@@ -219,7 +219,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                 : aylar.map((a, k) => (
                     <div
                       key={k}
-                      className={`absolute top-0 bottom-0 border-r ${a.m === 0 ? "border-white/12" : "border-white/[0.04]"}`}
+                      className={`absolute top-0 bottom-0 border-r ${a.m === 0 ? "border-black/12" : "border-black/[0.04]"}`}
                       style={{ left: xEpoch(a.solEpoch) + a.days * PX - 1, width: 0 }}
                     />
                   ))}
@@ -241,7 +241,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                 const beton = /beton/i.test(
                   `${i.imalat ?? ""} ${i.aciklama1 ?? ""} ${i.ana_kalemi ?? ""}`,
                 );
-                const rowCls = `relative border-b border-white/5 ${idx % 2 ? "bg-white/[0.015]" : ""}`;
+                const rowCls = `relative border-b border-black/5 ${idx % 2 ? "bg-black/[0.015]" : ""}`;
 
                 if (beton) {
                   const mw = Math.max(8, PX); // işaret genişliği (1 gün)
@@ -269,7 +269,7 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                         />
                       ))}
                       <span
-                        className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-white/70"
+                        className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-ink/70"
                         style={{ left: Math.max(bx, ex) + mw + 4, top: (SATIR_Y - 14) / 2 }}
                       >
                         🧱 {i.aciklama1 || i.imalat} · Döküm {yuzde > 0 ? `· %${yuzde}` : ""}
@@ -293,14 +293,14 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
                     >
                       <span className="absolute top-0 left-0 h-full" style={{ width: `${yuzde}%`, backgroundColor: renk }} />
                       {!darBar && (
-                        <span className="relative z-10 truncate px-1.5 text-[10px] font-medium text-white">
+                        <span className="relative z-10 truncate px-1.5 text-[10px] font-medium text-ink">
                           {i.imalat || i.aciklama1} {yuzde > 0 ? `· %${yuzde}` : ""}
                         </span>
                       )}
                     </button>
                     {darBar && (
                       <span
-                        className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-white/70"
+                        className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-ink/70"
                         style={{ left: bx + gen + 4, top: (SATIR_Y - 14) / 2 }}
                       >
                         {i.imalat || i.aciklama1} {yuzde > 0 ? `· %${yuzde}` : ""}

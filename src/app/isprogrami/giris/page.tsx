@@ -40,12 +40,12 @@ export default function IsProgramiGiris() {
           <div className="font-display text-2xl font-semibold tracking-wide text-bronze">
             CAMSAN KOPARAN
           </div>
-          <p className="mt-1 text-sm text-white/50">Şantiye İş Programı</p>
+          <p className="mt-1 text-sm text-ink/50">Şantiye İş Programı</p>
         </div>
 
         <form
           onSubmit={submit}
-          className="flex flex-col gap-4 rounded-lg border border-white/10 bg-white/[0.03] p-7"
+          className="flex flex-col gap-4 rounded-lg border border-black/10 bg-black/[0.03] p-7"
         >
           <input
             autoFocus
@@ -53,7 +53,7 @@ export default function IsProgramiGiris() {
             autoComplete="username"
             value={form.username}
             onChange={(e) => setForm({ ...form, username: e.target.value })}
-            className="rounded-md border border-white/15 bg-white/5 px-4 py-3 text-sm outline-none focus:border-bronze"
+            className="rounded-md border border-black/15 bg-black/5 px-4 py-3 text-sm outline-none focus:border-bronze"
           />
           <input
             type="password"
@@ -61,7 +61,7 @@ export default function IsProgramiGiris() {
             autoComplete="current-password"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
-            className="rounded-md border border-white/15 bg-white/5 px-4 py-3 text-sm outline-none focus:border-bronze"
+            className="rounded-md border border-black/15 bg-black/5 px-4 py-3 text-sm outline-none focus:border-bronze"
           />
           {state === "error" && <p className="text-sm text-red-400">{err}</p>}
           <button

@@ -173,18 +173,18 @@ export function IsForm({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-ink/70 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-white/70 p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="my-4 w-full max-w-2xl rounded-xl border border-white/15 bg-ink p-6 shadow-2xl"
+        className="my-4 w-full max-w-2xl rounded-xl border border-black/15 bg-white p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-display text-lg font-semibold text-bronze">
             {is ? "İşi Düzenle" : "Yeni İş Ekle"}
           </h3>
-          <button onClick={onClose} className="text-2xl leading-none text-white/50 hover:text-white">
+          <button onClick={onClose} className="text-2xl leading-none text-ink/50 hover:text-ink">
             ×
           </button>
         </div>
@@ -278,7 +278,7 @@ export function IsForm({
             <button
               type="button"
               onClick={onClose}
-              className="rounded-full border border-white/15 px-5 py-2.5 text-sm text-white/70 transition hover:border-white/40 hover:text-white"
+              className="rounded-full border border-black/15 px-5 py-2.5 text-sm text-ink/70 transition hover:border-black/40 hover:text-ink"
             >
               Vazgeç
             </button>
@@ -297,12 +297,12 @@ export function IsForm({
 }
 
 const inputCls =
-  "w-full rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white outline-none focus:border-bronze [color-scheme:dark] [&>option]:bg-ink [&>option]:text-white";
+  "w-full rounded-md border border-black/15 bg-black/5 px-3 py-2.5 text-sm text-ink outline-none focus:border-bronze [color-scheme:light] [&>option]:bg-white [&>option]:text-ink";
 
 function Alan({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="flex flex-col gap-1">
-      <span className="text-xs text-white/50">{label}</span>
+      <span className="text-xs text-ink/50">{label}</span>
       {children}
     </label>
   );

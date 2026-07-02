@@ -18,7 +18,7 @@ export default async function IsProgramiPage() {
     return (
       <main className="mx-auto max-w-2xl px-6 py-24 text-center">
         <h1 className="font-display text-2xl font-semibold text-bronze">Son bir adım kaldı</h1>
-        <p className="mt-4 leading-relaxed text-white/70">
+        <p className="mt-4 leading-relaxed text-ink/70">
           İş Programı&apos;nın çalışması için Supabase tabloları ve{" "}
           <b>ISP_SECRET</b> / <b>service_role</b> anahtarının ayarlanması gerekiyor. Kurulum
           tamamlanınca işler burada listelenecek.
