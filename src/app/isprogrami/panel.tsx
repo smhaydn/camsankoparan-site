@@ -163,7 +163,7 @@ export function Panel({
         <select
           value={blokF}
           onChange={(e) => setBlokF(e.target.value)}
-          className="rounded-md border border-white/15 bg-ink px-3 py-2 text-sm outline-none focus:border-bronze"
+          className="rounded-md border border-white/15 bg-ink px-3 py-2 text-sm outline-none focus:border-bronze [color-scheme:dark] [&>option]:bg-ink [&>option]:text-white"
         >
           <option value="all">Tüm Bloklar</option>
           {BLOKLAR.map((b) => (
@@ -175,7 +175,7 @@ export function Panel({
         <select
           value={durumF}
           onChange={(e) => setDurumF(e.target.value)}
-          className="rounded-md border border-white/15 bg-ink px-3 py-2 text-sm outline-none focus:border-bronze"
+          className="rounded-md border border-white/15 bg-ink px-3 py-2 text-sm outline-none focus:border-bronze [color-scheme:dark] [&>option]:bg-ink [&>option]:text-white"
         >
           <option value="all">Tüm Durumlar</option>
           {DURUMLAR.map((d) => (
@@ -303,7 +303,7 @@ function Tablo({
                   <select
                     value={i.durum ?? "Başlanmadı"}
                     onChange={(e) => onDurum(i, e.target.value)}
-                    className="rounded-md border border-white/10 bg-ink px-2 py-1 text-xs outline-none focus:border-bronze"
+                    className="rounded-md border border-white/10 bg-ink px-2 py-1 text-xs outline-none focus:border-bronze [color-scheme:dark] [&>option]:bg-ink [&>option]:text-white"
                     style={{ color: meta.color }}
                   >
                     {DURUMLAR.map((d) => (
