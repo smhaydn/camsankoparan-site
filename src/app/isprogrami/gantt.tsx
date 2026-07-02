@@ -4,43 +4,59 @@ import { useEffect, useMemo, useState } from "react";
 import type { Is } from "@/lib/isprogrami-listeler";
 import { durumMeta, isOzeti } from "@/lib/isprogrami-listeler";
 
-const GUN_PX = 26; // bir günün piksel genişliği
 const AY_ADLARI = [
   "Oca", "Şub", "Mar", "Nis", "May", "Haz",
   "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara",
 ];
 
-// YYYY-MM-DD → epoch gün sayısı (UTC)
-function gunNo(iso: string): number {
+// En az bu kadar ay göster (çok yıllık eksen için ~3 yıl)
+const MIN_AY = 36;
+const SATIR_Y = 40; // satır yüksekliği (px)
+const SOL_GEN = 240; // sol sabit sütun genişliği (px)
+
+// Ay içindeki gün sayısı (m: 0-11)
+function ayGun(y: number, m: number): number {
+  return new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+}
+
+type Parcali = { y: number; m: number; d: number };
+function coz(iso: string): Parcali {
   const [y, m, d] = iso.split("-").map(Number);
-  return Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+  return { y, m: m - 1, d }; // m 0-tabanlı
 }
-function gunNoTarih(n: number): Date {
-  return new Date(n * 86400000);
-}
+
+// Yakınlaştırma seviyeleri (ay genişliği px)
+const ZOOM = [
+  { ad: "Dar", px: 42 },
+  { ad: "Orta", px: 68 },
+  { ad: "Geniş", px: 104 },
+] as const;
 
 export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => void }) {
   const tarihli = useMemo(() => isler.filter((i) => i.baslangic && i.bitis), [isler]);
+  const [zoom, setZoom] = useState(1); // Orta
 
-  // "Bugün" render dışında hesaplanır (impure çağrı render'da olmasın)
-  const [bugun, setBugun] = useState<number | null>(null);
-  useEffect(() => setBugun(Math.floor(Date.now() / 86400000)), []);
+  // "Bugün" render dışında hesaplanır
+  const [bugunIso, setBugunIso] = useState<string | null>(null);
+  // Geçerli tarihi yalnızca ilk mount'ta oku (render saf kalsın)
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setBugunIso(new Date().toISOString().slice(0, 10)), []);
 
   const model = useMemo(() => {
     if (tarihli.length === 0) return null;
-    let min = Infinity;
-    let max = -Infinity;
+    let minKey = Infinity;
+    let maxKey = -Infinity;
     for (const i of tarihli) {
-      const b = gunNo(i.baslangic!);
-      const e = gunNo(i.bitis!);
-      if (b < min) min = b;
-      if (e > max) max = e;
+      const b = coz(i.baslangic!);
+      const e = coz(i.bitis!);
+      minKey = Math.min(minKey, b.y * 12 + b.m);
+      maxKey = Math.max(maxKey, e.y * 12 + e.m);
     }
-    // Kenarlara birer gün boşluk
-    min -= 1;
-    max += 1;
-    const toplamGun = max - min + 1;
-    return { min, max, toplamGun };
+    const startY = Math.floor(minKey / 12);
+    const startM = minKey % 12;
+    const kapsanan = maxKey - minKey + 1; // işlerin kapsadığı ay sayısı
+    const ayAdedi = Math.max(MIN_AY, kapsanan);
+    return { startY, startM, ayAdedi };
   }, [tarihli]);
 
   if (!model) {
@@ -51,48 +67,90 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
     );
   }
 
-  const { min, toplamGun } = model;
-  const genislik = toplamGun * GUN_PX;
+  const { startY, startM, ayAdedi } = model;
+  const AY_PX = ZOOM[zoom].px;
 
-  // Ay başlıkları (segmentler)
-  const aylar: { etiket: string; sol: number; gen: number }[] = [];
-  {
-    let g = min;
-    while (g <= model.max) {
-      const dt = gunNoTarih(g);
-      const ay = dt.getUTCMonth();
-      const yil = dt.getUTCFullYear();
-      // Bu ayın son gününe kadar ilerle
-      let son = g;
-      while (son <= model.max && gunNoTarih(son).getUTCMonth() === ay) son++;
-      const gun = son - g;
-      aylar.push({
-        etiket: `${AY_ADLARI[ay]} ${yil}`,
-        sol: (g - min) * GUN_PX,
-        gen: gun * GUN_PX,
-      });
-      g = son;
-    }
+  // Ay listesi (grid + başlıklar)
+  const aylar = Array.from({ length: ayAdedi }, (_, k) => {
+    const m = (startM + k) % 12;
+    const y = startY + Math.floor((startM + k) / 12);
+    return { k, y, m, gun: ayGun(y, m) };
+  });
+
+  // Yıl bantları (ardışık ayları yıla göre grupla)
+  const yillar: { yil: number; sol: number; gen: number }[] = [];
+  for (const a of aylar) {
+    const son = yillar[yillar.length - 1];
+    if (son && son.yil === a.y) son.gen += AY_PX;
+    else yillar.push({ yil: a.y, sol: a.k * AY_PX, gen: AY_PX });
   }
 
+  const genislik = ayAdedi * AY_PX;
+
+  // Bir tarihin x konumu (ay ızgarasına oturur)
+  function xTarih(iso: string): number {
+    const p = coz(iso);
+    const ai = (p.y - startY) * 12 + (p.m - startM);
+    const dim = ayGun(p.y, p.m);
+    return (ai + (p.d - 1) / dim) * AY_PX;
+  }
+  function xBitis(iso: string): number {
+    const p = coz(iso);
+    const ai = (p.y - startY) * 12 + (p.m - startM);
+    const dim = ayGun(p.y, p.m);
+    return (ai + p.d / dim) * AY_PX; // bitiş günü dahil
+  }
+
+  const bugunX =
+    bugunIso && (() => {
+      const p = coz(bugunIso);
+      const ai = (p.y - startY) * 12 + (p.m - startM);
+      return ai >= 0 && ai < ayAdedi ? xTarih(bugunIso) : null;
+    })();
+
+  const basY = 44; // başlık yüksekliği (yıl + ay)
+
   return (
-    <div className="overflow-hidden rounded-lg border border-white/10">
+    <div className="rounded-lg border border-white/10">
+      {/* Üst çubuk: yakınlaştırma */}
+      <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
+        <span className="text-xs text-white/40">
+          {aylar[0].y} – {aylar[aylar.length - 1].y} · {ayAdedi} ay
+        </span>
+        <div className="flex overflow-hidden rounded-full border border-white/15 text-xs">
+          {ZOOM.map((z, idx) => (
+            <button
+              key={z.ad}
+              onClick={() => setZoom(idx)}
+              className={`px-3 py-1 ${idx === zoom ? "bg-bronze text-ink" : "text-white/60 hover:text-white"}`}
+            >
+              {z.ad}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="flex">
         {/* Sol sabit sütun: iş adları */}
-        <div className="w-44 shrink-0 border-r border-white/10 bg-white/[0.02] sm:w-56">
-          <div className="h-12 border-b border-white/10 px-3 py-1 text-xs text-white/40">İş</div>
-          {tarihli.map((i) => (
+        <div className="shrink-0 border-r border-white/10 bg-white/[0.02]" style={{ width: SOL_GEN }}>
+          <div className="flex items-end border-b border-white/10 px-3 pb-1 text-xs text-white/40" style={{ height: basY }}>
+            İş
+          </div>
+          {tarihli.map((i, idx) => (
             <button
               key={i.id}
               onClick={() => onSelect(i)}
               title={isOzeti(i)}
-              className="flex h-9 w-full items-center gap-1.5 truncate border-b border-white/5 px-3 text-left text-xs text-white/80 hover:bg-white/5"
+              className={`flex w-full flex-col justify-center border-b border-white/5 px-3 text-left hover:bg-white/5 ${idx % 2 ? "bg-white/[0.015]" : ""}`}
+              style={{ height: SATIR_Y }}
             >
-              <span
-                className="inline-block h-2 w-2 shrink-0 rounded-full"
-                style={{ backgroundColor: durumMeta(i.durum).color }}
-              />
-              <span className="truncate">{isOzeti(i)}</span>
+              <span className="flex items-center gap-1.5 truncate text-xs font-medium text-white/90">
+                <span className="inline-block h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: durumMeta(i.durum).color }} />
+                <span className="truncate">{i.aciklama1 || i.imalat || "İş"}</span>
+              </span>
+              <span className="truncate pl-3.5 text-[11px] text-white/45">
+                {[i.blok, i.kat, i.aciklama2].filter(Boolean).join(" · ")}
+              </span>
             </button>
           ))}
         </div>
@@ -100,70 +158,88 @@ export function Gantt({ isler, onSelect }: { isler: Is[]; onSelect: (is: Is) => 
         {/* Sağ kaydırılabilir zaman çizelgesi */}
         <div className="overflow-x-auto">
           <div style={{ width: genislik }} className="relative">
-            {/* Ay başlıkları */}
-            <div className="relative h-6 border-b border-white/10">
-              {aylar.map((a, idx) => (
+            {/* Yıl bandı */}
+            <div className="relative border-b border-white/10" style={{ height: 22 }}>
+              {yillar.map((yb) => (
                 <div
-                  key={idx}
-                  className="absolute top-0 flex h-6 items-center border-r border-white/10 px-2 text-[11px] font-medium text-white/60"
-                  style={{ left: a.sol, width: a.gen }}
+                  key={yb.yil}
+                  className="absolute top-0 flex h-[22px] items-center justify-center border-r border-white/15 text-[11px] font-semibold text-bronze"
+                  style={{ left: yb.sol, width: yb.gen }}
                 >
-                  {a.etiket}
+                  {yb.yil}
                 </div>
               ))}
             </div>
-            {/* Gün numaraları + hafta sonu gölgesi */}
-            <div className="relative h-6 border-b border-white/10">
-              {Array.from({ length: toplamGun }, (_, k) => {
-                const dt = gunNoTarih(min + k);
-                const haftaSonu = dt.getUTCDay() === 0 || dt.getUTCDay() === 6;
-                return (
-                  <div
-                    key={k}
-                    className={`absolute top-0 h-6 text-center text-[9px] leading-6 ${
-                      haftaSonu ? "bg-white/[0.04] text-white/30" : "text-white/40"
-                    }`}
-                    style={{ left: k * GUN_PX, width: GUN_PX }}
-                  >
-                    {dt.getUTCDate()}
-                  </div>
-                );
-              })}
+            {/* Ay bandı */}
+            <div className="relative border-b border-white/10" style={{ height: basY - 22 }}>
+              {aylar.map((a) => (
+                <div
+                  key={a.k}
+                  className={`absolute top-0 flex items-center justify-center border-r border-white/5 text-[10px] ${a.m === 0 ? "text-white/60" : "text-white/40"}`}
+                  style={{ left: a.k * AY_PX, width: AY_PX, height: basY - 22 }}
+                >
+                  {AY_ADLARI[a.m]}
+                </div>
+              ))}
             </div>
 
-            {/* Satırlar (çubuklar) */}
+            {/* Gövde */}
             <div className="relative">
-              {/* Bugün çizgisi */}
-              {bugun != null && bugun >= min && bugun <= model.max && (
+              {/* Ay ızgara çizgileri */}
+              {aylar.map((a) => (
                 <div
-                  className="pointer-events-none absolute top-0 bottom-0 z-10 w-px bg-red-500/70"
-                  style={{ left: (bugun - min) * GUN_PX + GUN_PX / 2 }}
+                  key={a.k}
+                  className={`absolute top-0 bottom-0 border-r ${a.m === 0 ? "border-white/12" : "border-white/[0.04]"}`}
+                  style={{ left: (a.k + 1) * AY_PX - 1, width: 0 }}
                 />
+              ))}
+              {/* Bugün çizgisi */}
+              {bugunX != null && (
+                <div className="pointer-events-none absolute top-0 bottom-0 z-10 w-px bg-red-500/70" style={{ left: bugunX }}>
+                  <span className="absolute -top-0 left-1 text-[9px] text-red-400">bugün</span>
+                </div>
               )}
-              {tarihli.map((i) => {
-                const b = gunNo(i.baslangic!);
-                const e = gunNo(i.bitis!);
-                const sol = (b - min) * GUN_PX;
-                const gen = Math.max(GUN_PX, (e - b + 1) * GUN_PX);
+              {tarihli.map((i, idx) => {
+                const sol = xTarih(i.baslangic!);
+                const gen = Math.max(8, xBitis(i.bitis!) - sol);
                 const renk = durumMeta(i.durum).color;
                 const yuzde = Math.max(0, Math.min(100, Number(i.gerc_yuzde) || 0));
+                const darBar = gen < 70;
                 return (
-                  <div key={i.id} className="relative h-9 border-b border-white/5">
+                  <div
+                    key={i.id}
+                    className={`relative border-b border-white/5 ${idx % 2 ? "bg-white/[0.015]" : ""}`}
+                    style={{ height: SATIR_Y }}
+                  >
                     <button
                       onClick={() => onSelect(i)}
-                      className="absolute top-1.5 flex h-6 items-center overflow-hidden rounded-md text-[10px] font-medium text-black/80 shadow"
-                      style={{ left: sol, width: gen, backgroundColor: renk + "66", border: `1px solid ${renk}` }}
+                      className="absolute flex items-center overflow-hidden rounded-md shadow"
+                      style={{
+                        left: sol,
+                        width: gen,
+                        top: (SATIR_Y - 22) / 2,
+                        height: 22,
+                        backgroundColor: renk + "44",
+                        border: `1px solid ${renk}`,
+                      }}
                       title={`${isOzeti(i)} · %${yuzde}`}
                     >
-                      {/* İlerleme dolgusu */}
-                      <span
-                        className="absolute top-0 left-0 h-full"
-                        style={{ width: `${yuzde}%`, backgroundColor: renk }}
-                      />
-                      <span className="relative z-10 truncate px-1.5 text-white/90">
-                        {i.imalat || isOzeti(i)} {yuzde > 0 ? `· %${yuzde}` : ""}
-                      </span>
+                      <span className="absolute top-0 left-0 h-full" style={{ width: `${yuzde}%`, backgroundColor: renk }} />
+                      {!darBar && (
+                        <span className="relative z-10 truncate px-1.5 text-[10px] font-medium text-white">
+                          {i.imalat || i.aciklama1} {yuzde > 0 ? `· %${yuzde}` : ""}
+                        </span>
+                      )}
                     </button>
+                    {/* Dar çubuklarda etiketi çubuğun sağına yaz */}
+                    {darBar && (
+                      <span
+                        className="pointer-events-none absolute z-10 whitespace-nowrap text-[10px] text-white/70"
+                        style={{ left: sol + gen + 4, top: (SATIR_Y - 14) / 2 }}
+                      >
+                        {i.imalat || i.aciklama1} {yuzde > 0 ? `· %${yuzde}` : ""}
+                      </span>
+                    )}
                   </div>
                 );
               })}
