@@ -11,9 +11,12 @@
   --color-ink-2: #232726;
   --color-ink-3: #2e3332;
 
-  /* ── Açık zemin: sıcak alabaster (ferahlık, hacim) */
-  --color-cream: #f4f1ec;
-  --color-sand: #e7e2d9;
+  /* ── KAĞIT KATMANLARI — derinlik karanlıktan değil, ton farkından gelir.
+     Fark neredeyse görünmez; göz "katman" okur. */
+  --color-paper: #fbf9f5; /* en açık — kağıt */
+  --color-cream: #f4f1ec; /* alabaster */
+  --color-sand: #ede9e1; /* kum */
+  --color-sand-2: #e7e2d9; /* koyu kum */
   --color-alabaster: #f4f1ec;
 
   /* ── Yardımcı: taş grisi (AA kontrastı için koyulaştırıldı) */
@@ -22,6 +25,8 @@
 
   /* ── Bronz: SADECE logo (marka sürekliliği, %1) */
   --color-brand-bronze: #b08d57;
+  /* açık zeminde AA için koyu bronz varyantı */
+  --color-brand-bronze-dark: #6d5326;
 
   /* ── Petrol yeşil sabitleri (referans) */
   --color-petrol: #0f4f4a;
@@ -135,6 +140,35 @@ h2 {
   letter-spacing: 0.24em;
   text-transform: uppercase;
   font-size: 0.72rem;
+}
+
+/* KAĞIT DOKUSU — düz beyaz ile "premium kağıt" arasındaki fark.
+   %2,5 opaklıkta, görünmez ama hissedilir. */
+.paper {
+  position: relative;
+}
+.paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Tam taşma görsel bandı — koyu blok yerine "koyu an" görevini görsel üstlenir */
+.bleed-band {
+  --accent: #7fc9c1;
+  --accent-strong: #a8dbd5;
+  --accent-soft: #7fc9c1;
+  --on-accent: #14181a;
+}
+
+/* Gölge yok — kartlar yalnızca hairline ile tanımlanır (mimari disiplin) */
+.card-flat {
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: none;
 }
 
 /* Sayısal veri (m², kat, tarih) — mono, mimari çizim hissi */

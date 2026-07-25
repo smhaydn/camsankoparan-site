@@ -71,7 +71,7 @@ export function Lightbox({
             <img
               src={images[index!].img}
               alt={images[index!].caption ?? ""}
-              className="max-h-[82vh] w-auto rounded-md object-contain shadow-2xl"
+              className="max-h-[82vh] w-auto rounded-md object-contain"
             />
             {images[index!].caption && (
               <figcaption className="mt-3 text-center text-sm text-white/70">

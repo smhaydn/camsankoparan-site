@@ -14,7 +14,7 @@ export function Projects({
 }) {
   const href = path(locale, `${SEGMENTS.projects}/${project.slug}`);
   return (
-    <section className="bg-surface-2 py-28">
+    <section className="paper bg-cream py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -46,7 +46,7 @@ export function Projects({
         <Reveal>
           <Link
             href={href}
-            className="group grid overflow-hidden rounded-sm bg-card shadow-sm transition hover:shadow-2xl lg:grid-cols-2"
+            className="group grid overflow-hidden rounded-sm bg-card transition lg:grid-cols-2"
           >
             <div className="relative aspect-[16/11] overflow-hidden lg:aspect-auto">
               <div

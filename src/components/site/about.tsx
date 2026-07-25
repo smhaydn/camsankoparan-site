@@ -5,19 +5,19 @@ import { path, type Locale } from "@/lib/i18n";
 
 export function About({ t, locale }: { t: Dict["about"]; locale: Locale }) {
   return (
-    <section className="bg-surface py-28">
+    <section className="paper bg-paper py-32">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:px-10">
         <Reveal>
           <div className="relative">
             <div
-              className="aspect-[4/5] w-full rounded-sm bg-cover bg-center shadow-2xl"
+              className="aspect-[4/5] w-full rounded-sm bg-cover bg-center"
               style={{
                 backgroundImage: "url('/renders/teras-balkon.jpg')",
               }}
             />
-            <div className="absolute -bottom-8 -right-4 hidden rounded-sm bg-ink px-8 py-6 text-center shadow-xl sm:block lg:-right-8">
+            <div className="dark-island absolute -bottom-8 -right-4 hidden bg-petrol px-9 py-7 text-center sm:block lg:-right-8">
               <div className="font-display text-4xl font-bold text-bronze">237</div>
-              <div className="mt-1 text-xs tracking-widest text-white/60">{t.badge}</div>
+              <div className="mt-1 text-xs tracking-widest text-white/75">{t.badge}</div>
             </div>
           </div>
         </Reveal>

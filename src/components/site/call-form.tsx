@@ -56,7 +56,7 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
       {/* Sağ kenardaki dikey sekme */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 origin-bottom-right items-center gap-2 rounded-t-md bg-bronze px-4 py-3 text-sm font-semibold text-onaccent shadow-lg transition hover:bg-bronze-light"
+        className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 origin-bottom-right items-center gap-2 rounded-t-md bg-bronze px-4 py-3 text-sm font-semibold text-onaccent transition hover:bg-bronze-light"
         style={{ writingMode: "vertical-rl" }}
         aria-label={t.tab}
       >
@@ -79,7 +79,7 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col overflow-y-auto bg-ink p-8 shadow-2xl sm:p-10"
+              className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col overflow-y-auto bg-ink p-8 sm:p-10"
             >
               <button
                 onClick={() => setOpen(false)}

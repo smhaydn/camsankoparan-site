@@ -3,7 +3,7 @@ import type { Dict } from "@/lib/dict";
 
 export function Construction({ t }: { t: Dict["construction"] }) {
   return (
-    <section className="bg-surface-2 py-24">
+    <section className="paper bg-paper py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-5 flex items-center gap-4">

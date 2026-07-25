@@ -3,7 +3,7 @@ import type { Dict } from "@/lib/dict";
 
 export function Services({ t }: { t: Dict["services"] }) {
   return (
-    <section className="relative overflow-hidden bg-ink py-28">
+    <section className="paper relative overflow-hidden bg-cream py-32">
       <div
         className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-cover bg-center opacity-10"
         style={{
@@ -20,7 +20,7 @@ export function Services({ t }: { t: Dict["services"] }) {
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="font-display text-4xl font-light leading-tight text-white lg:text-5xl">
+            <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
               {t.title1}
               <br />
               <span className="text-bronze">{t.title2}</span>
@@ -28,15 +28,14 @@ export function Services({ t }: { t: Dict["services"] }) {
           </Reveal>
         </div>
 
-        <div className="grid gap-px overflow-hidden rounded-sm bg-white/10 sm:grid-cols-2">
+        {/* Dekoratif 01/02/03 numaraları kaldırıldı — içerik bir sıra değil (jenerik şablon işareti) */}
+        <div className="grid gap-px overflow-hidden bg-line sm:grid-cols-2">
           {t.items.map((s, i) => (
             <Reveal key={s.no} delay={i * 0.08}>
-              <div className="group h-full bg-ink p-9 transition-colors duration-500 hover:bg-ink-2">
-                <div className="font-display text-5xl font-extralight text-bronze/40 transition-colors group-hover:text-bronze">
-                  {s.no}
-                </div>
-                <h3 className="mt-5 font-display text-2xl font-medium text-white">{s.t}</h3>
-                <p className="mt-3 leading-relaxed text-white/60">{s.d}</p>
+              <div className="card-flat group h-full p-10 transition-colors duration-500 hover:bg-sand">
+                <span className="block h-px w-10 bg-accent transition-all duration-500 group-hover:w-16" />
+                <h3 className="mt-6 font-display text-2xl font-medium text-base">{s.t}</h3>
+                <p className="mt-3 leading-relaxed text-muted">{s.d}</p>
               </div>
             </Reveal>
           ))}

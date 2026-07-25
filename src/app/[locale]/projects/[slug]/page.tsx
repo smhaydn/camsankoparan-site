@@ -41,7 +41,7 @@ export default async function ProjectDetail({
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
           <Link
             href={path(locale, SEGMENTS.projects)}
-            className="mb-6 inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-bronze"
+            className="mb-6 inline-flex items-center gap-2 text-sm text-muted transition hover:text-bronze"
           >
             <span>←</span> {pr.backToProjects}
           </Link>
@@ -51,8 +51,8 @@ export default async function ProjectDetail({
             </span>
             <span className="text-xs tracking-widest text-bronze-pale uppercase">{pr.location}</span>
           </div>
-          <h1 className="mt-4 font-display text-4xl font-light text-white lg:text-6xl">{pr.name}</h1>
-          <p className="mt-4 max-w-xl text-lg text-white/70">{pr.tagline}</p>
+          <h1 className="mt-4 font-display text-4xl font-light text-base lg:text-6xl">{pr.name}</h1>
+          <p className="mt-4 max-w-xl text-lg text-muted">{pr.tagline}</p>
         </div>
       </section>
 
@@ -120,7 +120,7 @@ export default async function ProjectDetail({
       </section>
 
       {/* Ortak Alanlar & Sosyal Donatılar */}
-      <section className="bg-ink py-24">
+      <section className="paper bg-sand py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mb-3 flex items-center gap-4">
@@ -129,7 +129,7 @@ export default async function ProjectDetail({
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="mb-12 max-w-2xl text-lg text-white/60">{pr.amenitiesD}</p>
+            <p className="mb-12 max-w-2xl text-lg text-muted">{pr.amenitiesD}</p>
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {pr.amenities.map((am, i) => (
@@ -141,8 +141,8 @@ export default async function ProjectDetail({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6">
-                    <h3 className="font-display text-xl font-medium text-white">{am.t}</h3>
-                    <p className="mt-1 text-sm text-white/70">{am.d}</p>
+                    <h3 className="font-display text-xl font-medium text-base">{am.t}</h3>
+                    <p className="mt-1 text-sm text-muted">{am.d}</p>
                   </div>
                 </div>
               </Reveal>
@@ -155,7 +155,7 @@ export default async function ProjectDetail({
               {pr.extras.map((e) => (
                 <span
                   key={e}
-                  className="rounded-full border border-white/15 px-5 py-2 text-sm text-white/75"
+                  className="rounded-full border border-line px-5 py-2 text-sm text-muted"
                 >
                   {e}
                 </span>

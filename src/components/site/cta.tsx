@@ -3,14 +3,8 @@ import type { Dict } from "@/lib/dict";
 
 export function CTA({ t }: { t: Dict["cta"] }) {
   return (
-    // dark-island: koyu görsel zemin → aksan otomatik açık petrole döner (kontrast)
-    <section
-      className="dark-island relative overflow-hidden bg-cover bg-center py-32"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(15,79,74,0.90), rgba(11,60,56,0.94)), url('/renders/dis-cephe-aksam.jpg')",
-      }}
-    >
+    // Sayfanın TEK doygun renk bloğu — göz doğal olarak buraya gider (lead odağı)
+    <section className="dark-island relative overflow-hidden bg-petrol py-36">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <Reveal>
           <span className="kicker text-bronze">{t.kicker}</span>

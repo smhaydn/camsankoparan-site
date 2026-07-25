@@ -44,13 +44,13 @@ export function Header({
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-ink/95 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur"
+          ? "border-b border-line bg-paper/92 py-3 backdrop-blur"
           : "bg-transparent py-6"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         <Link href={path(locale)} aria-label="Camsan Koparan Group">
-          <Logo light />
+          <Logo light={!scrolled} />
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
@@ -58,7 +58,7 @@ export function Header({
             <Link
               key={n.href}
               href={n.href}
-              className="group relative text-sm font-medium tracking-wide text-white/80 transition hover:text-white"
+              className={`group relative text-sm font-medium tracking-wide transition ${scrolled ? "text-base/80 hover:text-base" : "text-white/80 hover:text-white"}`}
             >
               {n.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-bronze transition-all duration-300 group-hover:w-full" />
@@ -96,7 +96,7 @@ export function Header({
       </div>
 
       {open && (
-        <nav className="mt-4 flex flex-col gap-1 border-t border-white/10 bg-ink/95 px-6 py-4 lg:hidden">
+        <nav className="mt-4 flex flex-col gap-1 border-t border-line bg-paper px-6 py-4 lg:hidden">
           {nav.map((n) => (
             <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-2 text-sm text-white/80">
               {n.label}

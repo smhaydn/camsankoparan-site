@@ -23,7 +23,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
   ];
 
   return (
-    <section className="bg-ink py-24">
+    <section className="paper bg-sand py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-5 flex items-center gap-4">
@@ -32,7 +32,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="font-display text-4xl font-light leading-tight text-white lg:text-5xl">
+          <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
             {t.title1} <span className="text-bronze">{t.title2}</span>
           </h2>
         </Reveal>
@@ -47,7 +47,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
                 className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
                   cat === key
                     ? "bg-bronze text-onaccent"
-                    : "border border-white/15 text-white/60 hover:border-white/40 hover:text-white"
+                    : "border border-line text-muted hover:border-accent hover:text-base"
                 }`}
               >
                 {label}
@@ -70,7 +70,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
                   style={{ backgroundImage: `url('${it.img}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <span className="absolute bottom-3 left-3 text-xs font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="absolute bottom-3 left-3 text-xs font-medium text-base opacity-0 transition-opacity group-hover:opacity-100">
                   {it.caption}
                 </span>
               </button>
@@ -78,7 +78,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
           ))}
         </div>
 
-        <p className="mt-6 text-center text-xs text-white/70">{t.hint}</p>
+        <p className="mt-6 text-center text-xs text-muted">{t.hint}</p>
       </div>
 
       <Lightbox
