@@ -6,6 +6,18 @@ import Link from "next/link";
 import { Reveal } from "@/components/site/reveal";
 import { Gallery } from "@/components/site/gallery";
 import { CTA } from "@/components/site/cta";
+import { pageMeta } from "@/lib/seo";
+import { getDict } from "@/lib/dict";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  if (!isLocale(locale) || slug !== getDict(locale).project.slug) return {};
+  return pageMeta(locale, "project", `/projects/${slug}`);
+}
 
 export default async function ProjectDetail({
   params,

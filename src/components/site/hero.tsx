@@ -4,20 +4,16 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { SEGMENTS, type Dict } from "@/lib/dict";
 import { path, type Locale } from "@/lib/i18n";
-import { useCatalog } from "./catalog-provider";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero({
   t,
   locale,
-  catalogLabel,
 }: {
   t: Dict["hero"];
   locale: Locale;
-  catalogLabel: string;
 }) {
-  const { open: openCatalog } = useCatalog();
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-ink">
       <div className="absolute inset-0">
@@ -102,17 +98,6 @@ export function Hero({
             >
               {t.ctaSecondary}
             </Link>
-            <button
-              onClick={openCatalog}
-              className="group flex items-center gap-3 px-3 py-3.5 text-sm font-medium tracking-wide text-white transition hover:text-bronze"
-            >
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-bronze/50 text-bronze transition group-hover:bg-bronze group-hover:text-ink">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 7v13M3 5h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6v12h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3H3z" />
-                </svg>
-              </span>
-              {catalogLabel}
-            </button>
           </motion.div>
         </div>
       </div>

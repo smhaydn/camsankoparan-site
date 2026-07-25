@@ -12,7 +12,7 @@ export function Construction({ t }: { t: Dict["construction"] }) {
           </div>
         </Reveal>
 
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="max-w-3xl">
           <div>
             <Reveal delay={0.05}>
               <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
@@ -59,30 +59,6 @@ export function Construction({ t }: { t: Dict["construction"] }) {
               </ol>
             </Reveal>
           </div>
-
-          {/* Drone görüntüleri slotu */}
-          <Reveal delay={0.15}>
-            <div className="rounded-sm border border-dashed border-line bg-card p-8">
-              <div className="flex items-center gap-3">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  className="text-bronze"
-                  aria-hidden="true"
-                >
-                  <path d="M3 7l5 2 4-4 4 4 5-2M5 7v10m14-10v10M9 9v8m6-8v8" />
-                </svg>
-                <h3 className="font-display text-xl font-medium text-base">{t.droneTitle}</h3>
-              </div>
-              <div className="mt-6 flex aspect-video items-center justify-center rounded-sm bg-surface-2 text-center text-sm text-muted">
-                {t.droneSoon}
-              </div>
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>

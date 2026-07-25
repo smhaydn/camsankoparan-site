@@ -33,7 +33,7 @@ export default async function LocaleLayout({
       : "Merhaba, Loft 777 hakkında bilgi almak istiyorum.";
   return (
     <div className="overflow-x-hidden">
-      <JsonLd />
+      <JsonLd locale={locale} faq={d.faq.items} />
       <TrackingScripts
         metaPixelId={settings.meta_pixel_id}
         ga4Id={settings.ga4_id}

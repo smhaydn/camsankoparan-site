@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
-import { useCatalog } from "./catalog-provider";
 import { SEGMENTS, type Dict } from "@/lib/dict";
 import { path, type Locale } from "@/lib/i18n";
 
@@ -19,7 +18,6 @@ export function Header({
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const { open: openCatalog } = useCatalog();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -66,14 +64,6 @@ export function Header({
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-bronze transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
-          <button
-            onClick={openCatalog}
-            className="group relative flex items-center gap-1.5 text-sm font-medium tracking-wide text-bronze-pale transition hover:text-bronze"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-bronze" />
-            {dict.catalog}
-            <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-bronze transition-all duration-300 group-hover:w-full" />
-          </button>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -112,16 +102,6 @@ export function Header({
               {n.label}
             </Link>
           ))}
-          <button
-            onClick={() => {
-              setOpen(false);
-              openCatalog();
-            }}
-            className="flex items-center gap-2 py-2 text-left text-sm font-medium text-bronze-pale"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-bronze" />
-            {dict.catalog}
-          </button>
           <div className="mt-2 flex gap-3 border-t border-white/10 pt-3 text-xs font-semibold tracking-widest text-white/70">
             <Link href={swap("tr")} className={locale === "tr" ? "text-bronze" : ""}>TR</Link>
             <Link href={swap("en")} className={locale === "en" ? "text-bronze" : ""}>EN</Link>

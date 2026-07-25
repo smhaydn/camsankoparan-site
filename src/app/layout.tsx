@@ -34,10 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description:
       "İzmir Gaziemir'de çarşısı, yüzme havuzu ve modern 1+1 daireleriyle yeni nesil karma yaşam projesi. Loft 777 — Camsan Koparan Group güvencesiyle.",
-    alternates: {
-      canonical: "/tr",
-      languages: { tr: "/tr", en: "/en" },
-    },
+    // NOT: canonical/hreflang artık her sayfanın kendi generateMetadata'sında (lib/seo.ts).
     openGraph: {
       type: "website",
       siteName: "Loft 777",

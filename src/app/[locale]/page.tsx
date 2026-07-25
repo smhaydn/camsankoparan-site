@@ -11,6 +11,13 @@ import { Construction } from "@/components/site/construction";
 import { Faq } from "@/components/site/faq";
 import { Location } from "@/components/site/location";
 import { CTA } from "@/components/site/cta";
+import { pageMeta } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return pageMeta(locale, "home", "");
+}
 
 export default async function Home({
   params,
@@ -23,7 +30,7 @@ export default async function Home({
   const l = locale as Locale;
   return (
     <main>
-      <Hero t={d.hero} locale={l} catalogLabel={d.catalog.title} />
+      <Hero t={d.hero} locale={l} />
       <About t={d.about} locale={l} />
       <Stats labels={d.stats} />
       <Projects t={d.projectsHome} project={d.project} locale={l} />

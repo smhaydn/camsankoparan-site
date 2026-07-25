@@ -18,9 +18,9 @@ export type Lead = {
 export function unitLabel(value: string | null) {
   switch (value) {
     case "1+1-a":
-      return "1+1 A Tipi";
+      return "1+1 Loft";
     case "1+1-b":
-      return "1+1 B Tipi";
+      return "1+1 Dubleks";
     case "farketmez":
       return "Farketmez";
     default:

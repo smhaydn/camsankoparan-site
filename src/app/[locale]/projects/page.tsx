@@ -5,6 +5,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
+import { pageMeta } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return pageMeta(locale, "projects", "/projects");
+}
 
 export default async function ProjectsPage({
   params,
