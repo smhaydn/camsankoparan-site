@@ -285,6 +285,32 @@ const tr = {
       { title: "İletişim", caption: "Gaziemir / İzmir — 0232 237 7 237 · info@camsankoparan.com", img: IMG.carsiCephe },
     ],
   },
+  seo: {
+    home: {
+      title: "Loft 777 — Gaziemir'de Satılık 1+1 Loft Daireler | Camsan Koparan",
+      description: "İzmir Gaziemir'de 237 daireli yeni nesil karma yaşam projesi. Çift yükseklik loft daireler, açık havuz ve çarşı. %35 peşin, 18 ay 0 faiz. Fiyat & kat planı için arayın.",
+    },
+    about: {
+      title: "Proje Hakkında — Loft 777 Gaziemir Karma Yaşam Projesi",
+      description: "Loft 777; Gaziemir'de çarşısı, açık havuzu ve 1+1 loft/dubleks daireleriyle Camsan Koparan Group güvencesinde yeni nesil karma yaşam projesi.",
+    },
+    projects: {
+      title: "Daireler — 1+1 Loft & Dubleks | Loft 777 Gaziemir",
+      description: "Loft 777'de iki 1+1 tipi: 5,5 m çift yükseklik ~82 m² Loft ve 49 m² Dubleks. Gaziemir'de satılık modern daireler. Kat planı ve fiyat için iletişime geçin.",
+    },
+    project: {
+      title: "Loft 777 — Gaziemir'de 1+1 Loft & Dubleks Daireler",
+      description: "237 daireli Loft 777: çift yükseklik loft daireler, açık havuz, çarşı ve kapalı otopark. İzmir Gaziemir'de yaşam ve yatırım için.",
+    },
+    services: {
+      title: "Neden Loft 777 — Gaziemir'de Yatırımlık 1+1 Daire",
+      description: "Havalimanına 5 dk, İZBAN'a 5 dk, çift yükseklik loft mimarisi ve canlı çarşı. Loft 777'yi Gaziemir'de öne çıkaran nedenler.",
+    },
+    contact: {
+      title: "İletişim — Loft 777 Satış Ofisi, Gaziemir",
+      description: "Loft 777 satış ofisi: Dokuz Eylül Mah. 694 Sok. No:5, Gaziemir/İzmir · 0232 237 7 237. Fiyat ve kat planı için bize ulaşın.",
+    },
+  },
   project: {
     slug: "loft-777",
     name: "Loft 777",
@@ -576,6 +602,32 @@ const en: typeof tr = {
       { title: "Arcade & Commerce", caption: "A lively arcade with a market, café and shops at your door.", img: IMG.carsi },
       { title: "Contact", caption: "Gaziemir / Izmir — +90 232 237 7 237 · info@camsankoparan.com", img: IMG.carsiCephe },
     ],
+  },
+  seo: {
+    home: {
+      title: "Loft 777 — 1+1 Loft Apartments for Sale in Gaziemir, Izmir",
+      description: "A 237-unit new-generation mixed-use project in Izmir Gaziemir. Double-height loft apartments, outdoor pool and arcade. 35% down, 18-month 0% interest. Call for price & floor plan.",
+    },
+    about: {
+      title: "About — Loft 777 Mixed-Use Project in Gaziemir, Izmir",
+      description: "Loft 777: a new-generation mixed-use project in Gaziemir with its arcade, outdoor pool and 1+1 loft/duplex apartments, under Camsan Koparan Group.",
+    },
+    projects: {
+      title: "Apartments — 1+1 Loft & Duplex | Loft 777 Gaziemir",
+      description: "Two 1+1 types at Loft 777: a ~82 m² Loft with a 5.5 m double-height and a 49 m² Duplex. Modern apartments for sale in Gaziemir, Izmir.",
+    },
+    project: {
+      title: "Loft 777 — 1+1 Loft & Duplex Apartments in Gaziemir",
+      description: "237-unit Loft 777: double-height loft apartments, outdoor pool, arcade and closed parking in Izmir Gaziemir — to live in and to invest.",
+    },
+    services: {
+      title: "Why Loft 777 — Investment 1+1 Apartments in Gaziemir",
+      description: "5 min to the airport, 5 min to İZBAN, double-height loft architecture and a lively arcade. What sets Loft 777 apart in Gaziemir, Izmir.",
+    },
+    contact: {
+      title: "Contact — Loft 777 Sales Office, Gaziemir",
+      description: "Loft 777 sales office: Dokuz Eylul Mah. 694 Sok. No:5, Gaziemir/Izmir · +90 232 237 7 237. Contact us for price and floor plans.",
+    },
   },
   project: {
     slug: "loft-777",

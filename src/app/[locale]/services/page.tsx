@@ -4,6 +4,13 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/site/page-hero";
 import { Services } from "@/components/site/services";
 import { CTA } from "@/components/site/cta";
+import { pageMeta } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return pageMeta(locale, "services", "/services");
+}
 
 export default async function ServicesPage({
   params,

@@ -4,6 +4,13 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import { ContactForm } from "@/components/site/contact-form";
+import { pageMeta } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return pageMeta(locale, "contact", "/contact");
+}
 
 export default async function ContactPage({
   params,
