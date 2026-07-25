@@ -11,6 +11,7 @@ import { Construction } from "@/components/site/construction";
 import { Faq } from "@/components/site/faq";
 import { Location } from "@/components/site/location";
 import { CTA } from "@/components/site/cta";
+import { Kesit } from "@/components/site/kesit";
 import { pageMeta } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -33,6 +34,8 @@ export default async function Home({
       <Hero t={d.hero} locale={l} />
       <About t={d.about} locale={l} />
       <Stats labels={d.stats} />
+      {/* KESİT — imza bölüm: projenin gerçek farkı olan dikey istif */}
+      <Kesit t={d.kesit} />
       <Projects t={d.projectsHome} project={d.project} locale={l} />
       <Gallery t={d.gallery} />
       <Construction t={d.construction} />

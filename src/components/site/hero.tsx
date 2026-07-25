@@ -49,26 +49,30 @@ export function Hero({
             <span className="kicker text-bronze-pale">{t.kicker}</span>
           </motion.div>
 
+          {/* Satır satır MASKELİ açılma — imza giriş hareketi */}
           <h1 className="font-display text-5xl font-light leading-[1.05] text-white sm:text-6xl lg:text-7xl">
             {t.lines.map((line, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.15 + i * 0.13, ease }}
-                className="block"
-              >
-                {line}
-              </motion.span>
+              <span key={i} className="block overflow-hidden">
+                <motion.span
+                  initial={{ y: "108%" }}
+                  animate={{ y: "0%" }}
+                  transition={{ duration: 1, delay: 0.15 + i * 0.08, ease }}
+                  className="block"
+                >
+                  {line}
+                </motion.span>
+              </span>
             ))}
-            <motion.span
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.55, ease }}
-              className="block font-normal text-bronze"
-            >
-              {t.last}
-            </motion.span>
+            <span className="block overflow-hidden">
+              <motion.span
+                initial={{ y: "108%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 1, delay: 0.15 + t.lines.length * 0.08, ease }}
+                className="block font-normal text-bronze"
+              >
+                {t.last}
+              </motion.span>
+            </span>
           </h1>
 
           <motion.p

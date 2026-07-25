@@ -285,6 +285,53 @@ const tr = {
       { title: "İletişim", caption: "Gaziemir / İzmir — 0232 237 7 237 · info@camsankoparan.com", img: IMG.carsiCephe },
     ],
   },
+  // KESİT — imza bölüm: projenin dikey istifi (aşağıdan yukarı)
+  kesit: {
+    kicker: "Kesit",
+    title1: "Aşağıda araç,",
+    title2: "ortada çarşı,",
+    title3: "yukarıda hacim.",
+    intro: "Loft 777 bir istif: otoparkın üstünde çarşı, çarşının üstünde havuzlu avlu, en üstte çift yükseklik daireler.",
+    hint: "Katları görmek için kaydırın",
+    layers: [
+      {
+        no: "−2 / −1",
+        t: "Kapalı Otopark",
+        d: "Daire başına bir araç. Elektrikli araç şarj istasyonlu, kartlı geçişli iki bodrum katı.",
+        data: [
+          { k: "238", v: "araçlık" },
+          { k: "2", v: "bodrum kat" },
+        ],
+      },
+      {
+        no: "Zemin",
+        t: "Çarşı & Sosyal Avlu",
+        d: "Dışa dönük yüzde market, kafe ve restoran; içe dönük yüzde havuzlu yeşil avlu.",
+        data: [
+          { k: "150 m²", v: "açık havuz" },
+          { k: "4.200 m²", v: "yeşil alan" },
+        ],
+      },
+      {
+        no: "Zemin + Asma",
+        t: "1+1 Loft",
+        d: "Salonun üstünde tavan yok. Galeri boşluğu sayesinde 5,5 metre çift yükseklik; asma katta yatak odası.",
+        data: [
+          { k: "5,5 m", v: "yükseklik" },
+          { k: "~82 m²", v: "net alan" },
+        ],
+      },
+      {
+        no: "Üst Kat",
+        t: "1+1 Dubleks & Teras",
+        d: "İki katlı kompakt daireler ve site etrafını saran yürüyüş aksına açılan teraslar.",
+        data: [
+          { k: "49 m²", v: "net alan" },
+          { k: "5", v: "blok" },
+        ],
+      },
+    ],
+  },
   seo: {
     home: {
       title: "Loft 777 — Gaziemir'de Satılık 1+1 Loft Daireler | Camsan Koparan",
@@ -601,6 +648,52 @@ const en: typeof tr = {
       { title: "Social Life", caption: "Swimming pool, wide landscaping and enjoyable shared areas.", img: IMG.pool },
       { title: "Arcade & Commerce", caption: "A lively arcade with a market, café and shops at your door.", img: IMG.carsi },
       { title: "Contact", caption: "Gaziemir / Izmir — +90 232 237 7 237 · info@camsankoparan.com", img: IMG.carsiCephe },
+    ],
+  },
+  kesit: {
+    kicker: "Section",
+    title1: "Cars below,",
+    title2: "the arcade between,",
+    title3: "volume above.",
+    intro: "Loft 777 is a stack: an arcade above the car park, a pool courtyard above the arcade, and double-height apartments on top.",
+    hint: "Scroll to reveal the levels",
+    layers: [
+      {
+        no: "−2 / −1",
+        t: "Closed Car Park",
+        d: "One space per apartment. Two basement levels with EV charging and card access.",
+        data: [
+          { k: "238", v: "spaces" },
+          { k: "2", v: "basement levels" },
+        ],
+      },
+      {
+        no: "Ground",
+        t: "Arcade & Social Courtyard",
+        d: "Market, café and restaurant on the outer face; a green courtyard with a pool on the inner face.",
+        data: [
+          { k: "150 m²", v: "outdoor pool" },
+          { k: "4,200 m²", v: "green area" },
+        ],
+      },
+      {
+        no: "Ground + Mezzanine",
+        t: "1+1 Loft",
+        d: "No ceiling above the living room. A 5.5 m double height thanks to the void; bedroom on the mezzanine.",
+        data: [
+          { k: "5.5 m", v: "height" },
+          { k: "~82 m²", v: "net area" },
+        ],
+      },
+      {
+        no: "Upper Floor",
+        t: "1+1 Duplex & Terraces",
+        d: "Compact two-storey apartments and terraces opening onto the walking route around the site.",
+        data: [
+          { k: "49 m²", v: "net area" },
+          { k: "5", v: "blocks" },
+        ],
+      },
     ],
   },
   seo: {

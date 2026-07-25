@@ -32,7 +32,9 @@ export default async function LocaleLayout({
       ? "Hello, I'd like information about Loft 777."
       : "Merhaba, Loft 777 hakkında bilgi almak istiyorum.";
   return (
-    <div className="overflow-x-hidden">
+    // overflow-x: clip → yatay taşmayı keser AMA kaydırma kabı OLUŞTURMAZ.
+    // (overflow-x: hidden, overflow-y'yi auto'ya zorlayıp position:sticky'yi bozuyordu.)
+    <div className="overflow-x-clip">
       <JsonLd locale={locale} faq={d.faq.items} />
       <TrackingScripts
         metaPixelId={settings.meta_pixel_id}
