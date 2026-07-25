@@ -30,7 +30,7 @@ export default async function Home({
   const l = locale as Locale;
   return (
     <main>
-      <Hero t={d.hero} locale={l} catalogLabel={d.catalog.title} />
+      <Hero t={d.hero} locale={l} />
       <About t={d.about} locale={l} />
       <Stats labels={d.stats} />
       <Projects t={d.projectsHome} project={d.project} locale={l} />

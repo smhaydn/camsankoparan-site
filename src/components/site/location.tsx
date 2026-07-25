@@ -8,7 +8,8 @@ export function Location({
   t: Dict["location"];
   address: string;
 }) {
-  const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(t.mapQuery)}&z=14&output=embed`;
+  // Projenin tam koordinatı (Dokuz Eylül Mah. 694 Sok.) — jenerik arama değil, gerçek pin
+  const mapSrc = `https://www.google.com/maps?q=${t.lat},${t.lng}&z=16&output=embed`;
 
   return (
     <section className="bg-ink py-24">

@@ -16,7 +16,7 @@ export function About({ t, locale }: { t: Dict["about"]; locale: Locale }) {
               }}
             />
             <div className="absolute -bottom-8 -right-4 hidden rounded-sm bg-ink px-8 py-6 text-center shadow-xl sm:block lg:-right-8">
-              <div className="font-display text-4xl font-bold text-bronze">238</div>
+              <div className="font-display text-4xl font-bold text-bronze">237</div>
               <div className="mt-1 text-xs tracking-widest text-white/60">{t.badge}</div>
             </div>
           </div>

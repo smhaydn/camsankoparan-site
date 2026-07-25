@@ -1,7 +1,25 @@
-// Yapısal veri (schema.org JSON-LD) — Google'a firma + proje bilgisini makine diliyle anlatır.
+// Yapısal veri (schema.org JSON-LD) — Google'a firma + proje + konum + SSS bilgisini makine diliyle anlatır.
 const BASE = "https://camsankoparan.com";
 
-export function JsonLd() {
+const ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: "Dokuz Eylül Mah. 694 Sok. No:5",
+  addressLocality: "Gaziemir",
+  addressRegion: "İzmir",
+  postalCode: "35410",
+  addressCountry: "TR",
+};
+
+export function JsonLd({
+  locale = "tr",
+  faq,
+}: {
+  locale?: string;
+  faq?: { q: string; a: string }[];
+}) {
+  const home = `${BASE}/${locale}`;
+  const projectUrl = `${BASE}/${locale}/projects/loft-777`;
+
   const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -10,13 +28,7 @@ export function JsonLd() {
     logo: `${BASE}/icon.png`,
     telephone: "+902322377237",
     email: "info@camsankoparan.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Dokuz Eylül Mah. 694 Sok. No:5",
-      addressLocality: "Gaziemir",
-      addressRegion: "İzmir",
-      addressCountry: "TR",
-    },
+    address: ADDRESS,
   };
 
   const project = {
@@ -24,29 +36,51 @@ export function JsonLd() {
     "@type": "ApartmentComplex",
     name: "Loft 777",
     description:
-      "İzmir Gaziemir'de çarşısı, yüzme havuzu ve modern 1+1 daireleriyle yeni nesil karma yaşam projesi.",
-    url: BASE,
+      "İzmir Gaziemir'de çarşısı, açık yüzme havuzu ve modern 1+1 loft/dubleks daireleriyle yeni nesil karma yaşam projesi.",
+    url: projectUrl,
     image: `${BASE}/opengraph-image.png`,
-    numberOfAccommodationUnits: 238,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Dokuz Eylül Mah. 694 Sok. No:5",
-      addressLocality: "Gaziemir",
-      addressRegion: "İzmir",
-      addressCountry: "TR",
+    numberOfAccommodationUnits: 237,
+    address: ADDRESS,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 38.31779893739998,
+      longitude: 27.144827354238817,
     },
   };
 
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: locale === "en" ? "Home" : "Ana Sayfa", item: home },
+      { "@type": "ListItem", position: 2, name: "Loft 777", item: projectUrl },
+    ],
+  };
+
+  const faqLd =
+    faq && faq.length
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }
+      : null;
+
+  const blocks = [organization, project, breadcrumb, faqLd].filter(Boolean);
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(project) }}
-      />
+      {blocks.map((b, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(b) }}
+        />
+      ))}
     </>
   );
 }
