@@ -88,7 +88,7 @@ export function Hero({
           >
             <Link
               href={path(locale, SEGMENTS.projects)}
-              className="rounded-full bg-bronze px-8 py-3.5 text-sm font-semibold tracking-wide text-ink transition hover:bg-bronze-light"
+              className="rounded-full bg-bronze px-8 py-3.5 text-sm font-semibold tracking-wide text-onaccent transition hover:bg-bronze-light"
             >
               {t.ctaPrimary}
             </Link>

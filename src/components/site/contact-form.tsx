@@ -148,7 +148,7 @@ export function ContactForm({
         <button
           type="submit"
           disabled={state === "sending"}
-          className="rounded-full bg-ink px-8 py-3.5 text-sm font-semibold tracking-wide text-white transition hover:bg-bronze hover:text-ink disabled:opacity-60"
+          className="rounded-full bg-ink px-8 py-3.5 text-sm font-semibold tracking-wide text-white transition hover:bg-bronze hover:text-onaccent disabled:opacity-60"
         >
           {state === "sending" ? fb.sending : t.formSend}
         </button>

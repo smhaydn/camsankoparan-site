@@ -1,22 +1,43 @@
 @import "tailwindcss";
 
-/* Sabit marka renkleri (her iki temada da aynı) */
-@theme {
-  --color-ink: #14110e;
-  --color-ink-2: #1f1a14;
-  --color-ink-3: #2a231a;
-  --color-bronze: #c08a4d;
-  --color-bronze-light: #d6a76b;
-  --color-bronze-pale: #e7c79b;
-  --color-cream: #f7f3ec;
-  --color-sand: #ece4d8;
-  --color-stone: #6b6258;
+/* ══════════════════════════════════════════════════════════════
+   LOFT 777 — TASARIM SİSTEMİ  ·  "Sessiz Lüks"
+   Palet:  Alabaster %55 · Grafit %25 · Petrol %12 · Taş %7 · Bronz %1
+   ══════════════════════════════════════════════════════════════ */
 
-  --font-display: var(--font-sora);
-  --font-body: var(--font-inter);
+@theme {
+  /* ── Zemin: grafit (hafif yeşile çalan siyah — soğuk teknoloji hissi vermez) */
+  --color-ink: #1a1d1c;
+  --color-ink-2: #232726;
+  --color-ink-3: #2e3332;
+
+  /* ── Açık zemin: sıcak alabaster (ferahlık, hacim) */
+  --color-cream: #f4f1ec;
+  --color-sand: #e7e2d9;
+  --color-alabaster: #f4f1ec;
+
+  /* ── Yardımcı: taş grisi (AA kontrastı için koyulaştırıldı) */
+  --color-stone: #6f6a61;
+  --color-stone-soft: #8a857c;
+
+  /* ── Bronz: SADECE logo (marka sürekliliği, %1) */
+  --color-brand-bronze: #b08d57;
+
+  /* ── Petrol yeşil sabitleri (referans) */
+  --color-petrol: #0f4f4a;
+  --color-petrol-deep: #0b3c38;
+  --color-petrol-light: #7fc9c1;
+
+  --font-display: var(--font-display-archivo);
+  --font-body: var(--font-body-jakarta);
+  --font-mono: var(--font-mono-jet);
+
+  /* ── Hareket (FAZ 3'te kullanılacak) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* Temaya göre değişen anlamsal renkler */
+/* ── Bağlama duyarlı anlamsal renkler ────────────────────────── */
 @theme inline {
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -24,24 +45,66 @@
   --color-base: var(--text-base);
   --color-muted: var(--text-muted);
   --color-line: var(--line);
+
+  /* AKSAN — zemine göre otomatik değişir (aşağıdaki kurallara bak).
+     Eski "bronze" adları korunuyor ki mevcut bileşenler bozulmasın. */
+  --color-bronze: var(--accent);
+  --color-bronze-light: var(--accent-strong);
+  --color-bronze-pale: var(--accent-soft);
+  --color-accent: var(--accent);
+  --color-onaccent: var(--on-accent);
 }
 
+/* AÇIK zemin (varsayılan): koyu petrol aksan */
 :root {
-  --surface: #ffffff;
-  --surface-2: #f7f3ec;
+  --surface: #f4f1ec;
+  --surface-2: #ebe7e0;
   --card: #ffffff;
-  --text-base: #14110e;
-  --text-muted: #6b6258;
-  --line: #ece4d8;
+  --text-base: #1a1d1c;
+  /* AA (4.5:1) için koyulaştırıldı — açık gri zeminde de geçer */
+  --text-muted: #615c54;
+  --line: #ddd8cf;
+
+  --accent: #0f4f4a;
+  --accent-strong: #0b3c38;
+  --accent-soft: #14625c;
+  --on-accent: #f4f1ec;
 }
 
+/* KOYU tema (tema anahtarı) */
 .dark {
-  --surface: #14110e;
-  --surface-2: #1b1712;
-  --card: #1f1a14;
-  --text-base: #f1eadf;
-  --text-muted: rgba(241, 234, 223, 0.6);
-  --line: rgba(255, 255, 255, 0.1);
+  --surface: #1a1d1c;
+  --surface-2: #232726;
+  --card: #232726;
+  --text-base: #f4f1ec;
+  --text-muted: rgba(244, 241, 236, 0.62);
+  --line: rgba(244, 241, 236, 0.12);
+
+  --accent: #7fc9c1;
+  --accent-strong: #a8dbd5;
+  --accent-soft: #7fc9c1;
+  --on-accent: #14181a;
+}
+
+/* KOYU ADALAR — açık tema içindeki koyu bölümler (hero, kesit, galeri, lokasyon).
+   Aksan otomatik açık petrole döner; alt öğeler CSS değişkenini miras alır. */
+.bg-ink,
+.bg-ink-2,
+.bg-ink-3,
+.dark-island {
+  --accent: #7fc9c1;
+  --accent-strong: #a8dbd5;
+  --accent-soft: #7fc9c1;
+  --on-accent: #14181a;
+}
+
+/* ── Tipografi ölçeği (akışkan) ──────────────────────────────── */
+:root {
+  --fs-display: clamp(2.75rem, 8vw, 7rem);
+  --fs-h2: clamp(1.9rem, 4.2vw, 3.5rem);
+  --fs-h3: clamp(1.15rem, 1.9vw, 1.65rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.1rem);
+  --fs-meta: 0.8125rem;
 }
 
 html {
@@ -51,26 +114,68 @@ html {
 body {
   background: var(--surface);
   color: var(--text-base);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body-jakarta), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Başlıklar: Archivo'nun GENİŞ (expanded) kesimi — mimari, kendinden emin */
+.font-display,
+h1,
+h2 {
+  font-family: var(--font-display-archivo), system-ui, sans-serif;
+  font-stretch: 125%;
+  letter-spacing: -0.02em;
+}
+
+/* Küçük büyük-harf etiketler */
 .kicker {
-  font-family: var(--font-sora), sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.32em;
+  font-family: var(--font-mono-jet), ui-monospace, monospace;
+  font-weight: 500;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   font-size: 0.72rem;
 }
 
+/* Sayısal veri (m², kat, tarih) — mono, mimari çizim hissi */
+.data {
+  font-family: var(--font-mono-jet), ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
 ::selection {
-  background: var(--color-bronze);
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Görünür odak halkası (klavye erişilebilirliği) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 @keyframes kenburns {
-  from { transform: scale(1.08); }
-  to { transform: scale(1.18); }
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1.18);
+  }
 }
-.kenburns { animation: kenburns 18s ease-out forwards; }
+.kenburns {
+  animation: kenburns 18s ease-out forwards;
+}
+
+/* Hareket azaltma tercihi — zorunlu (WCAG) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

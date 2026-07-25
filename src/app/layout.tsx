@@ -1,26 +1,37 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Archivo, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { getSettings } from "@/lib/supabase-admin";
 
-// Başlıklar için geometrik, logoyla uyumlu yazı tipi
-const sora = Sora({
+// TÜM FONTLAR TÜRKÇE GLİF TESTİNDEN GEÇTİ (ı İ ğ Ğ ş Ş ç Ç ö Ö ü Ü)
+// latin + latin-ext subset'leri şart — Türkçe karakterler ikisine bölünmüş durumda.
+
+// Başlık: Archivo'nun geniş (expanded) kesimi — mimari, kendinden emin
+const archivo = Archivo({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-sora",
-  weight: ["200", "300", "400", "600", "700"],
+  axes: ["wdth"],
+  variable: "--font-display-archivo",
   display: "swap",
 });
 
-// Gövde metni için modern, okunaklı yazı tipi
-const inter = Inter({
+// Gövde: rafine geometrik sans
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
+  variable: "--font-body-jakarta",
+  display: "swap",
+});
+
+// Veri/etiket: m², kat, tarih — mimari çizim hissi
+const jet = JetBrains_Mono({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500"],
+  variable: "--font-mono-jet",
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#14110e",
+  themeColor: "#1a1d1c",
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -58,7 +69,7 @@ export default function RootLayout({
       lang="tr"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${sora.variable} ${inter.variable}`}
+      className={`${archivo.variable} ${jakarta.variable} ${jet.variable}`}
     >
       <body className="bg-surface text-base antialiased">
         <ThemeProvider>{children}</ThemeProvider>

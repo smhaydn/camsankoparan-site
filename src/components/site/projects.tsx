@@ -53,7 +53,7 @@ export function Projects({
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-[1400ms] ease-out group-hover:scale-110"
                 style={{ backgroundImage: `url('${project.hero}')` }}
               />
-              <span className="absolute left-5 top-5 rounded-full bg-bronze/90 px-3 py-1 text-[11px] font-semibold tracking-wide text-ink">
+              <span className="absolute left-5 top-5 rounded-full bg-bronze/90 px-3 py-1 text-[11px] font-semibold tracking-wide text-onaccent">
                 {project.status}
               </span>
             </div>

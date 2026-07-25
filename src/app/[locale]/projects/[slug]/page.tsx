@@ -46,7 +46,7 @@ export default async function ProjectDetail({
             <span>←</span> {pr.backToProjects}
           </Link>
           <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full bg-bronze px-3 py-1 text-[11px] font-semibold tracking-wide text-ink">
+            <span className="rounded-full bg-bronze px-3 py-1 text-[11px] font-semibold tracking-wide text-onaccent">
               {pr.status}
             </span>
             <span className="text-xs tracking-widest text-bronze-pale uppercase">{pr.location}</span>

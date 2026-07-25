@@ -40,7 +40,7 @@ export function Construction({ t }: { t: Dict["construction"] }) {
                       <span
                         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
                           active
-                            ? "bg-bronze text-ink"
+                            ? "bg-bronze text-onaccent"
                             : done
                               ? "bg-bronze/30 text-bronze"
                               : "border border-line text-muted"

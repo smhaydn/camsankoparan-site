@@ -46,7 +46,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
                 onClick={() => setCat(key)}
                 className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
                   cat === key
-                    ? "bg-bronze text-ink"
+                    ? "bg-bronze text-onaccent"
                     : "border border-white/15 text-white/60 hover:border-white/40 hover:text-white"
                 }`}
               >
@@ -78,7 +78,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
           ))}
         </div>
 
-        <p className="mt-6 text-center text-xs text-white/40">{t.hint}</p>
+        <p className="mt-6 text-center text-xs text-white/70">{t.hint}</p>
       </div>
 
       <Lightbox

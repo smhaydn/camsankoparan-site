@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "İzmir Gaziemir'de çarşısı, havuzu ve modern 1+1 daireleriyle yeni nesil yaşam.",
     start_url: "/",
     display: "standalone",
-    background_color: "#14110e",
-    theme_color: "#14110e",
+    background_color: "#1a1d1c",
+    theme_color: "#1a1d1c",
     icons: [
       { src: "/icon.png", sizes: "512x512", type: "image/png" },
       { src: "/apple-icon.png", sizes: "180x180", type: "image/png" },

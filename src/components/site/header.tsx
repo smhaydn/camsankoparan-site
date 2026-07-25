@@ -79,7 +79,7 @@ export function Header({
           </div>
           <Link
             href={path(locale, SEGMENTS.contact)}
-            className="hidden rounded-full border border-bronze/60 px-5 py-2 text-sm font-medium text-bronze-pale transition hover:bg-bronze hover:text-ink lg:inline-block"
+            className="hidden rounded-full border border-bronze/60 px-5 py-2 text-sm font-medium text-bronze-pale transition hover:bg-bronze hover:text-onaccent lg:inline-block"
           >
             {dict.cta}
           </Link>
