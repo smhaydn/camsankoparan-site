@@ -21,7 +21,7 @@ export function Hero({
           <video
             className="absolute inset-0 h-full w-full object-cover"
             src={t.video}
-            poster="/renders/dis-cephe-gece-1.jpg"
+            poster="/renders/dis-cephe-gunbatimi.jpg"
             autoPlay
             muted
             loop
@@ -30,7 +30,7 @@ export function Hero({
         ) : (
           <div
             className="kenburns absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/renders/dis-cephe-gece-1.jpg')" }}
+            style={{ backgroundImage: "url('/renders/dis-cephe-gunbatimi.jpg')" }}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />

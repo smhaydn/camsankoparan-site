@@ -3,7 +3,7 @@ export function PageHero({
   kicker,
   title,
   intro,
-  image = "/renders/dis-cephe-genel.jpg",
+  image = "/renders/dis-cephe-cadde.jpg",
 }: {
   kicker: string;
   title: string;

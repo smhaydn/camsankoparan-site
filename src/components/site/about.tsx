@@ -12,7 +12,7 @@ export function About({ t, locale }: { t: Dict["about"]; locale: Locale }) {
             <div
               className="aspect-[4/5] w-full rounded-sm bg-cover bg-center"
               style={{
-                backgroundImage: "url('/renders/teras-balkon.jpg')",
+                backgroundImage: "url('/renders/teras-bahce.jpg')",
               }}
             />
             <div className="dark-island absolute -bottom-8 -right-4 hidden bg-petrol px-9 py-7 text-center sm:block lg:-right-8">

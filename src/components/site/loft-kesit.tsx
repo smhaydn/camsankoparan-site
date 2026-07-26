@@ -185,6 +185,21 @@ export function LoftKesit({ t }: { t: Dict["loftKesit"] }) {
               </svg>
               <figcaption className="mt-4 text-center text-xs text-muted lg:hidden">{t.hint}</figcaption>
             </figure>
+
+            {/* KANIT FOTOĞRAFI — çizim anlatır, fotoğraf kanıtlar.
+                Asma kat ve metal merdiven bu karede net görünüyor. */}
+            <figure className="mt-8">
+              <div
+                className="aspect-[16/9] w-full bg-cover bg-center"
+                role="img"
+                aria-label={t.proofAlt}
+                style={{ backgroundImage: `url('${t.proofImg}')` }}
+              />
+              <figcaption className="mt-3 flex items-start gap-2.5 text-xs leading-relaxed text-muted">
+                <span className="mt-1.5 block h-px w-5 shrink-0 bg-accent" />
+                {t.proofCaption}
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </div>

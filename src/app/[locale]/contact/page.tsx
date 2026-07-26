@@ -34,7 +34,7 @@ export default async function ContactPage({
         kicker={c.kicker}
         title={c.title}
         intro={c.intro}
-        image="/renders/carsi-cephe.jpg"
+        image="/renders/carsi-yaya.jpg"
       />
       <section className="bg-surface py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:px-10">

@@ -83,7 +83,7 @@ export function Kesit({ t }: { t: Dict["kesit"] }) {
                   />
                   <span
                     className={`data text-[10px] tracking-[0.18em] whitespace-nowrap transition-colors duration-500 ${
-                      active === idx ? "text-accent" : "text-muted/60"
+                      active === idx ? "text-accent" : "text-muted"
                     }`}
                   >
                     {t.layers[idx].no}

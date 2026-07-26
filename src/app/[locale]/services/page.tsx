@@ -26,7 +26,7 @@ export default async function ServicesPage({
         kicker={d.servicesPage.kicker}
         title={d.servicesPage.title}
         intro={d.servicesPage.intro}
-        image="/renders/hava-tepeden.jpg"
+        image="/renders/hava-genel.jpg"
       />
       <Services t={d.services} />
       <CTA t={d.cta} />

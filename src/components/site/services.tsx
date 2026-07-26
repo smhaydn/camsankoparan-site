@@ -8,7 +8,7 @@ export function Services({ t }: { t: Dict["services"] }) {
         className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-cover bg-center opacity-10"
         style={{
           backgroundImage:
-            "url('/renders/sosyal-alan.jpg')",
+            "url('/renders/havuz-sosyal.jpg')",
         }}
       />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
