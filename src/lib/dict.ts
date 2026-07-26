@@ -285,6 +285,41 @@ const tr = {
       { title: "İletişim", caption: "Gaziemir / İzmir — 0232 237 7 237 · info@camsankoparan.com", img: IMG.carsiCephe },
     ],
   },
+  // TEZ CÜMLESİ — tek büyük cümle, sadece tipografi
+  tez: {
+    l1: "Zeminde çarşı.",
+    l2: "Ortada havuz.",
+    l3: "Üstte loft.",
+  },
+  notFound: {
+    kicker: "404",
+    title1: "Aradığınız sayfa",
+    title2: "bulunamadı.",
+    body: "Bağlantı taşınmış ya da hiç var olmamış olabilir. Loft 777'yi keşfetmeye ana sayfadan devam edebilirsiniz.",
+    home: "Ana Sayfaya Dön",
+    contact: "Bize Ulaşın",
+  },
+  // GALERİ BOŞLUĞU — dairenin kendi kesiti (ikinci imza).
+  // Çift yükseklik planda görünmez, fotoğrafta anlaşılmaz; sadece kesitte okunur.
+  loftKesit: {
+    kicker: "1+1 Loft · Kesit",
+    title1: "Salonun üstünde",
+    title2: "tavan yok.",
+    body: "Loft dairelerde salon iki kat boyunca yükseliyor. Üstünde döşeme değil, 19 m²'lik galeri boşluğu var — ışık yukarıdan iniyor, hacim aşağıya yayılıyor.",
+    voidLabel: "Galeri Boşluğu",
+    heightLabel: "çift yükseklik",
+    stair: "Metal merdiven · 16 basamak",
+    floors: { ground: "Zemin", mezzanine: "Asma Kat" },
+    hint: "Mahalleri görmek için üzerine gelin",
+    rooms: [
+      { id: "salon", t: "Salon", m2: "40,86", floor: "ground" },
+      { id: "mutfak", t: "Mutfak", m2: "9,75", floor: "ground" },
+      { id: "yatak", t: "Yatak Odası", m2: "27,58", floor: "mezzanine" },
+      { id: "banyo", t: "Banyo / WC", m2: "4,00", floor: "mezzanine" },
+      { id: "galeri", t: "Galeri Boşluğu", m2: "19,02", floor: "void" },
+    ],
+    note: "Değerler C Blok kat planından alınmıştır; bloklar arasında farklılık gösterebilir.",
+  },
   // KESİT — imza bölüm: projenin dikey istifi (aşağıdan yukarı)
   kesit: {
     kicker: "Kesit",
@@ -649,6 +684,38 @@ const en: typeof tr = {
       { title: "Arcade & Commerce", caption: "A lively arcade with a market, café and shops at your door.", img: IMG.carsi },
       { title: "Contact", caption: "Gaziemir / Izmir — +90 232 237 7 237 · info@camsankoparan.com", img: IMG.carsiCephe },
     ],
+  },
+  tez: {
+    l1: "An arcade below.",
+    l2: "A pool between.",
+    l3: "Lofts above.",
+  },
+  notFound: {
+    kicker: "404",
+    title1: "The page you're looking for",
+    title2: "could not be found.",
+    body: "The link may have moved or never existed. You can continue exploring Loft 777 from the home page.",
+    home: "Back to Home",
+    contact: "Contact Us",
+  },
+  loftKesit: {
+    kicker: "1+1 Loft · Section",
+    title1: "No ceiling above",
+    title2: "the living room.",
+    body: "In the loft apartments the living room rises through two floors. Above it there is no slab but a 19 m² void — light comes down from above, volume spreads below.",
+    voidLabel: "Gallery Void",
+    heightLabel: "double height",
+    stair: "Metal staircase · 16 steps",
+    floors: { ground: "Ground", mezzanine: "Mezzanine" },
+    hint: "Hover to explore the spaces",
+    rooms: [
+      { id: "salon", t: "Living Room", m2: "40.86", floor: "ground" },
+      { id: "mutfak", t: "Kitchen", m2: "9.75", floor: "ground" },
+      { id: "yatak", t: "Bedroom", m2: "27.58", floor: "mezzanine" },
+      { id: "banyo", t: "Bathroom / WC", m2: "4.00", floor: "mezzanine" },
+      { id: "galeri", t: "Gallery Void", m2: "19.02", floor: "void" },
+    ],
+    note: "Figures are taken from the Block C floor plan; they may vary between blocks.",
   },
   kesit: {
     kicker: "Section",

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
+import { LoftKesit } from "@/components/site/loft-kesit";
 import { pageMeta } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -29,7 +30,10 @@ export default async function ProjectsPage({
     <main>
       <PageHero kicker={p.kicker} title={p.title} intro={p.intro} image={project.hero} />
 
-      <section className="bg-surface py-24">
+      {/* İKİNCİ İMZA — dairenin kesiti: çift yükseklik sadece burada okunur */}
+      <LoftKesit t={d.loftKesit} />
+
+      <section className="paper bg-paper py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mb-10 flex items-center gap-4">

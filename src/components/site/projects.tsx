@@ -14,7 +14,7 @@ export function Projects({
 }) {
   const href = path(locale, `${SEGMENTS.projects}/${project.slug}`);
   return (
-    <section className="paper bg-cream py-32">
+    <section className="paper bg-paper py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
