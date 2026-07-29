@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Reveal } from "./reveal";
+import { CoverImage } from "./cover-image";
 import type { Dict } from "@/lib/dict";
 
 /**
@@ -189,12 +190,9 @@ export function LoftKesit({ t }: { t: Dict["loftKesit"] }) {
             {/* KANIT FOTOĞRAFI — çizim anlatır, fotoğraf kanıtlar.
                 Asma kat ve metal merdiven bu karede net görünüyor. */}
             <figure className="mt-8">
-              <div
-                className="aspect-[16/9] w-full bg-cover bg-center"
-                role="img"
-                aria-label={t.proofAlt}
-                style={{ backgroundImage: `url('${t.proofImg}')` }}
-              />
+              <div className="relative aspect-[16/9] w-full overflow-hidden">
+                <CoverImage src={t.proofImg} alt={t.proofAlt} sizes="(max-width: 1024px) 100vw, 50vw" />
+              </div>
               <figcaption className="mt-3 flex items-start gap-2.5 text-xs leading-relaxed text-muted">
                 <span className="mt-1.5 block h-px w-5 shrink-0 bg-accent" />
                 {t.proofCaption}

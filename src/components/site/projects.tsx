@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
+import { CoverImage } from "./cover-image";
 import { SEGMENTS, type Dict } from "@/lib/dict";
 import { path, type Locale } from "@/lib/i18n";
 
@@ -49,9 +50,11 @@ export function Projects({
             className="group grid overflow-hidden rounded-sm bg-card transition lg:grid-cols-2"
           >
             <div className="relative aspect-[16/11] overflow-hidden lg:aspect-auto">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-[1400ms] ease-out group-hover:scale-110"
-                style={{ backgroundImage: `url('${project.hero}')` }}
+              <CoverImage
+                src={project.hero}
+                alt={`${project.name} — ${project.location}`}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="transition-transform duration-[1400ms] ease-out group-hover:scale-110"
               />
               <span className="absolute left-5 top-5 rounded-full bg-bronze/90 px-3 py-1 text-[11px] font-semibold tracking-wide text-onaccent">
                 {project.status}

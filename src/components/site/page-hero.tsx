@@ -1,19 +1,23 @@
+import { CoverImage } from "./cover-image";
+
 // İç sayfaların üst başlık bandı (koyu, üst menüyle uyumlu)
 export function PageHero({
   kicker,
   title,
   intro,
   image = "/renders/dis-cephe-cadde.jpg",
+  imageAlt,
 }: {
   kicker: string;
   title: string;
   intro?: string;
   image?: string;
+  imageAlt?: string;
 }) {
   return (
     <section className="relative flex min-h-[52vh] items-end overflow-hidden bg-ink pb-14 pt-40">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${image}')` }} />
+        <CoverImage src={image} alt={imageAlt ?? title} priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/55" />
       </div>
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">

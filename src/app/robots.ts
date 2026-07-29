@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/yonetim", "/api/"],
+      disallow: ["/yonetim", "/isprogrami", "/demo", "/api/"],
     },
     sitemap: "https://camsankoparan.com/sitemap.xml",
     host: "https://camsankoparan.com",

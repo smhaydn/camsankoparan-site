@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Reveal } from "@/components/site/reveal";
 import { Gallery } from "@/components/site/gallery";
+import { CoverImage } from "@/components/site/cover-image";
 import { CTA } from "@/components/site/cta";
 import { pageMeta } from "@/lib/seo";
 import { getDict } from "@/lib/dict";
@@ -35,7 +36,7 @@ export default async function ProjectDetail({
       {/* Proje kapağı */}
       <section className="relative flex min-h-[80vh] items-end overflow-hidden bg-ink pb-16 pt-40">
         <div className="absolute inset-0">
-          <div className="kenburns absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${pr.hero}')` }} />
+          <CoverImage src={pr.hero} alt={`${pr.name} — ${pr.location}`} priority sizes="100vw" className="kenburns" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/40" />
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
@@ -100,9 +101,11 @@ export default async function ProjectDetail({
               <Reveal key={u.type} delay={i * 0.08}>
                 <div className="group overflow-hidden rounded-sm bg-card shadow-sm transition hover:shadow-xl">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                      style={{ backgroundImage: `url('${u.img}')` }}
+                    <CoverImage
+                      src={u.img}
+                      alt={`${u.type} — ${pr.name}`}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                   <div className="p-6">
@@ -135,9 +138,11 @@ export default async function ProjectDetail({
             {pr.amenities.map((am, i) => (
               <Reveal key={am.t} delay={i * 0.08}>
                 <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[1200ms] group-hover:scale-110"
-                    style={{ backgroundImage: `url('${am.img}')` }}
+                  <CoverImage
+                    src={am.img}
+                    alt={`${am.t} — ${pr.name}`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="transition-transform duration-[1200ms] group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6">

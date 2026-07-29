@@ -3,7 +3,7 @@ import { sendMetaCapiLead } from "@/lib/tracking-server";
 import { sendLeadNotification } from "@/lib/mail";
 
 // "Sizi Arayalım / Fiyat Al" form taleplerini (lead) Supabase'e kaydeder.
-// Tablo: public.loft777_leads (Partum projesi)
+// Tablo: public.loft777_leads (Loft 777 — Camsan Koparan)
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
+import { CoverImage } from "./cover-image";
 import { SEGMENTS, type Dict } from "@/lib/dict";
 import { path, type Locale } from "@/lib/i18n";
 
@@ -9,12 +10,13 @@ export function About({ t, locale }: { t: Dict["about"]; locale: Locale }) {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:px-10">
         <Reveal>
           <div className="relative">
-            <div
-              className="aspect-[4/5] w-full rounded-sm bg-cover bg-center"
-              style={{
-                backgroundImage: "url('/renders/teras-bahce.jpg')",
-              }}
-            />
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+              <CoverImage
+                src="/renders/teras-bahce.jpg"
+                alt={locale === "en" ? "Loft 777 terrace and garden" : "Loft 777 teras ve bahçe"}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
             <div className="dark-island absolute -bottom-8 -right-4 hidden bg-petrol px-9 py-7 text-center sm:block lg:-right-8">
               <div className="font-display text-4xl font-bold text-bronze">237</div>
               <div className="mt-1 text-xs tracking-widest text-white/75">{t.badge}</div>

@@ -28,6 +28,7 @@ export const SEGMENTS = {
   projects: "projects",
   services: "services",
   contact: "contact",
+  blog: "blog",
 } as const;
 
 const tr = {
@@ -37,6 +38,7 @@ const tr = {
     about: "Proje Hakkında",
     projects: "Daireler",
     services: "Neden Loft 777",
+    blog: "Blog",
     contact: "İletişim",
     catalog: "Dijital Katalog",
     cta: "Fiyat Al",
@@ -117,6 +119,16 @@ const tr = {
     kicker: "Neden Loft 777",
     title: "Loft 777'yi farklı kılan",
     intro: "Konum, çarşı, sosyal yaşam ve akıllı daire planları — hepsi tek bir projede.",
+    reasonsKicker: "Ayrıcalıklar",
+    reasonsTitle: "Altı başlıkta Loft 777",
+    reasons: [
+      { t: "Ayrıcalıklı Konum", d: "Adnan Menderes Havalimanı'na 5 dakika, İZBAN Sarnıç durağına yürüme mesafesi. Optimum AVM 3 dakika, otoban çıkışı 5 dakika." },
+      { t: "Loft Konsepti", d: "Zemin katların tamamı loft: galeri boşluğuyla 5,6 metreye ulaşan tavan yüksekliği, açık plan ve içeri dolan doğal ışık." },
+      { t: "Karma Yaşam", d: "Konut, çarşı, restoran ve ofis bir arada. Günlük ihtiyaçlar siteden çıkmadan, 4.200 m² yeşil alanın içinde karşılanır." },
+      { t: "Yapı Kalitesi", d: "Güncel deprem yönetmeliğine tam uyum, merkezi yerden ısıtma, VRF klima, çift cam Low-E ve akıllı ev altyapısı." },
+      { t: "Yatırım Değeri", d: "%35 peşin, 18 ay 0 faiz vade; peşin ödemede %15 indirim. Planlanan teslim: Aralık 2027." },
+      { t: "Camsan Koparan Güvencesi", d: "1998'den bu yana İzmir'de konut, ticari ve endüstriyel yapı geliştiren köklü bir grubun imzası." },
+    ],
   },
   cta: {
     kicker: "İletişim",
@@ -145,9 +157,22 @@ const tr = {
   footer: {
     tagline: "İzmir Gaziemir'de; çarşısı, havuzu ve modern 1+1 daireleriyle yeni nesil karma yaşam projesi. Camsan Koparan Group A.Ş. güvencesiyle.",
     cols: [
-      { title: "Proje", links: ["Daireler (1+1)", "Sosyal Alanlar", "Çarşı & Ticaret", "Konum"] },
-      { title: "Kurumsal", links: ["Proje Hakkında", "Camsan Koparan Group", "Neden Loft 777"] },
-      { title: "İletişim", links: ["Gaziemir / İzmir", "0232 237 7 237", "info@camsankoparan.com"] },
+      { title: "Proje", links: [
+        { label: "Daireler (1+1)", href: "projects/loft-777" },
+        { label: "Sosyal Alanlar", href: "projects/loft-777" },
+        { label: "Çarşı & Ticaret", href: "projects/loft-777" },
+        { label: "Konum", href: "contact" },
+      ] },
+      { title: "Kurumsal", links: [
+        { label: "Proje Hakkında", href: "about" },
+        { label: "Camsan Koparan Group", href: "about" },
+        { label: "Neden Loft 777", href: "services" },
+      ] },
+      { title: "İletişim", links: [
+        { label: "Gaziemir / İzmir", href: "contact" },
+        { label: "0232 237 7 237", href: "tel:+902322377237" },
+        { label: "info@camsankoparan.com", href: "mailto:info@camsankoparan.com" },
+      ] },
     ],
     rights: "Tüm hakları saklıdır.",
     credit: "Tasarım & Yönetim",
@@ -416,6 +441,8 @@ const tr = {
       { k: "Durum", v: "Kaba İnşaat Aşamasında" },
       { k: "Daire Tipleri", v: "1+1 Loft & Dubleks" },
       { k: "Toplam Daire", v: "237 Daire" },
+      { k: "Teslim", v: "Aralık 2027" },
+      { k: "Ödeme", v: "%35 Peşin · 18 Ay 0 Faiz" },
     ],
     unitsT: "Daire Tipleri",
     unitsD: "İki farklı 1+1 konsepti: çift yükseklik loft ve iki katlı dubleks.",
@@ -444,6 +471,7 @@ const en: typeof tr = {
     about: "About the Project",
     projects: "Apartments",
     services: "Why Loft 777",
+    blog: "Journal",
     contact: "Contact",
     catalog: "Digital Catalog",
     cta: "Get a Quote",
@@ -523,6 +551,16 @@ const en: typeof tr = {
     kicker: "Why Loft 777",
     title: "What sets Loft 777 apart",
     intro: "Location, arcade, social life and smart apartment plans — all in a single project.",
+    reasonsKicker: "Advantages",
+    reasonsTitle: "Loft 777 in six points",
+    reasons: [
+      { t: "Prime Location", d: "5 minutes to Adnan Menderes Airport, walking distance to the İZBAN Sarnıç stop. Optimum Mall 3 minutes, motorway junction 5 minutes." },
+      { t: "Loft Concept", d: "All ground floors are lofts: ceiling heights reaching 5.6 metres with the mezzanine void, open plans and natural light pouring in." },
+      { t: "Mixed-Use Living", d: "Housing, arcade, restaurant and office together. Daily needs met without leaving the complex, within 4,200 m² of green space." },
+      { t: "Build Quality", d: "Full compliance with the current seismic code, central underfloor heating, VRF air conditioning, double-glazed Low-E and smart-home infrastructure." },
+      { t: "Investment Value", d: "35% down payment, 18 months interest-free; 15% discount on full payment. Planned delivery: December 2027." },
+      { t: "Camsan Koparan Assurance", d: "Backed by an established group developing residential, commercial and industrial buildings in Izmir since 1998." },
+    ],
   },
   cta: {
     kicker: "Contact",
@@ -551,9 +589,22 @@ const en: typeof tr = {
   footer: {
     tagline: "A new-generation mixed-use project in Izmir Gaziemir — with its arcade, pool and modern 1+1 apartments. Under the assurance of Camsan Koparan Group Inc.",
     cols: [
-      { title: "Project", links: ["Apartments (1+1)", "Social Areas", "Arcade & Commerce", "Location"] },
-      { title: "Corporate", links: ["About the Project", "Camsan Koparan Group", "Why Loft 777"] },
-      { title: "Contact", links: ["Gaziemir / Izmir", "+90 232 237 7 237", "info@camsankoparan.com"] },
+      { title: "Project", links: [
+        { label: "Apartments (1+1)", href: "projects/loft-777" },
+        { label: "Social Areas", href: "projects/loft-777" },
+        { label: "Arcade & Commerce", href: "projects/loft-777" },
+        { label: "Location", href: "contact" },
+      ] },
+      { title: "Corporate", links: [
+        { label: "About the Project", href: "about" },
+        { label: "Camsan Koparan Group", href: "about" },
+        { label: "Why Loft 777", href: "services" },
+      ] },
+      { title: "Contact", links: [
+        { label: "Gaziemir / Izmir", href: "contact" },
+        { label: "+90 232 237 7 237", href: "tel:+902322377237" },
+        { label: "info@camsankoparan.com", href: "mailto:info@camsankoparan.com" },
+      ] },
     ],
     rights: "All rights reserved.",
     credit: "Design & Management",
@@ -818,6 +869,8 @@ const en: typeof tr = {
       { k: "Status", v: "Under Construction" },
       { k: "Unit Types", v: "1+1 Loft & Duplex" },
       { k: "Total Units", v: "237 Apartments" },
+      { k: "Delivery", v: "December 2027" },
+      { k: "Payment", v: "35% Down · 18 Mo 0% Interest" },
     ],
     unitsT: "Apartment Types",
     unitsD: "Two different 1+1 concepts: a double-height loft and a two-storey duplex.",

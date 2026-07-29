@@ -1,8 +1,18 @@
 import type { MetadataRoute } from "next";
+import { allBlogSlugs } from "@/lib/blog";
 
 // Site haritası — Google tüm sayfaları hızlı bulsun (TR + EN, hreflang ile)
 const BASE = "https://camsankoparan.com";
-const PATHS = ["", "/about", "/projects", "/projects/loft-777", "/services", "/contact"];
+const PATHS = [
+  "",
+  "/about",
+  "/projects",
+  "/projects/loft-777",
+  "/services",
+  "/contact",
+  "/blog",
+  ...allBlogSlugs().map((s) => `/blog/${s}`),
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

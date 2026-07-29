@@ -91,8 +91,7 @@ export function MaskLines({
           <motion.span
             className={`block ${lineClassName}`}
             initial={{ y: "110%" }}
-            whileInView={{ y: "0%" }}
-            viewport={{ once: true, margin: "-70px" }}
+            animate={{ y: "0%" }}
             transition={{ duration: 0.9, delay: delay + i * 0.07, ease: EASE }}
           >
             {l}

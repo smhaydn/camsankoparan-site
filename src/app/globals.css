@@ -89,6 +89,16 @@
   --accent-strong: #a8dbd5;
   --accent-soft: #7fc9c1;
   --on-accent: #14181a;
+
+  /* KAĞIT KATMANLARINI dark'ta ez — aksi halde bg-paper/cream/sand bölümleri
+     açık zeminli kalıp açık metinle okunamaz hale geliyordu (kök sorun).
+     Açık temadaki "giderek koyulaşan" ton mantığını koyuda "giderek açılan"a çevirir;
+     bölümler arası derinlik korunur. */
+  --color-paper: #1c201f;
+  --color-cream: #1e2221;
+  --color-alabaster: #1e2221;
+  --color-sand: #232726;
+  --color-sand-2: #282d2c;
 }
 
 /* KOYU ADALAR — açık tema içindeki koyu bölümler (hero, kesit, galeri, lokasyon).

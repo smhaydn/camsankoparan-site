@@ -6,7 +6,9 @@ export function Logo({
   className?: string;
   light?: boolean;
 }) {
-  const main = light ? "text-white" : "text-ink";
+  // light=true: koyu ada üstünde (hero) beyaz. light=false: scroll sonrası açık/koyu
+  // zemin — text-base token'ı temaya göre okunur kalır (dark'ta bg-paper koyulaştı).
+  const main = light ? "text-white" : "text-base";
   // Bronz SADECE logoda kalır (palet kuralı %1) — aksan token'ından bağımsız
   const accent = light ? "text-brand-bronze" : "text-brand-bronze-dark";
   return (

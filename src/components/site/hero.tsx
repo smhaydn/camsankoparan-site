@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { SEGMENTS, type Dict } from "@/lib/dict";
 import { path, type Locale } from "@/lib/i18n";
+import { CoverImage } from "./cover-image";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -28,9 +29,16 @@ export function Hero({
             playsInline
           />
         ) : (
-          <div
-            className="kenburns absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/renders/dis-cephe-gunbatimi.jpg')" }}
+          <CoverImage
+            src="/renders/dis-cephe-gunbatimi.jpg"
+            alt={
+              locale === "en"
+                ? "Loft 777 residential complex at sunset, Gaziemir Izmir"
+                : "Loft 777 konut projesi gün batımında, Gaziemir İzmir"
+            }
+            priority
+            sizes="100vw"
+            className="kenburns"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />

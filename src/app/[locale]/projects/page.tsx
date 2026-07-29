@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
+import { CoverImage } from "@/components/site/cover-image";
 import { LoftKesit } from "@/components/site/loft-kesit";
 import { pageMeta } from "@/lib/seo";
 
@@ -48,10 +49,12 @@ export default async function ProjectsPage({
               href={href}
               className="group grid overflow-hidden rounded-sm border border-line bg-card shadow-sm transition hover:shadow-2xl lg:grid-cols-2"
             >
-              <div className="relative aspect-[16/11] overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-[1400ms] ease-out group-hover:scale-110"
-                  style={{ backgroundImage: `url('${project.hero}')` }}
+              <div className="relative aspect-[16/11] overflow-hidden lg:aspect-auto">
+                <CoverImage
+                  src={project.hero}
+                  alt={`${project.name} — ${project.location}`}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="transition-transform duration-[1400ms] ease-out group-hover:scale-110"
                 />
                 <span className="absolute left-5 top-5 rounded-full bg-bronze/90 px-3 py-1 text-[11px] font-semibold tracking-wide text-onaccent">
                   {project.status}

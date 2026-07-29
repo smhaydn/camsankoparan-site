@@ -31,6 +31,7 @@ export function Header({
     { label: dict.about, href: path(locale, SEGMENTS.about) },
     { label: dict.projects, href: path(locale, SEGMENTS.projects) },
     { label: dict.services, href: path(locale, SEGMENTS.services) },
+    { label: dict.blog, href: path(locale, SEGMENTS.blog) },
     { label: dict.contact, href: path(locale, SEGMENTS.contact) },
   ];
 
@@ -67,13 +68,13 @@ export function Header({
         </nav>
 
         <div className="flex items-center gap-4">
-          <ThemeToggle />
-          <div className="hidden items-center text-xs font-semibold tracking-widest text-white/70 sm:flex">
-            <Link href={swap("tr")} className={locale === "tr" ? "text-bronze" : "hover:text-white"}>
+          <ThemeToggle scrolled={scrolled} label={locale === "en" ? "Toggle theme" : "Tema değiştir"} />
+          <div className={`hidden items-center text-xs font-semibold tracking-widest sm:flex ${scrolled ? "text-base/70" : "text-white/70"}`}>
+            <Link href={swap("tr")} className={locale === "tr" ? "text-bronze" : scrolled ? "hover:text-base" : "hover:text-white"}>
               TR
             </Link>
-            <span className="mx-2 text-white/30">|</span>
-            <Link href={swap("en")} className={locale === "en" ? "text-bronze" : "hover:text-white"}>
+            <span className={`mx-2 ${scrolled ? "text-base/30" : "text-white/30"}`}>|</span>
+            <Link href={swap("en")} className={locale === "en" ? "text-bronze" : scrolled ? "hover:text-base" : "hover:text-white"}>
               EN
             </Link>
           </div>
@@ -88,9 +89,9 @@ export function Header({
             className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 lg:hidden"
             aria-label="Menu"
           >
-            <span className={`h-px w-6 bg-white transition ${open ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`h-px w-6 bg-white transition ${open ? "opacity-0" : ""}`} />
-            <span className={`h-px w-6 bg-white transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+            <span className={`h-px w-6 transition ${scrolled ? "bg-base" : "bg-white"} ${open ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`h-px w-6 transition ${scrolled ? "bg-base" : "bg-white"} ${open ? "opacity-0" : ""}`} />
+            <span className={`h-px w-6 transition ${scrolled ? "bg-base" : "bg-white"} ${open ? "-translate-y-2 -rotate-45" : ""}`} />
           </button>
         </div>
       </div>
@@ -98,11 +99,11 @@ export function Header({
       {open && (
         <nav className="mt-4 flex flex-col gap-1 border-t border-line bg-paper px-6 py-4 lg:hidden">
           {nav.map((n) => (
-            <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-2 text-sm text-white/80">
+            <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-2 text-sm text-base/80 hover:text-bronze">
               {n.label}
             </Link>
           ))}
-          <div className="mt-2 flex gap-3 border-t border-white/10 pt-3 text-xs font-semibold tracking-widest text-white/70">
+          <div className="mt-2 flex gap-3 border-t border-line pt-3 text-xs font-semibold tracking-widest text-base/70">
             <Link href={swap("tr")} className={locale === "tr" ? "text-bronze" : ""}>TR</Link>
             <Link href={swap("en")} className={locale === "en" ? "text-bronze" : ""}>EN</Link>
           </div>

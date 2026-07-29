@@ -8,7 +8,7 @@ import type { Dict } from "@/lib/dict";
  */
 export function Tez({ t }: { t: Dict["tez"] }) {
   return (
-    <section className="paper bg-cream py-40 lg:py-56">
+    <section className="paper bg-cream py-24 lg:py-36">
       <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <MaskLines
           className="font-display text-4xl leading-[1.14] font-light text-base sm:text-5xl lg:text-7xl"

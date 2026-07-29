@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Reveal } from "./reveal";
 import { Lightbox } from "./lightbox";
+import { CoverImage } from "./cover-image";
 import type { Dict } from "@/lib/dict";
 
 export function Gallery({ t }: { t: Dict["gallery"] }) {
@@ -65,9 +66,11 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
                 className="group relative block aspect-[4/3] w-full overflow-hidden rounded-sm"
                 aria-label={it.caption}
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${it.img}')` }}
+                <CoverImage
+                  src={it.img}
+                  alt={it.caption}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <span className="absolute bottom-3 left-3 text-xs font-medium text-base opacity-0 transition-opacity group-hover:opacity-100">

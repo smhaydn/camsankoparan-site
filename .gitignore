@@ -45,3 +45,6 @@ next-env.d.ts
 # proje yedek/loglar (repoya girmesin)
 dev-server.log
 /public/renders/_orijinal
+
+# Render orijinal yedekleri (deploy'a gerek yok)
+public/renders/_orijinal_yedek/

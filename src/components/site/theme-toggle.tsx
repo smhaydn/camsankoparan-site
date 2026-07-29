@@ -3,7 +3,15 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-export function ThemeToggle({ className = "" }: { className?: string }) {
+export function ThemeToggle({
+  className = "",
+  scrolled = false,
+  label = "Tema değiştir",
+}: {
+  className?: string;
+  scrolled?: boolean;
+  label?: string;
+}) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -13,8 +21,8 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label="Tema değiştir"
-      className={`flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/80 transition hover:border-bronze hover:text-bronze ${className}`}
+      aria-label={label}
+      className={`flex h-8 w-8 items-center justify-center rounded-full border transition hover:border-bronze hover:text-bronze ${scrolled ? "border-line text-base/80" : "border-white/25 text-white/80"} ${className}`}
     >
       {/* Hidrasyon uyumu için yüklenene kadar nötr ikon */}
       {!mounted ? (

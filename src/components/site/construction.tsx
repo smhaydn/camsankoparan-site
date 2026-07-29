@@ -58,6 +58,17 @@ export function Construction({ t }: { t: Dict["construction"] }) {
                 })}
               </ol>
             </Reveal>
+
+            {/* Güncel inşaat görselleri notu — proje kaba inşaat aşamasında */}
+            <Reveal delay={0.3}>
+              <div className="mt-10 flex items-start gap-3 rounded-sm border border-dashed border-line bg-surface-2 px-5 py-4">
+                <span className="mt-0.5 text-bronze">◈</span>
+                <div>
+                  <div className="text-sm font-semibold text-base">{t.droneTitle}</div>
+                  <p className="mt-0.5 text-sm text-muted">{t.droneSoon}</p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>

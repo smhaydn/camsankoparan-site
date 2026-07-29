@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { getSettings } from "@/lib/supabase-admin";
@@ -59,14 +60,16 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Dil, middleware'in yazdığı x-locale header'ından gelir (EN sayfalarda "en").
+  const lang = (await headers()).get("x-locale") ?? "tr";
   return (
     <html
-      lang="tr"
+      lang={lang}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${archivo.variable} ${jakarta.variable} ${jet.variable}`}

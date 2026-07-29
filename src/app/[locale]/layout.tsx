@@ -49,7 +49,7 @@ export default async function LocaleLayout({
         {children}
         <CallForm t={d.callForm} extra={d.formExtra} />
       </CatalogProvider>
-      <Footer t={d.footer} />
+      <Footer t={d.footer} locale={locale} />
       <WhatsAppButton phone={d.contactPage.phone} message={waMessage} />
     </div>
   );

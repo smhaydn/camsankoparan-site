@@ -1,16 +1,14 @@
 import { Reveal } from "./reveal";
+import { CoverImage } from "./cover-image";
 import type { Dict } from "@/lib/dict";
 
 export function Services({ t }: { t: Dict["services"] }) {
   return (
     <section className="paper relative overflow-hidden bg-cream py-32">
-      <div
-        className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-cover bg-center opacity-10"
-        style={{
-          backgroundImage:
-            "url('/renders/havuz-sosyal.jpg')",
-        }}
-      />
+      <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/3 opacity-10 lg:block">
+        {/* Dekoratif arka plan — ekran okuyucu için boş alt */}
+        <CoverImage src="/renders/havuz-sosyal.jpg" alt="" sizes="33vw" quality={60} />
+      </div>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-16 max-w-2xl">
           <Reveal>
