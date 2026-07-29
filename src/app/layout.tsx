@@ -32,7 +32,7 @@ const jet = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#1a1d1c",
+  themeColor: "#f4f1ec",
 };
 
 export async function generateMetadata(): Promise<Metadata> {

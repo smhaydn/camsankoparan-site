@@ -76,31 +76,6 @@
   --on-accent: #f4f1ec;
 }
 
-/* KOYU tema (tema anahtarı) */
-.dark {
-  --surface: #1a1d1c;
-  --surface-2: #232726;
-  --card: #232726;
-  --text-base: #f4f1ec;
-  --text-muted: rgba(244, 241, 236, 0.62);
-  --line: rgba(244, 241, 236, 0.12);
-
-  --accent: #7fc9c1;
-  --accent-strong: #a8dbd5;
-  --accent-soft: #7fc9c1;
-  --on-accent: #14181a;
-
-  /* KAĞIT KATMANLARINI dark'ta ez — aksi halde bg-paper/cream/sand bölümleri
-     açık zeminli kalıp açık metinle okunamaz hale geliyordu (kök sorun).
-     Açık temadaki "giderek koyulaşan" ton mantığını koyuda "giderek açılan"a çevirir;
-     bölümler arası derinlik korunur. */
-  --color-paper: #1c201f;
-  --color-cream: #1e2221;
-  --color-alabaster: #1e2221;
-  --color-sand: #232726;
-  --color-sand-2: #282d2c;
-}
-
 /* KOYU ADALAR — açık tema içindeki koyu bölümler (hero, kesit, galeri, lokasyon).
    Aksan otomatik açık petrole döner; alt öğeler CSS değişkenini miras alır. */
 .bg-ink,

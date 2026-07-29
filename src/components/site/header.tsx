@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
-import { ThemeToggle } from "./theme-toggle";
 import { SEGMENTS, type Dict } from "@/lib/dict";
 import { path, type Locale } from "@/lib/i18n";
 
@@ -68,7 +67,6 @@ export function Header({
         </nav>
 
         <div className="flex items-center gap-4">
-          <ThemeToggle scrolled={scrolled} label={locale === "en" ? "Toggle theme" : "Tema değiştir"} />
           <div className={`hidden items-center text-xs font-semibold tracking-widest sm:flex ${scrolled ? "text-base/70" : "text-white/70"}`}>
             <Link href={swap("tr")} className={locale === "tr" ? "text-bronze" : scrolled ? "hover:text-base" : "hover:text-white"}>
               TR
