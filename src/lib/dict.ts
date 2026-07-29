@@ -70,13 +70,13 @@ const tr = {
     title: "Loft 777 — Gaziemir'de yeni nesil bir yaşam",
     intro: "Loft 777, Camsan Koparan Group A.Ş. tarafından İzmir Gaziemir'de geliştirilen, 237 daireli karma kullanımlı bir yaşam projesidir. Canlı çarşısı, havuzlu sosyal alanı ve modern 1+1 daireleriyle; konforu, ticareti ve sosyal yaşamı tek bir adreste buluşturur.",
     visionT: "Konsept",
-    visionD: "Altında çarşı, üstünde konut, ortasında havuzlu sosyal alan — günlük hayatın tamamını site içinde yaşayabileceğiniz bütünleşik bir yaşam kurgusu.",
+    visionD: "Ticaret zeminde, sosyal yaşam ortada, huzur en üstte. Günün tamamını tek adreste, aşağı inmeden yaşamak üzerine kurulu bütünleşik bir konsept.",
     missionT: "Yaklaşımımız",
     missionD: "Modern mimari, kaliteli işçilik ve fonksiyonel daire planlarını bir araya getirerek; hem keyifli bir yaşam hem de sağlam bir yatırım sunmak.",
     valuesT: "Öne Çıkanlar",
     values: [
       { t: "237 Daire", d: "Tamamı 1+1, iki farklı tip ve farklı cephe seçenekleriyle geniş bir yelpaze." },
-      { t: "Canlı Çarşı", d: "Market, kafe, restoran ve mağazalarla ayağınıza gelen ticaret ve hizmet." },
+      { t: "Canlı Çarşı", d: "Market, kafe, restoran ve mağazalar; kapından üç adım ötede günlük hayat." },
       { t: "Sosyal Yaşam", d: "Yüzme havuzu, geniş peyzaj alanları ve sosyal donatılar." },
       { t: "Güvenilir İmza", d: "Camsan Koparan Group A.Ş. güvencesiyle geliştirilen bir proje." },
     ],
@@ -98,7 +98,7 @@ const tr = {
   projectsPage: {
     kicker: "Daireler",
     title: "Loft 777 Daireleri",
-    intro: "Gaziemir'in merkezinde, modern 1+1 daireler ve canlı bir çarşı.",
+    intro: "Gaziemir'in merkezinde iki 1+1 tipi: tavanı yükselen loft ve kompakt dubleks. Altında ise gün boyu yaşayan bir çarşı.",
     ongoing: "Devam Eden Proje",
     completed: "Tamamlanan Projeler",
     soon: "Yeni projelerimiz çok yakında bu sayfada.",
@@ -106,11 +106,11 @@ const tr = {
   },
   services: {
     kicker: "Neden Loft 777?",
-    title1: "Yaşamı kolaylaştıran",
-    title2: "bir yaşam kurgusu.",
+    title1: "Günlük hayatı",
+    title2: "kolaylaştıran bir kurgu.",
     items: [
       { no: "01", t: "Merkezi Konum", d: "İzmir Gaziemir'de; ulaşım, alışveriş ve ana arterlere yakın değerli bir lokasyon." },
-      { no: "02", t: "Çarşı & Ticaret", d: "Market, kafe, restoran ve mağazalarıyla canlı bir çarşı; ayağınıza gelen hizmet." },
+      { no: "02", t: "Çarşı & Ticaret", d: "Market, kafe, restoran ve mağazalarıyla canlı bir çarşı; kapının önünde günlük hayat." },
       { no: "03", t: "Sosyal Donatılar", d: "Yüzme havuzu, geniş peyzaj alanları ve keyifli ortak yaşam alanları." },
       { no: "04", t: "1+1 Daireler", d: "Pratik ve modern; hem yaşamak hem de kira getirisi için ideal daire planları." },
     ],
@@ -122,9 +122,9 @@ const tr = {
     reasonsKicker: "Ayrıcalıklar",
     reasonsTitle: "Altı başlıkta Loft 777",
     reasons: [
-      { t: "Ayrıcalıklı Konum", d: "Adnan Menderes Havalimanı'na 5 dakika, İZBAN Sarnıç durağına yürüme mesafesi. Optimum AVM 3 dakika, otoban çıkışı 5 dakika." },
-      { t: "Loft Konsepti", d: "Zemin katların tamamı loft: galeri boşluğuyla 5,6 metreye ulaşan tavan yüksekliği, açık plan ve içeri dolan doğal ışık." },
-      { t: "Karma Yaşam", d: "Konut, çarşı, restoran ve ofis bir arada. Günlük ihtiyaçlar siteden çıkmadan, 4.200 m² yeşil alanın içinde karşılanır." },
+      { t: "Ayrıcalıklı Konum", d: "Adnan Menderes Havalimanı'na 5 dakika, İZBAN Sarnıç durağına yürüme mesafesi. Optimum Outlet 3 dakika, otoban çıkışı 5 dakika." },
+      { t: "Loft Konsepti", d: "Zemin katların tamamı loft: galeri boşluğuyla 5,5 metreye ulaşan tavan yüksekliği, açık plan ve içeri dolan doğal ışık." },
+      { t: "Karma Yaşam", d: "Konut, çarşı, kafe ve restoran bir arada. Günlük ihtiyaçlar siteden çıkmadan, 4.200 m² yeşil alanın içinde karşılanır." },
       { t: "Yapı Kalitesi", d: "Güncel deprem yönetmeliğine tam uyum, merkezi yerden ısıtma, VRF klima, çift cam Low-E ve akıllı ev altyapısı." },
       { t: "Yatırım Değeri", d: "%35 peşin, 18 ay 0 faiz vade; peşin ödemede %15 indirim. Planlanan teslim: Aralık 2027." },
       { t: "Camsan Koparan Güvencesi", d: "1998'den bu yana İzmir'de konut, ticari ve endüstriyel yapı geliştiren köklü bir grubun imzası." },
@@ -245,10 +245,10 @@ const tr = {
   },
   construction: {
     kicker: "İnşaat Durumu",
-    title1: "Şeffaf süreç,",
-    title2: "şeffaf ilerliyor.",
+    title1: "Açık süreç,",
+    title2: "düzenli paylaşım.",
     status: "Kaba İnşaat Aşamasında",
-    body: "İnşaatımız şu an kaba yapım aşamasında. Süreci şeffaf yürütüyor, ilerlemeyi düzenli olarak paylaşıyoruz.",
+    body: "İnşaat şu an kaba yapım aşamasında. İlerlemeyi düzenli olarak, hiçbir şeyi gizlemeden paylaşıyoruz.",
     steps: ["Temel & Kaba İnşaat", "İnce İşler", "Cephe & Peyzaj", "Teslim"],
     currentStep: 0,
     droneTitle: "Haftalık Drone Görüntüleri",
@@ -261,11 +261,11 @@ const tr = {
     items: [
       {
         q: "Proje hangi aşamada, teslim ne zaman?",
-        a: "Proje şu an kaba inşaat aşamasında. Net teslim tarihi için satış ekibimizle iletişime geçebilirsiniz.",
+        a: "Proje şu an kaba inşaat aşamasında; planlanan teslim tarihi Aralık 2027. Güncel takvim ve daire durumu için satış ekibimize ulaşabilirsiniz.",
       },
       {
         q: "Daire tipleri ve metrekareleri neler?",
-        a: "İki farklı 1+1 tipi var: çift yükseklik salonlu (5,5 m galeri boşluğu) ~82 m² Loft ve iki katlı 49 m² Dubleks. Kat planları için bizimle iletişime geçin.",
+        a: "İki farklı 1+1 tipi var: çift yükseklik salonlu (5,5 m tavan, 19 m² galeri boşluğu) ~82 m² Loft ve iki katlı 49 m² Dubleks. Kat planları için bizimle iletişime geçin.",
       },
       {
         q: "Fiyat bilgisini nasıl alabilirim?",
@@ -298,7 +298,7 @@ const tr = {
       { t: "Havalimanı", d: "Adnan Menderes Havalimanı'na 5 dk" },
       { t: "İZBAN", d: "İZBAN Sarnıç durağına 5 dk yürüme" },
       { t: "Otoyol", d: "Otoyol çıkışına 5 dk" },
-      { t: "Merkez", d: "İzmir merkezine 15 dk · Optimum AVM 3 dk" },
+      { t: "Merkez", d: "İzmir merkezine 15 dk · Optimum Outlet 3 dk" },
     ],
   },
   catalog: {
@@ -307,12 +307,12 @@ const tr = {
     hint: "Gezinmek için okları veya klavyeyi kullanın",
     pages: [
       { title: "Loft 777", caption: "Gaziemir'de yeni nesil karma yaşam — Tanıtım Kataloğu 2026", img: IMG.hero },
-      { title: "Proje Konsepti", caption: "Altında canlı çarşı, üstünde modern konut, ortasında havuzlu sosyal alan.", img: IMG.projHero },
+      { title: "Proje Konsepti", caption: "Otopark, çarşı, havuzlu avlu ve loft daireler; hepsi tek yapıda, dikey bir mahalle.", img: IMG.projHero },
       { title: "Lokasyon", caption: "İzmir Gaziemir — havalimanı, İZBAN ve ana arterlere yakın merkezi konum.", img: IMG.aerial },
       { title: "1+1 Daireler", caption: "İki farklı tipte, modern ve fonksiyonel 1+1 daireler.", img: IMG.d1 },
       { title: "İç Mekan", caption: "Akıllı planlı salon, açık mutfak ve şık bitiş malzemeleri.", img: IMG.d2 },
       { title: "Sosyal Yaşam", caption: "Yüzme havuzu, geniş peyzaj ve keyifli ortak yaşam alanları.", img: IMG.pool },
-      { title: "Çarşı & Ticaret", caption: "Market, kafe ve mağazalarla ayağınıza gelen canlı bir çarşı.", img: IMG.carsi },
+      { title: "Çarşı & Ticaret", caption: "Market, kafe ve mağazalarıyla gün boyu yaşayan bir çarşı.", img: IMG.carsi },
       { title: "İletişim", caption: "Gaziemir / İzmir — 0232 237 7 237 · info@camsankoparan.com", img: IMG.carsiCephe },
     ],
   },
@@ -357,10 +357,10 @@ const tr = {
   // KESİT — imza bölüm: projenin dikey istifi (aşağıdan yukarı)
   kesit: {
     kicker: "Kesit",
-    title1: "Aşağıda araç,",
-    title2: "ortada çarşı,",
-    title3: "yukarıda hacim.",
-    intro: "Loft 777 bir istif: otoparkın üstünde çarşı, çarşının üstünde havuzlu avlu, en üstte çift yükseklik daireler.",
+    title1: "Arabanı bırak,",
+    title2: "çarşıdan geç,",
+    title3: "loft'una çık.",
+    intro: "Loft 777 dikey bir mahalle: en altta kapalı otopark, ortada çarşı ve havuzlu avlu, en üstte 5,5 metre tavanlı loft daireler. Bütün bir hayat, aşağı inmeden elinin altında.",
     hint: "Katları görmek için kaydırın",
     layers: [
       {
@@ -555,8 +555,8 @@ const en: typeof tr = {
     reasonsTitle: "Loft 777 in six points",
     reasons: [
       { t: "Prime Location", d: "5 minutes to Adnan Menderes Airport, walking distance to the İZBAN Sarnıç stop. Optimum Mall 3 minutes, motorway junction 5 minutes." },
-      { t: "Loft Concept", d: "All ground floors are lofts: ceiling heights reaching 5.6 metres with the mezzanine void, open plans and natural light pouring in." },
-      { t: "Mixed-Use Living", d: "Housing, arcade, restaurant and office together. Daily needs met without leaving the complex, within 4,200 m² of green space." },
+      { t: "Loft Concept", d: "All ground floors are lofts: ceiling heights reaching 5.5 metres with the mezzanine void, open plans and natural light pouring in." },
+      { t: "Mixed-Use Living", d: "Housing, arcade, café and restaurant together. Daily needs met without leaving the complex, within 4,200 m² of green space." },
       { t: "Build Quality", d: "Full compliance with the current seismic code, central underfloor heating, VRF air conditioning, double-glazed Low-E and smart-home infrastructure." },
       { t: "Investment Value", d: "35% down payment, 18 months interest-free; 15% discount on full payment. Planned delivery: December 2027." },
       { t: "Camsan Koparan Assurance", d: "Backed by an established group developing residential, commercial and industrial buildings in Izmir since 1998." },
@@ -677,10 +677,10 @@ const en: typeof tr = {
   },
   construction: {
     kicker: "Construction Status",
-    title1: "A transparent process,",
-    title2: "moving forward transparently.",
+    title1: "An open process,",
+    title2: "shared regularly.",
     status: "Under Construction (Structural Phase)",
-    body: "Our construction is currently in the structural phase. We run the process transparently and share progress regularly.",
+    body: "Construction is currently in the structural phase. We share progress regularly and openly, holding nothing back.",
     steps: ["Foundation & Structure", "Interior Works", "Façade & Landscape", "Delivery"],
     currentStep: 0,
     droneTitle: "Weekly Drone Footage",
@@ -693,7 +693,7 @@ const en: typeof tr = {
     items: [
       {
         q: "What stage is the project at, and when is delivery?",
-        a: "The project is currently in the structural phase. Please contact our sales team for the exact delivery date.",
+        a: "The project is currently in the structural phase; the planned delivery date is December 2027. Contact our sales team for the current schedule and unit availability.",
       },
       {
         q: "What are the apartment types and sizes?",
@@ -785,10 +785,10 @@ const en: typeof tr = {
   },
   kesit: {
     kicker: "Section",
-    title1: "Cars below,",
-    title2: "the arcade between,",
-    title3: "volume above.",
-    intro: "Loft 777 is a stack: an arcade above the car park, a pool courtyard above the arcade, and double-height apartments on top.",
+    title1: "Park below,",
+    title2: "walk the arcade,",
+    title3: "rise to your loft.",
+    intro: "Loft 777 is a vertical neighbourhood: a closed car park at the bottom, an arcade and pool courtyard in the middle, and 5.5-metre-high loft apartments on top. A whole life within reach, without ever going down.",
     hint: "Scroll to reveal the levels",
     layers: [
       {

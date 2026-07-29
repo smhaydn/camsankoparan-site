@@ -180,7 +180,7 @@ const POSTS_TR: BlogPost[] = [
       { type: "h2", text: "Loft 777'de loft yaşam" },
       {
         type: "p",
-        text: "İzmir Gaziemir'de yükselen Loft 777, adını tam da bu yaşam biçiminden alıyor. Projede zemin katların tamamı loft daire olarak tasarlandı: galeri boşluğu ile birlikte 5,6 metreye ulaşan tavan yüksekliği, açık plan yaşam alanı ve doğal ışığı içeri taşıyan geniş camlar. Merkezi sistem yerden ısıtma ve VRF klima, yüksek hacmin konforunu güvence altına alıyor. Çift cam Low-E argon dolgulu cam sistemi ve 5 cm taş yünü ısı yalıtımı, loft yaşamın en çok merak edilen konusu olan enerji verimliliğini çözüyor.",
+        text: "İzmir Gaziemir'de yükselen Loft 777, adını tam da bu yaşam biçiminden alıyor. Projede zemin katların tamamı loft daire olarak tasarlandı: galeri boşluğu ile birlikte 5,5 metreye ulaşan tavan yüksekliği, açık plan yaşam alanı ve doğal ışığı içeri taşıyan geniş camlar. Merkezi sistem yerden ısıtma ve VRF klima, yüksek hacmin konforunu güvence altına alıyor. Çift cam Low-E argon dolgulu cam sistemi ve 5 cm taş yünü ısı yalıtımı, loft yaşamın en çok merak edilen konusu olan enerji verimliliğini çözüyor.",
       },
       {
         type: "quote",
@@ -210,7 +210,7 @@ const POSTS_TR: BlogPost[] = [
       },
       {
         q: "Loft dairelerde tavan yüksekliği kaç metredir?",
-        a: "Klasik dairelerde tavan yüksekliği genelde 2,7-3 metredir. Loft dairelerde ise galeri boşluğu ile birlikte bu yükseklik 5-6 metreye çıkabilir. Örneğin Loft 777 projesinde loft dairelerin tavan yüksekliği galeri boşluğuyla birlikte 5,6 metredir.",
+        a: "Klasik dairelerde tavan yüksekliği genelde 2,7-3 metredir. Loft dairelerde ise galeri boşluğu ile birlikte bu yükseklik 5-6 metreye çıkabilir. Örneğin Loft 777 projesinde loft dairelerin tavan yüksekliği galeri boşluğuyla birlikte 5,5 metredir.",
       },
     ],
   },
@@ -320,7 +320,7 @@ const POSTS_TR: BlogPost[] = [
     description:
       "Gaziemir'de satılık daire mi arıyorsunuz? Bölge avantajları, fiyat, ulaşım, yapı standartları ve ödeme koşulları — karar vermeden önce bilinmesi gereken 10 başlık.",
     excerpt:
-      "Havalimanına 5 dakika, İzban'a yürüme mesafesi... Gaziemir'de satılık daire ararken bölgeyi, fiyatı ve yapıyı değerlendirmenin 10 yolu.",
+      "Havalimanına 5 dakika, İZBAN'a yürüme mesafesi... Gaziemir'de satılık daire ararken bölgeyi, fiyatı ve yapıyı değerlendirmenin 10 yolu.",
     hero: "/renders/dis-cephe-cadde.jpg",
     date: "2026-07-28",
     updated: "2026-07-28",
@@ -328,7 +328,7 @@ const POSTS_TR: BlogPost[] = [
     blocks: [
       {
         type: "p",
-        text: "İzmir'de yatırım ya da oturum için bölge ararken Gaziemir son yılların öne çıkan adreslerinden biri. Havalimanına yakınlığı, İzban ulaşımı ve gelişen çevresiyle hem yatırımcının hem ailenin radarında. Bu yazıda, Gaziemir'de satılık daire ararken dikkat etmeniz gereken 10 başlığı dürüst bir gözle ele alıyoruz.",
+        text: "İzmir'de yatırım ya da oturum için bölge ararken Gaziemir son yılların öne çıkan adreslerinden biri. Havalimanına yakınlığı, İZBAN ulaşımı ve gelişen çevresiyle hem yatırımcının hem ailenin radarında. Bu yazıda, Gaziemir'de satılık daire ararken dikkat etmeniz gereken 10 başlığı dürüst bir gözle ele alıyoruz.",
       },
       { type: "h2", text: "1. Neden Gaziemir? Bölgenin yükselen değeri" },
       {
@@ -341,10 +341,10 @@ const POSTS_TR: BlogPost[] = [
         alt: "Gaziemir konut projesi — çarşı ve sosyal alanlar kuşbakışı",
         caption: "Gaziemir: konut, ticaret ve sosyal yaşamın bir arada geliştiği bir bölge.",
       },
-      { type: "h2", text: "2. Ulaşım: Havalimanı ve İzban avantajı" },
+      { type: "h2", text: "2. Ulaşım: Havalimanı ve İZBAN avantajı" },
       {
         type: "p",
-        text: "Gaziemir'in en güçlü kozu ulaşım. Adnan Menderes Havalimanı arabayla yaklaşık 5 dakika; sık seyahat edenler ve gurbetçiler için bu mesafe paha biçilmez. İzban Sarnıç hattı bölgeyi İzmir merkeze demiryoluyla bağlıyor — İzban durağına yürüme mesafesindeki bir konut, günlük ulaşımı trafiğe bağımlı olmaktan çıkarıyor. Otoban çıkışına yakınlık da şehir dışı bağlantıyı kolaylaştırıyor.",
+        text: "Gaziemir'in en güçlü kozu ulaşım. Adnan Menderes Havalimanı arabayla yaklaşık 5 dakika; sık seyahat edenler ve gurbetçiler için bu mesafe paha biçilmez. İZBAN Sarnıç hattı bölgeyi İzmir merkeze demiryoluyla bağlıyor — İZBAN durağına yürüme mesafesindeki bir konut, günlük ulaşımı trafiğe bağımlı olmaktan çıkarıyor. Otoban çıkışına yakınlık da şehir dışı bağlantıyı kolaylaştırıyor.",
       },
       { type: "h2", text: "3. Günlük yaşam: Alışveriş, sağlık, eğitim" },
       {
@@ -397,12 +397,12 @@ const POSTS_TR: BlogPost[] = [
       { type: "h2", text: "9. Yatırım getirisi: Kira ve değer artışı" },
       {
         type: "p",
-        text: "Gaziemir gibi gelişen bir bölgede yatırım getirisini iki kalemde düşünün: kira geliri ve değer artışı. Havalimanı ve İzban yakınlığı, kiralık talebini canlı tutar. Ön satışta alınan bir dairenin teslime kadar değer kazanması ise ikinci getiri kalemidir. Kompakt 1+1 ve loft daireler, giriş bütçesi düşük olduğu için kira/değer çarpanı açısından yatırımcıya avantaj sağlar.",
+        text: "Gaziemir gibi gelişen bir bölgede yatırım getirisini iki kalemde düşünün: kira geliri ve değer artışı. Havalimanı ve İZBAN yakınlığı, kiralık talebini canlı tutar. Ön satışta alınan bir dairenin teslime kadar değer kazanması ise ikinci getiri kalemidir. Kompakt 1+1 ve loft daireler, giriş bütçesi düşük olduğu için kira/değer çarpanı açısından yatırımcıya avantaj sağlar.",
       },
       { type: "h2", text: "10. Loft 777: Bütün kriterleri bir arada" },
       {
         type: "p",
-        text: "İzmir Gaziemir Dokuz Eylül Mahallesi'nde yükselen Loft 777, bu 10 başlığın hemen hepsini karşılayacak şekilde tasarlandı: Havalimanına 5 dakika, İzban Sarnıç durağına yürüme mesafesi. 5 blok, 237 bağımsız bölüm, 1+1 ve 1+1 loft daireler. Yüzme havuzu, fitness, site içi restoran, çocuk oyun alanı ve 4.200 m² yeşil alan. Güncel deprem yönetmeliğine tam uyum, merkezi sistem yerden ısıtma, VRF klima ve akıllı ev altyapısı. %35 peşin ve 18 ay faizsiz vade; peşin ödemede %15 indirim. Teslim tarihi Aralık 2027.",
+        text: "İzmir Gaziemir Dokuz Eylül Mahallesi'nde yükselen Loft 777, bu 10 başlığın hemen hepsini karşılayacak şekilde tasarlandı: Havalimanına 5 dakika, İZBAN Sarnıç durağına yürüme mesafesi. 5 blok, 237 bağımsız bölüm; 1+1 loft ve 1+1 dubleks daireler. Yüzme havuzu, fitness, site içi restoran, çocuk oyun alanı ve 4.200 m² yeşil alan. Güncel deprem yönetmeliğine tam uyum, merkezi sistem yerden ısıtma, VRF klima ve akıllı ev altyapısı. %35 peşin ve 18 ay faizsiz vade; peşin ödemede %15 indirim. Teslim tarihi Aralık 2027.",
       },
       {
         type: "quote",
