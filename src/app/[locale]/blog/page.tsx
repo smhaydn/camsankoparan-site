@@ -75,7 +75,7 @@ export default async function BlogListPage({
                 <Reveal key={post.slug} delay={i * 0.08}>
                   <Link
                     href={href}
-                    className="group flex h-full flex-col overflow-hidden rounded-sm border border-line bg-card shadow-sm transition hover:shadow-2xl"
+                    className="group flex h-full flex-col overflow-hidden border border-line bg-card transition-colors duration-500 hover:bg-sand"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <CoverImage

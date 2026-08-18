@@ -294,7 +294,7 @@ export default async function BlogDetailPage({
                 <Reveal key={rp.slug} delay={i * 0.08}>
                   <Link
                     href={path(locale, `${SEGMENTS.blog}/${rp.slug}`)}
-                    className="group flex overflow-hidden rounded-sm border border-line bg-card shadow-sm transition hover:shadow-xl"
+                    className="group flex overflow-hidden border border-line bg-card transition-colors duration-500 hover:bg-sand"
                   >
                     <div className="relative aspect-square w-32 shrink-0 overflow-hidden sm:w-44">
                       <CoverImage

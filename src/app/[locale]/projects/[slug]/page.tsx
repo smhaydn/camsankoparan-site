@@ -99,7 +99,7 @@ export default async function ProjectDetail({
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {pr.units.map((u, i) => (
               <Reveal key={u.type} delay={i * 0.08}>
-                <div className="group overflow-hidden rounded-sm bg-card shadow-sm transition hover:shadow-xl">
+                <div className="group overflow-hidden border border-line bg-card transition-colors duration-500 hover:bg-sand">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <CoverImage
                       src={u.img}

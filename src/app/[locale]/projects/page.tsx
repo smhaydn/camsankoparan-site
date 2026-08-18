@@ -47,7 +47,7 @@ export default async function ProjectsPage({
           <Reveal>
             <Link
               href={href}
-              className="group grid overflow-hidden rounded-sm border border-line bg-card shadow-sm transition hover:shadow-2xl lg:grid-cols-2"
+              className="group grid overflow-hidden border border-line bg-card transition-colors duration-500 hover:bg-sand lg:grid-cols-2"
             >
               <div className="relative aspect-[16/11] overflow-hidden lg:aspect-auto">
                 <CoverImage
