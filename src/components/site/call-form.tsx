@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import type { Dict } from "@/lib/dict";
 import { trackLead } from "@/lib/track";
 
 export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formExtra"] }) {
   const [open, setOpen] = useState(false);
+  // KVKK metni linki — form dil bilgisi almadigi icin adresten turetiliyor
+  const pathname = usePathname();
+  const kvkkHref = `/${pathname?.split("/")[1] === "en" ? "en" : "tr"}/kvkk`;
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [form, setForm] = useState({
     name: "",
@@ -165,7 +170,12 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
                       }}
                       className="mt-0.5 accent-bronze"
                     />
-                    <span>{extra.kvkkText}</span>
+                    <span>
+                      {extra.kvkkText}{" "}
+                      <Link href={kvkkHref} target="_blank" className="underline decoration-line underline-offset-2 transition hover:text-accent">
+                        {extra.kvkkLink}
+                      </Link>
+                    </span>
                   </label>
                   {kvkkErr && <p className="text-xs text-red-400">{extra.kvkkRequired}</p>}
 

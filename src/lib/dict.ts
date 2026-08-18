@@ -173,9 +173,19 @@ const tr = {
         { label: "0232 237 7 237", href: "tel:+902322377237" },
         { label: "info@camsankoparan.com", href: "mailto:info@camsankoparan.com" },
       ] },
+      { title: "Yasal", links: [
+        { label: "KVKK Aydınlatma Metni", href: "kvkk" },
+        { label: "Gizlilik Politikası", href: "gizlilik" },
+        { label: "Çerez Politikası", href: "cerez-politikasi" },
+      ] },
     ],
     rights: "Tüm hakları saklıdır.",
     credit: "Tasarım & Yönetim",
+  },
+  legal: {
+    updated: "Son güncelleme",
+    other: "Diğer Yasal Metinler",
+    names: { kvkk: "KVKK Aydınlatma Metni", privacy: "Gizlilik Politikası", cookies: "Çerez Politikası" },
   },
   callForm: {
     tab: "Sizi Arayalım",
@@ -206,6 +216,7 @@ const tr = {
     ],
     kvkkText:
       "Kişisel verilerimin, benimle iletişime geçilmesi amacıyla işlenmesine onay veriyorum.",
+    kvkkLink: "KVKK Aydınlatma Metni'ni okudum.",
     kvkkRequired: "Devam etmek için onay kutusunu işaretleyin.",
   },
   gallery: {
@@ -422,6 +433,18 @@ const tr = {
       title: "Neden Loft 777 — Gaziemir'de Yatırımlık 1+1 Daire",
       description: "Havalimanına 9 dk, İZBAN'a 800 m, çift yükseklik loft mimarisi ve canlı çarşı. Loft 777'yi Gaziemir'de öne çıkaran nedenler.",
     },
+    kvkk: {
+      title: "KVKK Aydınlatma Metni | Loft 777 — Camsan Koparan Group",
+      description: "Camsan Koparan Group A.Ş. olarak kişisel verilerinizi hangi amaçla işlediğimizi, kimlere aktardığımızı ve 6698 sayılı Kanun kapsamındaki haklarınızı açıklar.",
+    },
+    privacy: {
+      title: "Gizlilik Politikası | Loft 777 — Camsan Koparan Group",
+      description: "camsankoparan.com'da hangi bilgileri topladığımızı, nasıl kullandığımızı, kimlerle paylaştığımızı ve nasıl koruduğumuzu açıklar.",
+    },
+    cookies: {
+      title: "Çerez Politikası | Loft 777 — Camsan Koparan Group",
+      description: "Sitemizde kullanılan zorunlu, analitik ve pazarlama çerezleri; Google Analytics ve Meta Pixel kullanımı ve çerezleri kapatma yolları.",
+    },
     contact: {
       title: "İletişim — Loft 777 Satış Ofisi, Gaziemir",
       description: "Loft 777 satış ofisi: Dokuz Eylül Mah. 694 Sok. No:5, Gaziemir/İzmir · 0232 237 7 237. Fiyat ve kat planı için bize ulaşın.",
@@ -605,9 +628,19 @@ const en: typeof tr = {
         { label: "+90 232 237 7 237", href: "tel:+902322377237" },
         { label: "info@camsankoparan.com", href: "mailto:info@camsankoparan.com" },
       ] },
+      { title: "Legal", links: [
+        { label: "Data Protection Notice", href: "kvkk" },
+        { label: "Privacy Policy", href: "gizlilik" },
+        { label: "Cookie Policy", href: "cerez-politikasi" },
+      ] },
     ],
     rights: "All rights reserved.",
     credit: "Design & Management",
+  },
+  legal: {
+    updated: "Last updated",
+    other: "Other Legal Documents",
+    names: { kvkk: "Personal Data Protection Notice", privacy: "Privacy Policy", cookies: "Cookie Policy" },
   },
   callForm: {
     tab: "Call Me Back",
@@ -638,6 +671,7 @@ const en: typeof tr = {
     ],
     kvkkText:
       "I consent to the processing of my personal data for the purpose of being contacted.",
+    kvkkLink: "I have read the Personal Data Protection Notice.",
     kvkkRequired: "Please check the consent box to continue.",
   },
   gallery: {
@@ -849,6 +883,18 @@ const en: typeof tr = {
     services: {
       title: "Why Loft 777 — Investment 1+1 Apartments in Gaziemir",
       description: "9 min to the airport, 800 m to İZBAN, double-height loft architecture and a lively arcade. What sets Loft 777 apart in Gaziemir, Izmir.",
+    },
+    kvkk: {
+      title: "Personal Data Protection Notice | Loft 777 — Camsan Koparan",
+      description: "How Camsan Koparan Group Inc. processes your personal data, whom we share it with, and your rights under Turkish Law No. 6698.",
+    },
+    privacy: {
+      title: "Privacy Policy | Loft 777 — Camsan Koparan Group",
+      description: "What information camsankoparan.com collects, how we use it, whom we share it with and how we keep it secure.",
+    },
+    cookies: {
+      title: "Cookie Policy | Loft 777 — Camsan Koparan Group",
+      description: "Strictly necessary, analytics and marketing cookies on our site; our use of Google Analytics and Meta Pixel, and how to turn cookies off.",
     },
     contact: {
       title: "Contact — Loft 777 Sales Office, Gaziemir",
