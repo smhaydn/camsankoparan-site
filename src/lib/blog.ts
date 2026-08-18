@@ -320,7 +320,7 @@ const POSTS_TR: BlogPost[] = [
     description:
       "Gaziemir'de satılık daire mi arıyorsunuz? Bölge avantajları, fiyat, ulaşım, yapı standartları ve ödeme koşulları — karar vermeden önce bilinmesi gereken 10 başlık.",
     excerpt:
-      "Havalimanına 5 dakika, İZBAN'a yürüme mesafesi... Gaziemir'de satılık daire ararken bölgeyi, fiyatı ve yapıyı değerlendirmenin 10 yolu.",
+      "Havalimanına 9 dakika, İZBAN Sarnıç durağına 800 metre... Gaziemir'de satılık daire ararken bölgeyi, fiyatı ve yapıyı değerlendirmenin 10 yolu.",
     hero: "/renders/dis-cephe-cadde.jpg",
     date: "2026-07-28",
     updated: "2026-07-28",
@@ -344,7 +344,7 @@ const POSTS_TR: BlogPost[] = [
       { type: "h2", text: "2. Ulaşım: Havalimanı ve İZBAN avantajı" },
       {
         type: "p",
-        text: "Gaziemir'in en güçlü kozu ulaşım. Adnan Menderes Havalimanı arabayla yaklaşık 5 dakika; sık seyahat edenler ve gurbetçiler için bu mesafe paha biçilmez. İZBAN Sarnıç hattı bölgeyi İzmir merkeze demiryoluyla bağlıyor — İZBAN durağına yürüme mesafesindeki bir konut, günlük ulaşımı trafiğe bağımlı olmaktan çıkarıyor. Otoban çıkışına yakınlık da şehir dışı bağlantıyı kolaylaştırıyor.",
+        text: "Gaziemir'in en güçlü kozu ulaşım. Adnan Menderes Havalimanı arabayla yaklaşık 9 dakika; sık seyahat edenler ve gurbetçiler için bu mesafe paha biçilmez. İZBAN Sarnıç hattı bölgeyi İzmir merkeze demiryoluyla bağlıyor — İZBAN durağına 800 metre mesafedeki bir konut, günlük ulaşımı trafiğe bağımlı olmaktan çıkarıyor. Otoban çıkışına yakınlık da şehir dışı bağlantıyı kolaylaştırıyor.",
       },
       { type: "h2", text: "3. Günlük yaşam: Alışveriş, sağlık, eğitim" },
       {
@@ -402,7 +402,7 @@ const POSTS_TR: BlogPost[] = [
       { type: "h2", text: "10. Loft 777: Bütün kriterleri bir arada" },
       {
         type: "p",
-        text: "İzmir Gaziemir Dokuz Eylül Mahallesi'nde yükselen Loft 777, bu 10 başlığın hemen hepsini karşılayacak şekilde tasarlandı: Havalimanına 5 dakika, İZBAN Sarnıç durağına yürüme mesafesi. 5 blok, 237 bağımsız bölüm; 1+1 loft ve 1+1 dubleks daireler. Yüzme havuzu, fitness, site içi restoran, çocuk oyun alanı ve 4.200 m² yeşil alan. Güncel deprem yönetmeliğine tam uyum, merkezi sistem yerden ısıtma, VRF klima ve akıllı ev altyapısı. %35 peşin ve 18 ay faizsiz vade; peşin ödemede %15 indirim. Teslim tarihi Aralık 2027.",
+        text: "İzmir Gaziemir Dokuz Eylül Mahallesi'nde yükselen Loft 777, bu 10 başlığın hemen hepsini karşılayacak şekilde tasarlandı: Havalimanına 9 dakika, İZBAN Sarnıç durağına 800 metre. 5 blok, 237 bağımsız bölüm; 1+1 loft ve 1+1 dubleks daireler. Yüzme havuzu, fitness, site içi restoran, çocuk oyun alanı ve 4.200 m² yeşil alan. Güncel deprem yönetmeliğine tam uyum, merkezi sistem yerden ısıtma, VRF klima ve akıllı ev altyapısı. %35 peşin ve 18 ay faizsiz vade; peşin ödemede %15 indirim. Teslim tarihi Aralık 2027.",
       },
       {
         type: "quote",
@@ -420,7 +420,7 @@ const POSTS_TR: BlogPost[] = [
       },
       {
         q: "Gaziemir havalimanına ne kadar uzaklıkta?",
-        a: "Gaziemir, Adnan Menderes Havalimanı'na komşu ilçedir; havalimanına araçla yaklaşık 5 dakika mesafededir. Bu yakınlık, sık seyahat edenler ve yurt dışında yaşayan yatırımcılar için önemli bir avantaj sağlar.",
+        a: "Gaziemir, Adnan Menderes Havalimanı'na komşu ilçedir; havalimanına araçla yaklaşık 9 dakika mesafededir. Bu yakınlık, sık seyahat edenler ve yurt dışında yaşayan yatırımcılar için önemli bir avantaj sağlar.",
       },
       {
         q: "Gaziemir denize yakın mı?",
@@ -657,7 +657,7 @@ const POSTS_EN: BlogPost[] = [
     description:
       "Looking for an apartment for sale in Gaziemir, Izmir? Area advantages, price, transport, build standards and payment terms — 10 things to know before you decide.",
     excerpt:
-      "Five minutes to the airport, walking distance to the rail line. Ten ways to assess the area, the price and the build when buying in Gaziemir.",
+      "Nine minutes to the airport, 800 m to the rail line. Ten ways to assess the area, the price and the build when buying in Gaziemir.",
     hero: "/renders/dis-cephe-cadde.jpg",
     date: "2026-07-28",
     updated: "2026-07-28",
@@ -681,7 +681,7 @@ const POSTS_EN: BlogPost[] = [
       { type: "h2", text: "2. Transport: airport and rail advantage" },
       {
         type: "p",
-        text: "Gaziemir's strongest card is transport. Adnan Menderes Airport is around 5 minutes by car; for frequent travellers and expatriates this distance is priceless. The İZBAN Sarnıç line connects the area to central Izmir by rail — a home within walking distance of the İZBAN stop takes daily commuting out of traffic dependence. Proximity to the motorway junction also eases intercity connections.",
+        text: "Gaziemir's strongest card is transport. Adnan Menderes Airport is around 9 minutes by car; for frequent travellers and expatriates this distance is priceless. The İZBAN Sarnıç line connects the area to central Izmir by rail — a home 800 m from the İZBAN stop takes daily commuting out of traffic dependence. Proximity to the motorway junction also eases intercity connections.",
       },
       { type: "h2", text: "3. Daily life: shopping, health, education" },
       {
@@ -739,7 +739,7 @@ const POSTS_EN: BlogPost[] = [
       { type: "h2", text: "10. Loft 777: all criteria in one" },
       {
         type: "p",
-        text: "Rising in Izmir Gaziemir, Dokuz Eylül district, Loft 777 is designed to meet almost all of these 10 points: 5 minutes to the airport, walking distance to the İZBAN Sarnıç stop. 5 blocks, 237 units, 1+1 and 1+1 loft apartments. A swimming pool, fitness, on-site restaurant, children's play area and 4,200 m² of green space. Full compliance with the current seismic code, central underfloor heating, VRF air conditioning and smart-home infrastructure. 35% down payment and 18 months interest-free instalments; 15% discount on full payment. Delivery in December 2027.",
+        text: "Rising in Izmir Gaziemir, Dokuz Eylül district, Loft 777 is designed to meet almost all of these 10 points: 9 minutes to the airport, 800 m to the İZBAN Sarnıç stop. 5 blocks, 237 units, 1+1 and 1+1 loft apartments. A swimming pool, fitness, on-site restaurant, children's play area and 4,200 m² of green space. Full compliance with the current seismic code, central underfloor heating, VRF air conditioning and smart-home infrastructure. 35% down payment and 18 months interest-free instalments; 15% discount on full payment. Delivery in December 2027.",
       },
       {
         type: "quote",
@@ -757,7 +757,7 @@ const POSTS_EN: BlogPost[] = [
       },
       {
         q: "How far is Gaziemir from the airport?",
-        a: "Gaziemir is the district neighbouring Adnan Menderes Airport; the airport is about 5 minutes away by car. This proximity is a major advantage for frequent travellers and investors living abroad.",
+        a: "Gaziemir is the district neighbouring Adnan Menderes Airport; the airport is about 9 minutes away by car. This proximity is a major advantage for frequent travellers and investors living abroad.",
       },
       {
         q: "Is Gaziemir close to the sea?",
