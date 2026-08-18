@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./logo";
+import { ConsentLink } from "./consent-link";
 import { path, type Locale } from "@/lib/i18n";
 import type { Dict } from "@/lib/dict";
 
@@ -20,6 +21,14 @@ export function Footer({ t, locale }: { t: Dict["footer"]; locale: Locale }) {
                 </h4>
                 <ul className="space-y-2.5">
                   {c.links.map((l) => {
+                    // "#consent" gerçek bir sayfa değil — çerez tercih kutusunu açar
+                    if (l.href === "#consent") {
+                      return (
+                        <li key={l.label}>
+                          <ConsentLink label={l.label} />
+                        </li>
+                      );
+                    }
                     const external = /^(tel:|mailto:|https?:)/.test(l.href);
                     const href = external ? l.href : path(locale, l.href);
                     return (

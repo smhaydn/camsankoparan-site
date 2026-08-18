@@ -9,6 +9,7 @@ import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { CatalogProvider } from "@/components/site/catalog-provider";
 import { PresencePinger } from "@/components/site/presence-pinger";
 import { TrackingScripts } from "@/components/site/tracking-scripts";
+import { CookieConsent } from "@/components/site/cookie-consent";
 import { getSettings } from "@/lib/supabase-admin";
 import { JsonLd } from "@/components/site/json-ld";
 
@@ -51,6 +52,7 @@ export default async function LocaleLayout({
       </CatalogProvider>
       <Footer t={d.footer} locale={locale} />
       <WhatsAppButton phone={d.contactPage.phone} message={waMessage} />
+      <CookieConsent t={d.cookieBanner} locale={locale} />
     </div>
   );
 }

@@ -122,7 +122,7 @@ const tr = {
     reasonsKicker: "Ayrıcalıklar",
     reasonsTitle: "Altı başlıkta Loft 777",
     reasons: [
-      { t: "Ayrıcalıklı Konum", d: "Adnan Menderes Havalimanı'na 5 dakika, İZBAN Sarnıç durağına yürüme mesafesi. Optimum Outlet 3 dakika, otoban çıkışı 5 dakika." },
+      { t: "Ayrıcalıklı Konum", d: "Adnan Menderes Havalimanı'na 9 dakika, İZBAN Sarnıç durağı 800 metre. Optimum Outlet 4 dakika, otoban çıkışı 5 dakika." },
       { t: "Loft Konsepti", d: "Zemin katların tamamı loft: galeri boşluğuyla 5,5 metreye ulaşan tavan yüksekliği, açık plan ve içeri dolan doğal ışık." },
       { t: "Karma Yaşam", d: "Konut, çarşı, kafe ve restoran bir arada. Günlük ihtiyaçlar siteden çıkmadan, 4.200 m² yeşil alanın içinde karşılanır." },
       { t: "Yapı Kalitesi", d: "Güncel deprem yönetmeliğine tam uyum, merkezi yerden ısıtma, VRF klima, çift cam Low-E ve akıllı ev altyapısı." },
@@ -173,9 +173,35 @@ const tr = {
         { label: "0232 237 7 237", href: "tel:+902322377237" },
         { label: "info@camsankoparan.com", href: "mailto:info@camsankoparan.com" },
       ] },
+      { title: "Yasal", links: [
+        { label: "KVKK Aydınlatma Metni", href: "kvkk" },
+        { label: "Gizlilik Politikası", href: "gizlilik" },
+        { label: "Çerez Politikası", href: "cerez-politikasi" },
+        { label: "Çerez Tercihleri", href: "#consent" },
+      ] },
     ],
     rights: "Tüm hakları saklıdır.",
     credit: "Tasarım & Yönetim",
+  },
+  cookieBanner: {
+    title: "Çerez tercihiniz",
+    body: "Zorunlu çerezleri kullanıyoruz. Ölçüm ve reklam çerezleri ise yalnızca izin verirseniz çalışır.",
+    policyLink: "Çerez Politikası",
+    acceptAll: "Tümünü Kabul Et",
+    rejectAll: "Tümünü Reddet",
+    customise: "Tercihlerimi seçeyim →",
+    save: "Tercihimi Kaydet",
+    necessary: "Zorunlu",
+    necessaryDesc: "Site çalışsın diye gerekli; kapatılamaz.",
+    analytics: "Analitik",
+    analyticsDesc: "Hangi sayfaların ilgi gördüğünü görürüz (Google Analytics).",
+    marketing: "Pazarlama",
+    marketingDesc: "Reklam sonuçlarını ölçer (Meta, Google).",
+  },
+  legal: {
+    updated: "Son güncelleme",
+    other: "Diğer Yasal Metinler",
+    names: { kvkk: "KVKK Aydınlatma Metni", privacy: "Gizlilik Politikası", cookies: "Çerez Politikası" },
   },
   callForm: {
     tab: "Sizi Arayalım",
@@ -206,6 +232,7 @@ const tr = {
     ],
     kvkkText:
       "Kişisel verilerimin, benimle iletişime geçilmesi amacıyla işlenmesine onay veriyorum.",
+    kvkkLink: "KVKK Aydınlatma Metni'ni okudum.",
     kvkkRequired: "Devam etmek için onay kutusunu işaretleyin.",
   },
   gallery: {
@@ -295,10 +322,10 @@ const tr = {
     lat: 38.31779893739998,
     lng: 27.144827354238817,
     points: [
-      { t: "Havalimanı", d: "Adnan Menderes Havalimanı'na 5 dk" },
-      { t: "İZBAN", d: "İZBAN Sarnıç durağına 5 dk yürüme" },
+      { t: "Havalimanı", d: "Adnan Menderes Havalimanı'na 9 dk" },
+      { t: "İZBAN", d: "İZBAN Sarnıç durağı 800 m" },
       { t: "Otoyol", d: "Otoyol çıkışına 5 dk" },
-      { t: "Merkez", d: "İzmir merkezine 15 dk · Optimum Outlet 3 dk" },
+      { t: "Merkez", d: "İzmir merkezine 22 dk · Optimum Outlet 4 dk" },
     ],
   },
   catalog: {
@@ -420,7 +447,19 @@ const tr = {
     },
     services: {
       title: "Neden Loft 777 — Gaziemir'de Yatırımlık 1+1 Daire",
-      description: "Havalimanına 5 dk, İZBAN'a 5 dk, çift yükseklik loft mimarisi ve canlı çarşı. Loft 777'yi Gaziemir'de öne çıkaran nedenler.",
+      description: "Havalimanına 9 dk, İZBAN'a 800 m, çift yükseklik loft mimarisi ve canlı çarşı. Loft 777'yi Gaziemir'de öne çıkaran nedenler.",
+    },
+    kvkk: {
+      title: "KVKK Aydınlatma Metni | Loft 777 — Camsan Koparan Group",
+      description: "Camsan Koparan Group A.Ş. olarak kişisel verilerinizi hangi amaçla işlediğimizi, kimlere aktardığımızı ve 6698 sayılı Kanun kapsamındaki haklarınızı açıklar.",
+    },
+    privacy: {
+      title: "Gizlilik Politikası | Loft 777 — Camsan Koparan Group",
+      description: "camsankoparan.com'da hangi bilgileri topladığımızı, nasıl kullandığımızı, kimlerle paylaştığımızı ve nasıl koruduğumuzu açıklar.",
+    },
+    cookies: {
+      title: "Çerez Politikası | Loft 777 — Camsan Koparan Group",
+      description: "Sitemizde kullanılan zorunlu, analitik ve pazarlama çerezleri; Google Analytics ve Meta Pixel kullanımı ve çerezleri kapatma yolları.",
     },
     contact: {
       title: "İletişim — Loft 777 Satış Ofisi, Gaziemir",
@@ -554,7 +593,7 @@ const en: typeof tr = {
     reasonsKicker: "Advantages",
     reasonsTitle: "Loft 777 in six points",
     reasons: [
-      { t: "Prime Location", d: "5 minutes to Adnan Menderes Airport, walking distance to the İZBAN Sarnıç stop. Optimum Mall 3 minutes, motorway junction 5 minutes." },
+      { t: "Prime Location", d: "9 minutes to Adnan Menderes Airport, 800 m to the İZBAN Sarnıç stop. Optimum Mall 4 minutes, motorway junction 5 minutes." },
       { t: "Loft Concept", d: "All ground floors are lofts: ceiling heights reaching 5.5 metres with the mezzanine void, open plans and natural light pouring in." },
       { t: "Mixed-Use Living", d: "Housing, arcade, café and restaurant together. Daily needs met without leaving the complex, within 4,200 m² of green space." },
       { t: "Build Quality", d: "Full compliance with the current seismic code, central underfloor heating, VRF air conditioning, double-glazed Low-E and smart-home infrastructure." },
@@ -605,9 +644,35 @@ const en: typeof tr = {
         { label: "+90 232 237 7 237", href: "tel:+902322377237" },
         { label: "info@camsankoparan.com", href: "mailto:info@camsankoparan.com" },
       ] },
+      { title: "Legal", links: [
+        { label: "Data Protection Notice", href: "kvkk" },
+        { label: "Privacy Policy", href: "gizlilik" },
+        { label: "Cookie Policy", href: "cerez-politikasi" },
+        { label: "Cookie Preferences", href: "#consent" },
+      ] },
     ],
     rights: "All rights reserved.",
     credit: "Design & Management",
+  },
+  cookieBanner: {
+    title: "Your cookie choice",
+    body: "We use strictly necessary cookies. Measurement and advertising cookies run only if you allow them.",
+    policyLink: "Cookie Policy",
+    acceptAll: "Accept All",
+    rejectAll: "Reject All",
+    customise: "Choose my preferences →",
+    save: "Save My Choice",
+    necessary: "Strictly necessary",
+    necessaryDesc: "Needed for the site to work; cannot be disabled.",
+    analytics: "Analytics",
+    analyticsDesc: "Shows which pages draw interest (Google Analytics).",
+    marketing: "Marketing",
+    marketingDesc: "Measures advertising results (Meta, Google).",
+  },
+  legal: {
+    updated: "Last updated",
+    other: "Other Legal Documents",
+    names: { kvkk: "Personal Data Protection Notice", privacy: "Privacy Policy", cookies: "Cookie Policy" },
   },
   callForm: {
     tab: "Call Me Back",
@@ -638,6 +703,7 @@ const en: typeof tr = {
     ],
     kvkkText:
       "I consent to the processing of my personal data for the purpose of being contacted.",
+    kvkkLink: "I have read the Personal Data Protection Notice.",
     kvkkRequired: "Please check the consent box to continue.",
   },
   gallery: {
@@ -727,10 +793,10 @@ const en: typeof tr = {
     lat: 38.31779893739998,
     lng: 27.144827354238817,
     points: [
-      { t: "Airport", d: "5 min to Adnan Menderes Airport" },
-      { t: "İZBAN", d: "5 min walk to İZBAN Sarnıç station" },
+      { t: "Airport", d: "9 min to Adnan Menderes Airport" },
+      { t: "İZBAN", d: "800 m to İZBAN Sarnıç station" },
       { t: "Highway", d: "5 min to the highway exit" },
-      { t: "Centre", d: "15 min to Izmir centre · Optimum Mall 3 min" },
+      { t: "Centre", d: "22 min to Izmir centre · Optimum Mall 4 min" },
     ],
   },
   catalog: {
@@ -848,7 +914,19 @@ const en: typeof tr = {
     },
     services: {
       title: "Why Loft 777 — Investment 1+1 Apartments in Gaziemir",
-      description: "5 min to the airport, 5 min to İZBAN, double-height loft architecture and a lively arcade. What sets Loft 777 apart in Gaziemir, Izmir.",
+      description: "9 min to the airport, 800 m to İZBAN, double-height loft architecture and a lively arcade. What sets Loft 777 apart in Gaziemir, Izmir.",
+    },
+    kvkk: {
+      title: "Personal Data Protection Notice | Loft 777 — Camsan Koparan",
+      description: "How Camsan Koparan Group Inc. processes your personal data, whom we share it with, and your rights under Turkish Law No. 6698.",
+    },
+    privacy: {
+      title: "Privacy Policy | Loft 777 — Camsan Koparan Group",
+      description: "What information camsankoparan.com collects, how we use it, whom we share it with and how we keep it secure.",
+    },
+    cookies: {
+      title: "Cookie Policy | Loft 777 — Camsan Koparan Group",
+      description: "Strictly necessary, analytics and marketing cookies on our site; our use of Google Analytics and Meta Pixel, and how to turn cookies off.",
     },
     contact: {
       title: "Contact — Loft 777 Sales Office, Gaziemir",

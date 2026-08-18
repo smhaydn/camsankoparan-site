@@ -12,7 +12,12 @@ const PATHS = [
   "/contact",
   "/blog",
   ...allBlogSlugs().map((s) => `/blog/${s}`),
+  // Yasal metinler — nadiren değişir, düşük öncelik
+  "/kvkk",
+  "/gizlilik",
+  "/cerez-politikasi",
 ];
+const LEGAL = new Set(["/kvkk", "/gizlilik", "/cerez-politikasi"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -23,15 +28,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: `${BASE}/tr${p}`,
       lastModified,
-      changeFrequency: "weekly",
-      priority: p === "" ? 1 : 0.8,
+      changeFrequency: LEGAL.has(p) ? "yearly" : "weekly",
+      priority: LEGAL.has(p) ? 0.2 : p === "" ? 1 : 0.8,
       alternates: { languages },
     });
     entries.push({
       url: `${BASE}/en${p}`,
       lastModified,
-      changeFrequency: "weekly",
-      priority: p === "" ? 0.9 : 0.7,
+      changeFrequency: LEGAL.has(p) ? "yearly" : "weekly",
+      priority: LEGAL.has(p) ? 0.2 : p === "" ? 0.9 : 0.7,
       alternates: { languages },
     });
   }

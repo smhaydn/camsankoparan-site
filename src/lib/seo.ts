@@ -7,7 +7,9 @@ import type { Locale } from "./i18n";
 
 const BASE = "https://camsankoparan.com";
 
-export type SeoKey = "home" | "about" | "projects" | "project" | "services" | "contact";
+export type SeoKey =
+  | "home" | "about" | "projects" | "project" | "services" | "contact"
+  | "kvkk" | "privacy" | "cookies";
 
 export function pageMeta(locale: Locale, key: SeoKey, segment: string): Metadata {
   const s = getDict(locale).seo[key];
