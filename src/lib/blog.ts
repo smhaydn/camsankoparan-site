@@ -503,10 +503,10 @@ const POSTS_TR: BlogPost[] = [
         type: "p",
         text: "Sarnıç mahallesinde çam ağaçlarıyla çevrili bir gölet bulunur; yürüyüş ve piknik için ilçe halkının kullandığı bir alandır. Gaziemir'in bu tarafı, sanayi imajının aksine sakin ve yeşildir. İlçenin güney ve batı kesimleri genel olarak daha düşük yoğunluklu, bahçeli yapılaşmaya sahiptir.",
       },
-      { type: "h2", text: "Sarnıç: ilçenin gelişen tarafı" },
+      { type: "h2", text: "Gaziemir'in gelişen tarafı" },
       {
         type: "p",
-        text: "Sarnıç, Gaziemir'in son yıllarda en çok konut yatırımı çeken bölgesi. Sebebi basit: İZBAN istasyonu, havalimanı yakınlığı ve hâlâ gelişmeye açık arsa stoğu bir arada. Bölgede hem eski müstakil yapılar hem yeni konut projeleri yan yana duruyor. Bu geçiş dönemi alıcı için avantaj da olabilir dezavantaj da — inşaat yoğunluğu bir süre daha devam edecek.",
+        text: "Gaziemir'de yeni konut yatırımı, ilçenin güney kesiminde — İZBAN hattı boyunca uzanan koridorda — yoğunlaşıyor. Sebebi basit: iki ayrı tren istasyonu, havalimanı yakınlığı ve hâlâ gelişmeye açık arsa stoğu bir arada. Bu koridorda hem eski müstakil yapılar hem yeni konut projeleri yan yana duruyor. Geçiş dönemi alıcı için avantaj da olabilir dezavantaj da — inşaat yoğunluğu bir süre daha devam edecek.",
       },
       { type: "h2", text: "Gaziemir kimler için uygun?" },
       {
@@ -538,11 +538,11 @@ const POSTS_TR: BlogPost[] = [
       { type: "h2", text: "Sonuç" },
       {
         type: "p",
-        text: "Gaziemir gösterişli bir ilçe değil; güçlü tarafı pratikliği. Havalimanı, raylı sistem, otoyol ve istihdam aynı yerde toplanmış durumda. Günlük hayatı trafik üzerine kurmak istemeyen, işini ve seyahatini kolaylaştırmak isteyen biri için Gaziemir mantıklı bir tercih. Sarnıç tarafı ise ilçenin bu avantajlarını hâlâ erişilebilir fiyatlarla sunan bölgesi olarak öne çıkıyor.",
+        text: "Gaziemir gösterişli bir ilçe değil; güçlü tarafı pratikliği. Havalimanı, raylı sistem, otoyol ve istihdam aynı yerde toplanmış durumda. Günlük hayatı trafik üzerine kurmak istemeyen, işini ve seyahatini kolaylaştırmak isteyen biri için Gaziemir mantıklı bir tercih. İlçe, bu avantajları İzmir'in merkez ilçelerine göre hâlâ erişilebilir fiyatlarla sunuyor.",
       },
       {
         type: "p",
-        text: "Loft 777, Gaziemir Sarnıç'ta bu avantajların kesiştiği noktada yükseliyor: İZBAN Sarnıç durağına 800 metre, havalimanına araçla 9 dakika, zemin katında kendi çarşısıyla 237 bağımsız bölümlük bir karma yaşam projesi.",
+        text: "Loft 777, Gaziemir'de bu avantajların kesiştiği noktada yükseliyor: Dokuz Eylül Mahallesi'nde, İZBAN Sarnıç durağına 800 metre, havalimanına araçla 9 dakika, zemin katında kendi çarşısıyla 237 bağımsız bölümlük bir karma yaşam projesi.",
       },
     ],
     faq: [
@@ -563,8 +563,8 @@ const POSTS_TR: BlogPost[] = [
         a: "İZBAN banliyö hattı ilçeden geçer ve Alsancak yönüne trafiğe girmeden ulaşım sağlar. Karayoluyla İzmir merkezine (Konak) yaklaşık 22 dakika sürer; trafik yoğunluğuna göre bu süre uzayabilir.",
       },
       {
-        q: "Sarnıç nasıl bir bölge?",
-        a: "Sarnıç, Gaziemir'in son yıllarda en çok konut yatırımı çeken bölgesidir. İZBAN istasyonu, havalimanı yakınlığı ve gelişmeye açık arsa stoğu bir aradadır. Çam ağaçlarıyla çevrili göleti yürüyüş ve piknik için kullanılır. Bölgede inşaat yoğunluğu bir süre daha devam edecektir.",
+        q: "Gaziemir'de yeni konut projeleri nerede yoğunlaşıyor?",
+        a: "Yeni konut yatırımı, ilçenin güney kesiminde İZBAN hattı boyunca uzanan koridorda yoğunlaşıyor. Bu koridorda iki tren istasyonu, havalimanı yakınlığı ve gelişmeye açık arsa stoğu bir aradadır. Bölgede inşaat yoğunluğu bir süre daha devam edecektir.",
       },
     ],
   },
@@ -698,14 +698,14 @@ const POSTS_TR: BlogPost[] = [
 
   // ── BLOG 6 — İZBAN Sarnıç (hedef: "izban sarnıç" + yerel ulaşım aramaları)
   {
-    slug: "izban-sarnic-ulasim-rehberi",
-    keyword: "izban sarnıç",
+    slug: "gaziemir-izban-ulasim-rehberi",
+    keyword: "gaziemir izban",
     category: "Ulaşım",
-    title: "İZBAN Sarnıç İstasyonu: Gaziemir'den Şehre Trafiksiz Ulaşım",
+    title: "Gaziemir'de İZBAN ile Ulaşım: Şehre Trafiğe Girmeden",
     description:
-      "İZBAN Sarnıç istasyonu nerede, hangi duraklar var, Alsancak'a kaç durak? Havalimanına tek durak mesafedeki Sarnıç'tan İzmir'e ulaşım rehberi.",
+      "Gaziemir'de İZBAN istasyonları nerede, Alsancak'a kaç durak, havalimanına nasıl gidilir? Gaziemir'den raylı sistemle İzmir ulaşım rehberi.",
     excerpt:
-      "Sarnıç, havalimanı istasyonunun bir önceki durağı. Alsancak'a dokuz durak, metroya iki ayrı aktarma noktası. Raylı sistemle yaşamak ne demek?",
+      "Gaziemir'de iki İZBAN istasyonu var ve havalimanı bir sonraki durak. Alsancak'a dokuz durak, metroya iki aktarma. Raylı sistemle yaşamak ne demek?",
     hero: "/renders/hava-carsi.jpg",
     date: "2026-08-19",
     updated: "2026-08-19",
@@ -713,30 +713,30 @@ const POSTS_TR: BlogPost[] = [
     blocks: [
       {
         type: "p",
-        text: "İzmir'de ev seçerken sorulması gereken sorulardan biri şu: işe giderken trafiğe mecbur musunuz? Cevap evetse, günlük hayatınızın bir bölümünü her sabah yeniden kumar oynayarak geçirirsiniz. Raylı sistem bu belirsizliği ortadan kaldırır — tren sabah da akşam da aynı süreyi alır. Bu yazıda Gaziemir Sarnıç'tan İZBAN ile ulaşımı anlatıyoruz.",
+        text: "İzmir'de ev seçerken sorulması gereken sorulardan biri şu: işe giderken trafiğe mecbur musunuz? Cevap evetse, günlük hayatınızın bir bölümünü her sabah yeniden kumar oynayarak geçirirsiniz. Raylı sistem bu belirsizliği ortadan kaldırır — tren sabah da akşam da aynı süreyi alır. Bu yazıda Gaziemir'den İZBAN ile ulaşımı anlatıyoruz.",
       },
       { type: "h2", text: "İZBAN nedir?" },
       {
         type: "p",
         text: "İZBAN, İzmir'in banliyö tren sistemidir. Kuzeyde Aliağa'dan güneyde Selçuk'a uzanan hat yaklaşık 136 kilometre uzunluğunda ve üzerinde 40 istasyon bulunuyor. Metro değil, banliyö hattıdır: durak aralıkları daha uzun, mesafeler daha büyüktür. İzmir'in bir ucundan diğerine trafiğe girmeden gitmenin en pratik yolu.",
       },
-      { type: "h2", text: "Sarnıç istasyonu hattın neresinde?" },
+      { type: "h2", text: "Gaziemir hattın neresinde?" },
       {
         type: "p",
         text: "Hattın güney kolunda, kuzeyden güneye doğru istasyonlar şöyle sıralanır: Şirinyer, Koşu, İnkılap, Semt Garajı, Esbaş, Gaziemir, Sarnıç, Adnan Menderes Havalimanı, Cumaovası, Develi, Tekeli...",
       },
       {
         type: "p",
-        text: "Buradaki en dikkat çekici ayrıntı şu: Sarnıç, Adnan Menderes Havalimanı istasyonunun hemen bir önceki durağıdır. Yani Sarnıç'tan havalimanına trenle tek durak mesafedesiniz. Valizle taksiye binmek, otopark aramak ya da trafiğe takılmak zorunda değilsiniz.",
+        text: "Gaziemir ilçesinin hattaki iki istasyonu Gaziemir ve Sarnıç'tır. Buradaki en dikkat çekici ayrıntı şu: Sarnıç istasyonundan sonraki durak doğrudan Adnan Menderes Havalimanı'dır. Yani ilçeden havalimanına trenle tek durak mesafedesiniz — valizle taksiye binmek, otopark aramak ya da trafiğe takılmak zorunda değilsiniz.",
       },
       {
         type: "quote",
-        text: "Sarnıç'tan havalimanına tek durak. İzmir'de bunu söyleyebilen çok az mahalle var.",
+        text: "Gaziemir'den havalimanına trenle tek durak. İzmir'de bunu söyleyebilen başka ilçe yok.",
       },
-      { type: "h2", text: "Sarnıç'tan şehir merkezine kaç durak?" },
+      { type: "h2", text: "Gaziemir'den şehir merkezine kaç durak?" },
       {
         type: "p",
-        text: "Sarnıç'tan Alsancak'a doğru gidildiğinde sırasıyla Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer ve Hilal istasyonları geçilir; Alsancak dokuzuncu duraktır. Konak, Alsancak'a çok yakındır ve buradan yürüyerek ya da kısa bir aktarmayla ulaşılır.",
+        text: "Sarnıç istasyonundan Alsancak'a doğru gidildiğinde sırasıyla Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer ve Hilal istasyonları geçilir; Alsancak dokuzuncu duraktır. Gaziemir istasyonundan binerseniz bu sayı sekize iner. Konak, Alsancak'a çok yakındır ve buradan yürüyerek ya da kısa bir aktarmayla ulaşılır.",
       },
       { type: "h2", text: "Metroya nereden aktarma yapılır?" },
       {
@@ -766,21 +766,21 @@ const POSTS_TR: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Loft 777, İZBAN Sarnıç istasyonuna 800 metre mesafededir. Havalimanı ise araçla dokuz dakika, trenle Sarnıç'tan tek durak uzaklıktadır.",
+        text: "Loft 777, Gaziemir'in Dokuz Eylül Mahallesi'nde yer alır ve en yakın İZBAN durağı olan Sarnıç istasyonuna 800 metre mesafededir. Havalimanı ise araçla dokuz dakika, trenle bir durak uzaklıktadır.",
       },
     ],
     faq: [
       {
-        q: "İZBAN Sarnıç istasyonu nerede?",
-        a: "Sarnıç istasyonu, İzmir'in Gaziemir ilçesinde, İZBAN hattının güney kolunda yer alır. Kuzeyinde Gaziemir istasyonu, güneyinde Adnan Menderes Havalimanı istasyonu bulunur.",
+        q: "Gaziemir'de hangi İZBAN istasyonları var?",
+        a: "Gaziemir ilçe sınırları içinde Gaziemir ve Sarnıç olmak üzere iki İZBAN istasyonu bulunur. Her ikisi de hattın güney kolundadır; Sarnıç'ın hemen güneyinde Adnan Menderes Havalimanı istasyonu yer alır.",
       },
       {
-        q: "Sarnıç'tan havalimanına nasıl gidilir?",
+        q: "Gaziemir'den havalimanına nasıl gidilir?",
         a: "İZBAN ile tek durak. Sarnıç istasyonu, Adnan Menderes Havalimanı istasyonunun hemen bir önceki durağıdır; güney yönüne giden trenle bir istasyon sonra havalimanına ulaşırsınız.",
       },
       {
-        q: "Sarnıç'tan Alsancak'a kaç durak var?",
-        a: "Sarnıç'tan kuzeye doğru sırasıyla Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer ve Hilal geçilir; Alsancak dokuzuncu istasyondur.",
+        q: "Gaziemir'den Alsancak'a kaç durak var?",
+        a: "Sarnıç istasyonundan kuzeye doğru sırasıyla Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer ve Hilal geçilir; Alsancak dokuzuncu istasyondur. Gaziemir istasyonundan binerseniz sekiz durak eder.",
       },
       {
         q: "İZBAN'dan metroya nereden aktarma yapılır?",
@@ -1195,10 +1195,10 @@ const POSTS_EN: BlogPost[] = [
         type: "p",
         text: "In the Sarnıç neighbourhood there is a pond ringed by pine trees, used by residents for walking and picnicking. Contrary to the district's industrial image, this side of Gaziemir is quiet and green. The southern and western parts are generally lower-density, with gardens.",
       },
-      { type: "h2", text: "Sarnıç: the growing side of the district" },
+      { type: "h2", text: "The growing side of the district" },
       {
         type: "p",
-        text: "Sarnıç has drawn the most residential investment in Gaziemir in recent years. The reason is simple: an İZBAN station, proximity to the airport and land still available for development, all in one place. Older detached houses and new residential projects stand side by side. That transition can work for a buyer or against one — construction activity will continue in the area for some time.",
+        text: "New residential investment in Gaziemir is concentrated in the south of the district, along the corridor the İZBAN line follows. The reason is simple: two rail stations, proximity to the airport and land still available for development, all in one place. Older detached houses and new residential projects stand side by side along it. That transition can work for a buyer or against one — construction activity will continue for some time.",
       },
       { type: "h2", text: "Who does Gaziemir suit?" },
       {
@@ -1230,11 +1230,11 @@ const POSTS_EN: BlogPost[] = [
       { type: "h2", text: "In summary" },
       {
         type: "p",
-        text: "Gaziemir is not a showy district; its strength is practicality. Airport, rail, motorway and employment are gathered in one place. For someone who would rather not build daily life around traffic, Gaziemir is a sensible choice — and Sarnıç is where those advantages are still available at accessible prices.",
+        text: "Gaziemir is not a showy district; its strength is practicality. Airport, rail, motorway and employment are gathered in one place. For someone who would rather not build daily life around traffic, Gaziemir is a sensible choice — and the district still offers those advantages at prices more accessible than Izmir's central areas.",
       },
       {
         type: "p",
-        text: "Loft 777 rises where those advantages meet, in Gaziemir Sarnıç: 800 m from the İZBAN Sarnıç stop, nine minutes by car from the airport, a 237-unit mixed-use project with its own arcade on the ground floor.",
+        text: "Loft 777 rises where those advantages meet, in Gaziemir: in the Dokuz Eylül neighbourhood, 800 m from the İZBAN Sarnıç stop, nine minutes by car from the airport, a 237-unit mixed-use project with its own arcade on the ground floor.",
       },
     ],
     faq: [
@@ -1255,8 +1255,8 @@ const POSTS_EN: BlogPost[] = [
         a: "The İZBAN commuter rail line runs through the district and reaches Alsancak without entering traffic. By road, central Izmir (Konak) is about 22 minutes away, longer in heavy traffic.",
       },
       {
-        q: "What is Sarnıç like?",
-        a: "Sarnıç has attracted the most residential investment in Gaziemir in recent years, combining an İZBAN station, airport proximity and land open to development. Its pine-ringed pond is used for walking and picnicking. Construction activity in the area will continue for some time.",
+        q: "Where is new housing being built in Gaziemir?",
+        a: "New residential investment is concentrated in the south of the district, along the corridor followed by the İZBAN line, where two rail stations, airport proximity and land open to development come together. Construction activity there will continue for some time.",
       },
     ],
   },
@@ -1388,14 +1388,14 @@ const POSTS_EN: BlogPost[] = [
   },
 
   {
-    slug: "izban-sarnic-ulasim-rehberi",
-    keyword: "izban sarnic station",
+    slug: "gaziemir-izban-ulasim-rehberi",
+    keyword: "gaziemir izban",
     category: "Transport",
-    title: "İZBAN Sarnıç Station: Reaching Izmir From Gaziemir Without Traffic",
+    title: "Commuting From Gaziemir on İZBAN: Reaching Izmir Without Traffic",
     description:
-      "Where is İZBAN Sarnıç station, which stops are on the line and how far is Alsancak? A guide to commuting from Sarnıç — one stop from the airport.",
+      "Where are Gaziemir's İZBAN stations, how far is Alsancak and how do you reach the airport? A guide to commuting from Gaziemir by rail.",
     excerpt:
-      "Sarnıç is the stop before the airport station. Nine stops to Alsancak and two metro interchanges. What does living on a rail line actually mean?",
+      "Gaziemir has two İZBAN stations and the airport is the next stop along. Nine stops to Alsancak, two metro interchanges. What does living on a rail line mean?",
     hero: "/renders/hava-carsi.jpg",
     date: "2026-08-19",
     updated: "2026-08-19",
@@ -1403,30 +1403,30 @@ const POSTS_EN: BlogPost[] = [
     blocks: [
       {
         type: "p",
-        text: "One question worth asking when choosing a home in Izmir: will you be forced into traffic to get to work? If the answer is yes, part of your day becomes a gamble every morning. Rail removes that uncertainty — a train takes the same time at eight in the morning as it does at noon. This guide covers commuting from Gaziemir Sarnıç on the İZBAN line.",
+        text: "One question worth asking when choosing a home in Izmir: will you be forced into traffic to get to work? If the answer is yes, part of your day becomes a gamble every morning. Rail removes that uncertainty — a train takes the same time at eight in the morning as it does at noon. This guide covers commuting from Gaziemir on the İZBAN line.",
       },
       { type: "h2", text: "What is İZBAN?" },
       {
         type: "p",
         text: "İZBAN is Izmir's commuter rail system. The line runs from Aliağa in the north to Selçuk in the south, is roughly 136 kilometres long and has 40 stations. It is not a metro but a suburban railway: stops are further apart and distances greater. It is the most practical way to cross Izmir without entering traffic.",
       },
-      { type: "h2", text: "Where does Sarnıç sit on the line?" },
+      { type: "h2", text: "Where does Gaziemir sit on the line?" },
       {
         type: "p",
         text: "On the southern arm of the line, running from north to south, the stations are: Şirinyer, Koşu, İnkılap, Semt Garajı, Esbaş, Gaziemir, Sarnıç, Adnan Menderes Airport, Cumaovası, Develi, Tekeli and onward.",
       },
       {
         type: "p",
-        text: "The detail worth noting: Sarnıç is the station immediately before Adnan Menderes Airport. From Sarnıç the airport is a single stop away by train — no taxi with luggage, no hunting for parking, no traffic.",
+        text: "The district has two stations on the line, Gaziemir and Sarnıç. The detail worth noting: the stop after Sarnıç is Adnan Menderes Airport itself. From the district the airport is a single stop away by train — no taxi with luggage, no hunting for parking, no traffic.",
       },
       {
         type: "quote",
-        text: "One stop from Sarnıç to the airport. Very few neighbourhoods in Izmir can say that.",
+        text: "One stop from Gaziemir to the airport by train. No other district in Izmir can say that.",
       },
       { type: "h2", text: "How many stops to the city centre?" },
       {
         type: "p",
-        text: "Heading north from Sarnıç towards Alsancak you pass Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer and Hilal; Alsancak is the ninth station. Konak lies close to Alsancak and is reached on foot or with a short connection.",
+        text: "Heading north from Sarnıç station towards Alsancak you pass Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer and Hilal; Alsancak is the ninth station. Board at Gaziemir station instead and it is eight. Konak lies close to Alsancak and is reached on foot or with a short connection.",
       },
       { type: "h2", text: "Where do you change for the metro?" },
       {
@@ -1456,21 +1456,21 @@ const POSTS_EN: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Loft 777 is 800 metres from İZBAN Sarnıç station. The airport is nine minutes away by car — and a single stop by train from Sarnıç.",
+        text: "Loft 777 is in the Dokuz Eylül neighbourhood of Gaziemir, 800 metres from its nearest İZBAN stop, Sarnıç station. The airport is nine minutes away by car — and a single stop by train.",
       },
     ],
     faq: [
       {
-        q: "Where is İZBAN Sarnıç station?",
-        a: "Sarnıç station is in the Gaziemir district of Izmir, on the southern arm of the İZBAN line. Gaziemir station lies to its north and Adnan Menderes Airport station to its south.",
+        q: "Which İZBAN stations serve Gaziemir?",
+        a: "Two stations lie within the Gaziemir district: Gaziemir and Sarnıç. Both are on the southern arm of the line, and Adnan Menderes Airport station sits immediately south of Sarnıç.",
       },
       {
-        q: "How do you get from Sarnıç to the airport?",
+        q: "How do you get from Gaziemir to the airport?",
         a: "One stop on İZBAN. Sarnıç is the station immediately before Adnan Menderes Airport, so a southbound train reaches the airport at the next station.",
       },
       {
-        q: "How many stops from Sarnıç to Alsancak?",
-        a: "Heading north from Sarnıç you pass Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer and Hilal; Alsancak is the ninth station.",
+        q: "How many stops from Gaziemir to Alsancak?",
+        a: "Heading north from Sarnıç station you pass Gaziemir, Esbaş, Semt Garajı, İnkılap, Koşu, Şirinyer, Kemer and Hilal; Alsancak is the ninth station. From Gaziemir station it is eight.",
       },
       {
         q: "Where can you change from İZBAN to the metro?",
