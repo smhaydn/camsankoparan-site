@@ -11,7 +11,6 @@ import { PresencePinger } from "@/components/site/presence-pinger";
 import { TrackingScripts } from "@/components/site/tracking-scripts";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { getSettings } from "@/lib/supabase-admin";
-import { JsonLd } from "@/components/site/json-ld";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -36,7 +35,6 @@ export default async function LocaleLayout({
     // overflow-x: clip → yatay taşmayı keser AMA kaydırma kabı OLUŞTURMAZ.
     // (overflow-x: hidden, overflow-y'yi auto'ya zorlayıp position:sticky'yi bozuyordu.)
     <div className="overflow-x-clip">
-      <JsonLd locale={locale} faq={d.faq.items} />
       <TrackingScripts
         metaPixelId={settings.meta_pixel_id}
         ga4Id={settings.ga4_id}

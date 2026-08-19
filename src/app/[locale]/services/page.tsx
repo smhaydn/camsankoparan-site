@@ -6,6 +6,7 @@ import { Services } from "@/components/site/services";
 import { Reveal } from "@/components/site/reveal";
 import { CTA } from "@/components/site/cta";
 import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -22,6 +23,8 @@ export default async function ServicesPage({
   if (!isLocale(locale)) notFound();
   const d = await getContent(locale);
   return (
+    <>
+      <JsonLd locale={locale} page="services" />
     <main>
       <PageHero
         kicker={d.servicesPage.kicker}
@@ -102,5 +105,6 @@ export default async function ServicesPage({
 
       <CTA t={d.cta} />
     </main>
+    </>
   );
 }
