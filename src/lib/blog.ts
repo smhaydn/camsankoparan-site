@@ -436,6 +436,265 @@ const POSTS_TR: BlogPost[] = [
       },
     ],
   },
+
+  // ── BLOG 4 — Gaziemir Yaşam Rehberi (hedef: "gaziemir" — 90.500/ay, şemsiye konu)
+  {
+    slug: "gaziemir-yasam-rehberi",
+    keyword: "gaziemir",
+    category: "Bölge Rehberi",
+    title: "Gaziemir Yaşam Rehberi: İzmir'in Havalimanı İlçesinde Yaşamak",
+    description:
+      "Gaziemir nerede, nasıl bir yer, kimler için uygun? Ulaşım, alışveriş, doğa ve günlük hayat başlıklarıyla İzmir Gaziemir'de yaşamayı anlatan tarafsız rehber.",
+    excerpt:
+      "Havalimanı, serbest bölge, fuar alanı ve İZBAN aynı ilçede. Gaziemir'i İzmir'in diğer ilçelerinden ayıran şey ne, günlük hayat nasıl işliyor?",
+    hero: "/renders/hava-carsi.jpg",
+    date: "2026-08-19",
+    updated: "2026-08-19",
+    readingMin: 9,
+    blocks: [
+      {
+        type: "p",
+        text: "İzmir'de ev arayan çoğu kişi önce Karşıyaka, Bornova ya da Buca'ya bakar. Gaziemir genelde listenin biraz aşağısında kalır. Oysa İzmir'in havalimanı, serbest bölgesi ve fuar alanı bu ilçenin sınırları içinde. Bu yazıda Gaziemir'i abartmadan anlatıyoruz: ne sunuyor, neyi sunmuyor, kime göre bir yer.",
+      },
+      { type: "h2", text: "Gaziemir nerede, kısaca nasıl bir yer?" },
+      {
+        type: "p",
+        text: "Gaziemir, İzmir'in güneyinde yer alan bir merkez ilçedir. 2024 nüfus sayımına göre nüfusu yaklaşık 136.930'dur. İlçe 1965 yılına kadar Seydiköy adıyla anılıyordu; bugün hâlâ bölgeyi eski adıyla anan yerliler vardır. Konak ve Alsancak gibi merkezlerden uzak sayılmaz ama kendi içinde çalışan, konut ve sanayinin iç içe geçtiği ayrı bir düzeni vardır.",
+      },
+      {
+        type: "p",
+        text: "Gaziemir'i İzmir'in diğer ilçelerinden ayıran en somut özellik şu: Adnan Menderes Havalimanı, Ege Serbest Bölgesi, Fuar İzmir ve hava eğitim üssü aynı ilçe sınırları içinde. Bu, bölgeye sürekli bir hareket ve istihdam getiriyor.",
+      },
+      { type: "h2", text: "Ulaşım: ilçenin en güçlü kozu" },
+      {
+        type: "p",
+        text: "Gaziemir'de ulaşımı güçlü kılan şey, tek bir seçeneğe bağlı olmamanız. Hem raylı sistem, hem otoyol, hem havalimanı elinizin altında.",
+      },
+      {
+        type: "list",
+        items: [
+          "İZBAN: Banliyö hattı ilçeden geçer. Sarnıç ve Gaziemir istasyonları, Alsancak ve Konak yönüne trafiğe girmeden ulaşım sağlar. Sabah saatlerinde araçla uzun süren yol, trenle daha öngörülebilir hâle gelir.",
+          "Adnan Menderes Havalimanı: İlçe sınırları içinde. Sık uçan biri için bu, İzmir'in hiçbir yerinde bulunmayan bir avantaj.",
+          "Otoyol bağlantısı: Aydın yönü ve İzmir çevre yolu bağlantıları yakın; şehir dışına çıkış hızlı.",
+          "Ege Serbest Bölgesi ve sanayi: İlçede çalışan biri için evle iş arası mesafe çoğu zaman on dakikanın altında.",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Gaziemir'i tercih edenlerin çoğu, bir gün trafikte iki saat kaybettikten sonra karar veriyor.",
+      },
+      { type: "h2", text: "Alışveriş ve günlük hayat" },
+      {
+        type: "p",
+        text: "Gaziemir günlük ihtiyaç açısından kendine yeter bir ilçe. Optimum Outlet Center ilçenin en bilinen alışveriş noktası; sinema, market ve yeme-içme bir arada. Akçay Caddesi çevresinde mobilya ve tekstil atölyeleri ile satış mağazaları yoğunlaşmıştır — İzmir'de mobilya arayanların bildiği bir adrestir.",
+      },
+      {
+        type: "p",
+        text: "Semt pazarları, market zincirleri, banka şubeleri ve sağlık kuruluşları ilçe içinde dağılmış durumda. Yani günlük hayat için şehir merkezine inme zorunluluğu yok.",
+      },
+      {
+        type: "image",
+        src: "/renders/carsi-yaya.jpg",
+        alt: "Gaziemir'de site içi çarşı aksı — market, kafe ve mağazalar",
+        caption: "Yeni nesil projelerde çarşı, sitenin içine taşınıyor: günlük ihtiyaç için araca binmek gerekmiyor.",
+      },
+      { type: "h2", text: "Doğa ve yeşil alan" },
+      {
+        type: "p",
+        text: "Sarnıç mahallesinde çam ağaçlarıyla çevrili bir gölet bulunur; yürüyüş ve piknik için ilçe halkının kullandığı bir alandır. Gaziemir'in bu tarafı, sanayi imajının aksine sakin ve yeşildir. İlçenin güney ve batı kesimleri genel olarak daha düşük yoğunluklu, bahçeli yapılaşmaya sahiptir.",
+      },
+      { type: "h2", text: "Sarnıç: ilçenin gelişen tarafı" },
+      {
+        type: "p",
+        text: "Sarnıç, Gaziemir'in son yıllarda en çok konut yatırımı çeken bölgesi. Sebebi basit: İZBAN istasyonu, havalimanı yakınlığı ve hâlâ gelişmeye açık arsa stoğu bir arada. Bölgede hem eski müstakil yapılar hem yeni konut projeleri yan yana duruyor. Bu geçiş dönemi alıcı için avantaj da olabilir dezavantaj da — inşaat yoğunluğu bir süre daha devam edecek.",
+      },
+      { type: "h2", text: "Gaziemir kimler için uygun?" },
+      {
+        type: "list",
+        items: [
+          "Sık seyahat edenler: Havalimanına dakikalarla ölçülen mesafe, uçağa yetişme stresini ortadan kaldırır.",
+          "İlçede veya serbest bölgede çalışanlar: İş-ev mesafesi kısa, günlük yol maliyeti düşük.",
+          "İlk evini alacaklar: İzmir'in merkez ilçelerine göre metrekare fiyatları daha erişilebilir seyreder.",
+          "Raylı sistemi tercih edenler: İZBAN, trafiğe bağımlı olmayan bir günlük düzen kurmanızı sağlar.",
+          "Sakinlik arayanlar: İlçenin Sarnıç tarafı, merkez ilçelerin yoğunluğundan uzaktır.",
+        ],
+      },
+      { type: "h2", text: "Peki kimin için uygun değil?" },
+      {
+        type: "p",
+        text: "Dürüst olalım: Alsancak'ın gece hayatını, Karşıyaka'nın sahil yürüyüşünü ya da Bornova'nın üniversite çevresini merkeze alan bir hayat kuruyorsanız Gaziemir size uzak gelir. İlçenin bir bölümünde sanayi dokusu hâkimdir ve bu herkesin isteyeceği bir komşuluk değildir. Ev bakarken hangi mahallede olduğunuza dikkat etmek gerekir.",
+      },
+      { type: "h2", text: "Gaziemir'de konut ararken nelere bakmalı?" },
+      {
+        type: "list",
+        items: [
+          "Mahalle farkı: Gaziemir tek tip değil. Sarnıç ile ilçe merkezi bambaşka iki karakter sunar. Sabah ve akşam ayrı ayrı gidip görün.",
+          "İZBAN mesafesi: Yürüme mesafesi ile araçla on dakika arasındaki fark, günlük hayatta çok büyüktür.",
+          "Yapı yılı ve deprem yönetmeliği: İzmir birinci derece deprem bölgesindedir. 2018 sonrası yönetmeliğe göre yapılmış olması önemlidir.",
+          "Otopark: Bölgede sokak parkı sorun olabiliyor; kapalı otoparklı projeler uzun vadede rahat ettirir.",
+          "Çevredeki inşaat yoğunluğu: Manzaranız ve gürültünüz birkaç yıl içinde değişebilir; çevre parsellerin durumunu sorun.",
+        ],
+      },
+      { type: "h2", text: "Sonuç" },
+      {
+        type: "p",
+        text: "Gaziemir gösterişli bir ilçe değil; güçlü tarafı pratikliği. Havalimanı, raylı sistem, otoyol ve istihdam aynı yerde toplanmış durumda. Günlük hayatı trafik üzerine kurmak istemeyen, işini ve seyahatini kolaylaştırmak isteyen biri için Gaziemir mantıklı bir tercih. Sarnıç tarafı ise ilçenin bu avantajlarını hâlâ erişilebilir fiyatlarla sunan bölgesi olarak öne çıkıyor.",
+      },
+      {
+        type: "p",
+        text: "Loft 777, Gaziemir Sarnıç'ta bu avantajların kesiştiği noktada yükseliyor: İZBAN Sarnıç durağına 800 metre, havalimanına araçla 9 dakika, zemin katında kendi çarşısıyla 237 bağımsız bölümlük bir karma yaşam projesi.",
+      },
+    ],
+    faq: [
+      {
+        q: "Gaziemir nerede, İzmir'in neresine düşer?",
+        a: "Gaziemir, İzmir'in güneyinde yer alan bir merkez ilçedir. Adnan Menderes Havalimanı, Ege Serbest Bölgesi ve Fuar İzmir ilçe sınırları içindedir. Konak ve Alsancak yönüne İZBAN banliyö hattıyla ya da karayoluyla ulaşılır.",
+      },
+      {
+        q: "Gaziemir'in nüfusu ne kadar?",
+        a: "2024 nüfus sayımına göre Gaziemir'in nüfusu yaklaşık 136.930'dur. İlçe 1965 yılına kadar Seydiköy adıyla anılıyordu.",
+      },
+      {
+        q: "Gaziemir'de yaşamak mantıklı mı?",
+        a: "Sık seyahat eden, ilçede veya serbest bölgede çalışan, raylı sistemle ulaşımı tercih eden ve merkez ilçelere göre daha erişilebilir fiyat arayanlar için mantıklıdır. Buna karşılık sahil ve gece hayatını merkeze alan bir yaşam kuruyorsanız Gaziemir uzak kalır.",
+      },
+      {
+        q: "Gaziemir'den İzmir merkeze ulaşım nasıl?",
+        a: "İZBAN banliyö hattı ilçeden geçer ve Alsancak yönüne trafiğe girmeden ulaşım sağlar. Karayoluyla İzmir merkezine (Konak) yaklaşık 22 dakika sürer; trafik yoğunluğuna göre bu süre uzayabilir.",
+      },
+      {
+        q: "Sarnıç nasıl bir bölge?",
+        a: "Sarnıç, Gaziemir'in son yıllarda en çok konut yatırımı çeken bölgesidir. İZBAN istasyonu, havalimanı yakınlığı ve gelişmeye açık arsa stoğu bir aradadır. Çam ağaçlarıyla çevrili göleti yürüyüş ve piknik için kullanılır. Bölgede inşaat yoğunluğu bir süre daha devam edecektir.",
+      },
+    ],
+  },
+
+  // ── BLOG 5 — İzmir'de Daire Alma Rehberi (hedef: "izmir konut projesi" — 720/ay, yüksek niyet)
+  {
+    slug: "izmir-yatirimlik-daire-rehberi",
+    keyword: "izmir konut projesi",
+    category: "Rehber",
+    title: "İzmir'de Daire Alırken Kontrol Edilecek 9 Başlık",
+    description:
+      "İzmir'de konut projesinden daire alırken nelere bakmalı? Ruhsat, deprem yönetmeliği, teslim güvencesi, ödeme koşulları ve konum kriterlerini anlatan pratik kontrol listesi.",
+    excerpt:
+      "Projeden daire almak, bitmiş ev almaktan farklıdır. Kâğıt üzerindeki bir yapıyı değerlendirirken hangi 9 başlığı kontrol etmelisiniz?",
+    hero: "/renders/dis-cephe-cadde.jpg",
+    date: "2026-08-19",
+    updated: "2026-08-19",
+    readingMin: 8,
+    blocks: [
+      {
+        type: "p",
+        text: "Projeden daire almak, bitmiş bir evi gezip almaktan farklıdır. Elinizde henüz bina yok; bir vaat, bir çizim ve bir sözleşme var. Bu yüzden karar verirken bakacağınız şeyler de değişiyor. Aşağıdaki 9 başlık, İzmir'de bir konut projesini değerlendirirken sormanız gereken somut sorular.",
+      },
+      {
+        type: "p",
+        text: "Not: Bu yazı genel bir kontrol listesidir, yatırım tavsiyesi değildir. Nihai karardan önce sözleşmenizi bir avukata okutmanızı öneririz.",
+      },
+      { type: "h2", text: "1. Yapı ruhsatı var mı?" },
+      {
+        type: "p",
+        text: "Sorulacak ilk soru budur. Yapı ruhsatı, projenin belediyeden izin almış olduğunu gösterir. Ruhsatsız satışa çıkmış projelerde teslim riski çok yüksektir. Ruhsat tarihini ve numarasını isteyin; belediyeden teyit edebilirsiniz.",
+      },
+      { type: "h2", text: "2. Hangi deprem yönetmeliğine göre yapılıyor?" },
+      {
+        type: "p",
+        text: "İzmir birinci derece deprem bölgesindedir; 2020 depremi bunu acı biçimde hatırlattı. 2018'de yürürlüğe giren Türkiye Bina Deprem Yönetmeliği (TBDY 2018), öncekilere göre belirgin biçimde daha katı kurallar getirir. Projenin bu yönetmeliğe göre projelendirildiğini yazılı olarak teyit edin. Zemin etüt raporunu da isteyebilirsiniz.",
+      },
+      { type: "h2", text: "3. Net metrekare mi, brüt metrekare mi?" },
+      {
+        type: "p",
+        text: "İlanlarda çoğunlukla brüt metrekare yazar; oysa yaşadığınız alan nettir. Aradaki fark yüzde yirmiye kadar çıkabilir. Kat planını isteyip mahal ölçülerine tek tek bakın. Bir de şunu sorun: verilen metrekareye balkon, galeri boşluğu veya ortak alan payı dahil mi?",
+      },
+      {
+        type: "quote",
+        text: "Aynı iki daireden biri 90 m², diğeri 82 m² yazıyorsa, gerçekte hangisinin daha ferah olduğunu sadece kat planı söyler.",
+      },
+      { type: "h2", text: "4. Teslim tarihi sözleşmede yazıyor mu?" },
+      {
+        type: "p",
+        text: "Sözlü teslim tarihi hiçbir şey ifade etmez. Sözleşmede kesin bir tarih ve gecikme hâlinde uygulanacak yaptırım maddesi bulunmalıdır. Gecikme tazminatı olmayan bir sözleşme, alıcı için tek taraflı risk demektir.",
+      },
+      { type: "h2", text: "5. Ödeme koşulları gerçekten ne söylüyor?" },
+      {
+        type: "list",
+        items: [
+          "Peşinat oranı ve ne zaman ödeneceği net mi?",
+          "Vade gerçekten faizsiz mi, yoksa fiyata gizlenmiş bir fark var mı? Peşin fiyatla vadeli toplam fiyatı yan yana isteyin.",
+          "Peşin ödeme indirimi uygulanıyor mu, oranı ne?",
+          "Fiyatta artış yapılabileceğine dair bir madde var mı?",
+          "Ödeme planı inşaat aşamalarına mı bağlı, yoksa sabit tarihlere mi?",
+        ],
+      },
+      { type: "h2", text: "6. Geliştirici firmanın geçmişi ne?" },
+      {
+        type: "p",
+        text: "Firmanın daha önce tamamladığı projeleri sorun ve mümkünse gidip görün. Daha da iyisi: o projelerde oturanlarla konuşun. Teslim zamanında oldu mu, eksikler giderildi mi, yönetim devri düzgün yapıldı mı? Bu bilgiyi hiçbir broşür vermez.",
+      },
+      { type: "h2", text: "7. Konumu iki farklı saatte görün" },
+      {
+        type: "p",
+        text: "Projeyi sadece hafta içi öğlen görmeyin. Sabah işe çıkış saatinde ve akşam eve dönüş saatinde de gidin. Trafik, gürültü ve otopark durumu o saatlerde ortaya çıkar. Ulaşım için verilen sürelerin gerçek olup olmadığını kendi aracınızla ölçün.",
+      },
+      { type: "h2", text: "8. Çevre parsellerde ne var, ne olacak?" },
+      {
+        type: "p",
+        text: "Bugünkü manzaranız yarın olmayabilir. Komşu parsellerin imar durumunu belediyeden öğrenin. Özellikle gelişmekte olan bölgelerde, önünüzdeki boş arsaya birkaç yıl içinde bina yapılması olağandır.",
+      },
+      { type: "h2", text: "9. Ortak alanlar ve aidat" },
+      {
+        type: "p",
+        text: "Havuz, spor salonu, güvenlik ve peyzaj güzel görünür; ancak hepsinin bir işletme maliyeti vardır ve bunu aidat olarak siz ödersiniz. Projenin tahmini aidatını sorun. Ayrıca ortak alanların yönetim planında nasıl tanımlandığına bakın: site içindeki ticari birimler aidata katılıyor mu?",
+      },
+      { type: "h2", text: "Kısa bir kontrol listesi" },
+      {
+        type: "list",
+        items: [
+          "Yapı ruhsatı numarası alındı mı?",
+          "TBDY 2018 uyumu yazılı olarak teyit edildi mi?",
+          "Kat planı ve net metrekare elde mi?",
+          "Sözleşmede teslim tarihi ve gecikme yaptırımı var mı?",
+          "Peşin ve vadeli toplam fiyat yan yana karşılaştırıldı mı?",
+          "Firmanın önceki projeleri görüldü mü?",
+          "Konum iki farklı saatte gezildi mi?",
+          "Çevre parsellerin imar durumu soruldu mu?",
+          "Tahmini aidat öğrenildi mi?",
+        ],
+      },
+      { type: "h2", text: "Sonuç" },
+      {
+        type: "p",
+        text: "Projeden daire almak, doğru sorular sorulduğunda yönetilebilir bir süreçtir. Riski azaltan şey iyi bir sezgi değil, yazılı belgedir: ruhsat, sözleşme, kat planı ve teknik şartname. Bunları görmeden imza atmayın.",
+      },
+      {
+        type: "p",
+        text: "Loft 777 için bu başlıkların yanıtlarını açıkça paylaşıyoruz: proje künyesi, daire tiplerinin gerçek mahal ölçüleri, yapı ve donanım detayları ile ödeme koşulları sitemizde yazılı olarak yer alıyor.",
+      },
+    ],
+    faq: [
+      {
+        q: "Projeden daire alırken ilk olarak neye bakmalıyım?",
+        a: "İlk bakılacak şey yapı ruhsatıdır. Ruhsat, projenin belediyeden izin aldığını gösterir ve teslim riskini belirgin biçimde azaltır. Ruhsat numarasını isteyip belediyeden teyit edebilirsiniz.",
+      },
+      {
+        q: "TBDY 2018 nedir, neden önemli?",
+        a: "TBDY 2018, 2018'de yürürlüğe giren Türkiye Bina Deprem Yönetmeliği'dir. Önceki yönetmeliklere göre daha katı tasarım ve hesap kuralları getirir. İzmir birinci derece deprem bölgesinde olduğu için, satın alınacak konutun bu yönetmeliğe göre projelendirilmiş olması önemlidir.",
+      },
+      {
+        q: "Net metrekare ile brüt metrekare arasındaki fark nedir?",
+        a: "Brüt metrekare duvarlar, balkon ve ortak alan paylarını içerir; net metrekare ise fiilen kullandığınız alandır. Aradaki fark yüzde yirmiye kadar çıkabilir. Karşılaştırma yaparken her iki projeden de aynı türde metrekare istemek gerekir.",
+      },
+      {
+        q: "Vade gerçekten faizsiz mi, nasıl anlarım?",
+        a: "Peşin fiyat ile vadeli toplam fiyatı yan yana isteyin. İkisi arasında fark varsa, o fark fiyata gizlenmiş bir vade maliyetidir. Faizsiz vade iddiasında peşin ve vadeli toplam tutarın aynı olması beklenir.",
+      },
+      {
+        q: "Aidat hakkında ne sormalıyım?",
+        a: "Projenin tahmini aylık aidatını, aidata hangi hizmetlerin dahil olduğunu ve site içindeki ticari birimlerin aidata katılıp katılmadığını sorun. Havuz, spor salonu ve güvenlik gibi imkânların işletme maliyeti aidata yansır.",
+      },
+    ],
+  },
 ];
 
 // ══════════════════════════════════════════════════════════════
@@ -770,6 +1029,263 @@ const POSTS_EN: BlogPost[] = [
       {
         q: "What to look for when buying an apartment in Gaziemir?",
         a: "Safety first: confirm the building complies with the current seismic code (TBDY 2018). Then assess location (airport, İZBAN, motorway proximity), build quality (insulation, heating-cooling system, facade), social amenities and the payment plan holistically. In pre-sale projects, always request payment terms in writing.",
+      },
+    ],
+  },
+
+  {
+    slug: "gaziemir-yasam-rehberi",
+    keyword: "living in gaziemir izmir",
+    category: "Area Guide",
+    title: "Living in Gaziemir: A Guide to Izmir's Airport District",
+    description:
+      "Where is Gaziemir, what is it like and who does it suit? A straightforward guide to living in Gaziemir, Izmir — transport, shopping, nature and daily life.",
+    excerpt:
+      "The airport, the free zone, the fair grounds and the commuter rail are all in one district. What sets Gaziemir apart, and how does daily life actually work there?",
+    hero: "/renders/hava-carsi.jpg",
+    date: "2026-08-19",
+    updated: "2026-08-19",
+    readingMin: 9,
+    blocks: [
+      {
+        type: "p",
+        text: "Most people house-hunting in Izmir look at Karşıyaka, Bornova or Buca first. Gaziemir usually sits further down the list — even though Izmir's airport, its free zone and its fair grounds all lie within this district. This guide describes Gaziemir without overselling it: what it offers, what it does not, and who it suits.",
+      },
+      { type: "h2", text: "Where is Gaziemir and what is it like?" },
+      {
+        type: "p",
+        text: "Gaziemir is a central district in the south of Izmir. Its population was about 136,930 at the 2024 census. Until 1965 the district was known as Seydiköy, a name locals still use. It is not far from Konak or Alsancak, yet it works as its own place, with housing and industry sitting side by side.",
+      },
+      {
+        type: "p",
+        text: "One concrete fact sets Gaziemir apart from other Izmir districts: Adnan Menderes Airport, the Aegean Free Zone, Fuar İzmir and an air training base all fall within its boundaries. That brings constant movement and employment to the area.",
+      },
+      { type: "h2", text: "Transport: the district's strongest card" },
+      {
+        type: "p",
+        text: "What makes transport strong in Gaziemir is that you are not tied to a single option. Commuter rail, motorway and airport are all within reach.",
+      },
+      {
+        type: "list",
+        items: [
+          "İZBAN: The commuter rail line runs through the district. Sarnıç and Gaziemir stations reach Alsancak and Konak without entering traffic, which makes the morning journey far more predictable than driving.",
+          "Adnan Menderes Airport: Inside the district. For a frequent flyer this is an advantage no other part of Izmir offers.",
+          "Motorway links: Connections towards Aydın and the Izmir ring road are close, so leaving the city is quick.",
+          "Aegean Free Zone and industry: For someone working in the district, the commute is often under ten minutes.",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Most people who choose Gaziemir decide after losing two hours in traffic on a single day.",
+      },
+      { type: "h2", text: "Shopping and daily life" },
+      {
+        type: "p",
+        text: "Gaziemir is largely self-sufficient for daily needs. Optimum Outlet Center is the best-known retail destination, combining cinema, supermarket and dining. Around Akçay Avenue, furniture and textile workshops and showrooms are concentrated — an address anyone shopping for furniture in Izmir knows.",
+      },
+      {
+        type: "p",
+        text: "Street markets, supermarket chains, bank branches and health facilities are spread across the district, so there is no need to travel into the city centre for everyday errands.",
+      },
+      {
+        type: "image",
+        src: "/renders/carsi-yaya.jpg",
+        alt: "A pedestrian arcade in Gaziemir with a supermarket, café and shops",
+        caption: "In newer projects the arcade moves inside the development: no car needed for daily needs.",
+      },
+      { type: "h2", text: "Nature and green space" },
+      {
+        type: "p",
+        text: "In the Sarnıç neighbourhood there is a pond ringed by pine trees, used by residents for walking and picnicking. Contrary to the district's industrial image, this side of Gaziemir is quiet and green. The southern and western parts are generally lower-density, with gardens.",
+      },
+      { type: "h2", text: "Sarnıç: the growing side of the district" },
+      {
+        type: "p",
+        text: "Sarnıç has drawn the most residential investment in Gaziemir in recent years. The reason is simple: an İZBAN station, proximity to the airport and land still available for development, all in one place. Older detached houses and new residential projects stand side by side. That transition can work for a buyer or against one — construction activity will continue in the area for some time.",
+      },
+      { type: "h2", text: "Who does Gaziemir suit?" },
+      {
+        type: "list",
+        items: [
+          "Frequent travellers: With the airport minutes away, catching a flight stops being stressful.",
+          "People working in the district or the free zone: A short commute and low daily travel cost.",
+          "First-time buyers: Prices per square metre tend to be more accessible than in Izmir's central districts.",
+          "Rail commuters: İZBAN lets you build a daily routine that does not depend on traffic.",
+          "Those seeking quiet: The Sarnıç side is away from the density of the central districts.",
+        ],
+      },
+      { type: "h2", text: "And who does it not suit?" },
+      {
+        type: "p",
+        text: "To be honest: if your life revolves around Alsancak's nightlife, Karşıyaka's seafront walks or Bornova's university scene, Gaziemir will feel far away. Part of the district has an industrial character, which is not a neighbourhood everyone wants. Which neighbourhood a home sits in matters a great deal here.",
+      },
+      { type: "h2", text: "What to check when looking for a home in Gaziemir" },
+      {
+        type: "list",
+        items: [
+          "Neighbourhood differences: Gaziemir is not uniform. Sarnıç and the district centre have very different characters. Visit both in the morning and in the evening.",
+          "Distance to İZBAN: The gap between a walk and a ten-minute drive is a large one in daily life.",
+          "Build year and seismic code: Izmir is a first-degree seismic zone. Compliance with the post-2018 code matters.",
+          "Parking: On-street parking can be a problem; covered parking pays off over time.",
+          "Surrounding construction: Your view and your noise level may change within a few years — ask about neighbouring plots.",
+        ],
+      },
+      { type: "h2", text: "In summary" },
+      {
+        type: "p",
+        text: "Gaziemir is not a showy district; its strength is practicality. Airport, rail, motorway and employment are gathered in one place. For someone who would rather not build daily life around traffic, Gaziemir is a sensible choice — and Sarnıç is where those advantages are still available at accessible prices.",
+      },
+      {
+        type: "p",
+        text: "Loft 777 rises where those advantages meet, in Gaziemir Sarnıç: 800 m from the İZBAN Sarnıç stop, nine minutes by car from the airport, a 237-unit mixed-use project with its own arcade on the ground floor.",
+      },
+    ],
+    faq: [
+      {
+        q: "Where is Gaziemir in Izmir?",
+        a: "Gaziemir is a central district in the south of Izmir. Adnan Menderes Airport, the Aegean Free Zone and Fuar İzmir all lie within its boundaries. Konak and Alsancak are reached by the İZBAN commuter rail line or by road.",
+      },
+      {
+        q: "What is the population of Gaziemir?",
+        a: "At the 2024 census the population of Gaziemir was about 136,930. Until 1965 the district was known as Seydiköy.",
+      },
+      {
+        q: "Is Gaziemir a good place to live?",
+        a: "It suits frequent travellers, people working in the district or the free zone, rail commuters, and buyers looking for more accessible prices than the central districts. If your life centres on the seafront and nightlife, however, Gaziemir will feel remote.",
+      },
+      {
+        q: "How do you get from Gaziemir to central Izmir?",
+        a: "The İZBAN commuter rail line runs through the district and reaches Alsancak without entering traffic. By road, central Izmir (Konak) is about 22 minutes away, longer in heavy traffic.",
+      },
+      {
+        q: "What is Sarnıç like?",
+        a: "Sarnıç has attracted the most residential investment in Gaziemir in recent years, combining an İZBAN station, airport proximity and land open to development. Its pine-ringed pond is used for walking and picnicking. Construction activity in the area will continue for some time.",
+      },
+    ],
+  },
+
+  {
+    slug: "izmir-yatirimlik-daire-rehberi",
+    keyword: "buying property izmir",
+    category: "Guide",
+    title: "Buying an Apartment in Izmir: 9 Things to Check",
+    description:
+      "What should you check when buying off-plan in Izmir? Building permit, seismic code, delivery guarantees, payment terms and location criteria — a practical checklist.",
+    excerpt:
+      "Buying off-plan is not the same as buying a finished home. Which nine points should you check when assessing a building that exists only on paper?",
+    hero: "/renders/dis-cephe-cadde.jpg",
+    date: "2026-08-19",
+    updated: "2026-08-19",
+    readingMin: 8,
+    blocks: [
+      {
+        type: "p",
+        text: "Buying off-plan is not the same as viewing a finished home and buying it. There is no building yet — only a promise, a drawing and a contract. That changes what you need to look at. The nine points below are the concrete questions to ask when assessing a residential project in Izmir.",
+      },
+      {
+        type: "p",
+        text: "Note: this is a general checklist, not investment advice. We recommend having your contract reviewed by a lawyer before you decide.",
+      },
+      { type: "h2", text: "1. Is there a building permit?" },
+      {
+        type: "p",
+        text: "This is the first question. A building permit shows the project has municipal approval. Projects marketed without one carry a high delivery risk. Ask for the permit number and date; you can confirm it with the municipality.",
+      },
+      { type: "h2", text: "2. Which seismic code is it built to?" },
+      {
+        type: "p",
+        text: "Izmir is a first-degree seismic zone, as the 2020 earthquake painfully reminded everyone. The Turkish Building Earthquake Code that came into force in 2018 (TBDY 2018) is markedly stricter than its predecessors. Get written confirmation that the project was designed to it, and ask to see the ground survey report.",
+      },
+      { type: "h2", text: "3. Net or gross square metres?" },
+      {
+        type: "p",
+        text: "Listings usually quote gross area, but the space you live in is net. The gap can reach twenty per cent. Ask for the floor plan and check each room. Also ask whether the quoted area includes balconies, voids or a share of common areas.",
+      },
+      {
+        type: "quote",
+        text: "If one apartment says 90 m² and another says 82 m², only the floor plan will tell you which one actually feels larger.",
+      },
+      { type: "h2", text: "4. Is the delivery date in the contract?" },
+      {
+        type: "p",
+        text: "A verbally promised date means nothing. The contract should carry a firm date and a penalty clause for delay. A contract without delay compensation puts the risk entirely on the buyer.",
+      },
+      { type: "h2", text: "5. What do the payment terms really say?" },
+      {
+        type: "list",
+        items: [
+          "Is the deposit amount and its due date clearly stated?",
+          "Is the instalment plan genuinely interest-free, or is a cost built into the price? Ask for the cash price and the instalment total side by side.",
+          "Is there a discount for paying in full, and at what rate?",
+          "Is there any clause allowing the price to be increased?",
+          "Is the payment schedule tied to construction milestones or to fixed dates?",
+        ],
+      },
+      { type: "h2", text: "6. What is the developer's track record?" },
+      {
+        type: "p",
+        text: "Ask about projects the company has completed, and go and see them if you can. Better still, talk to the people living there. Was delivery on time? Were defects fixed? Was the handover to the residents' management handled properly? No brochure will tell you this.",
+      },
+      { type: "h2", text: "7. Visit the location at two different times" },
+      {
+        type: "p",
+        text: "Do not view the project only at midday on a weekday. Go at the morning rush and again in the evening. Traffic, noise and parking reveal themselves at those hours. Measure the quoted journey times in your own car.",
+      },
+      { type: "h2", text: "8. What is on the neighbouring plots — and what will be?" },
+      {
+        type: "p",
+        text: "Today's view may not be tomorrow's. Check the zoning status of neighbouring plots with the municipality. In developing areas in particular, the empty lot in front of you may well be built on within a few years.",
+      },
+      { type: "h2", text: "9. Common areas and service charges" },
+      {
+        type: "p",
+        text: "A pool, gym, security and landscaping all look good, and all cost money to run — money you pay through the monthly service charge. Ask for the estimated charge. Check too how common areas are defined in the management plan: do the commercial units on site contribute?",
+      },
+      { type: "h2", text: "A short checklist" },
+      {
+        type: "list",
+        items: [
+          "Have you obtained the building permit number?",
+          "Is TBDY 2018 compliance confirmed in writing?",
+          "Do you have the floor plan and net area?",
+          "Does the contract state a delivery date and a delay penalty?",
+          "Have you compared the cash and instalment totals side by side?",
+          "Have you seen the developer's previous projects?",
+          "Have you visited the location at two different times of day?",
+          "Have you checked the zoning status of neighbouring plots?",
+          "Do you know the estimated service charge?",
+        ],
+      },
+      { type: "h2", text: "In summary" },
+      {
+        type: "p",
+        text: "Buying off-plan is a manageable process when the right questions are asked. What reduces risk is not good instinct but written documents: the permit, the contract, the floor plan and the technical specification. Do not sign before you have seen them.",
+      },
+      {
+        type: "p",
+        text: "For Loft 777 we publish the answers openly: the project data sheet, the real room dimensions of each apartment type, the build and systems detail and the payment terms are all set out in writing on this site.",
+      },
+    ],
+    faq: [
+      {
+        q: "What should I check first when buying off-plan?",
+        a: "The building permit. It shows the project has municipal approval and materially reduces delivery risk. Ask for the permit number and confirm it with the municipality.",
+      },
+      {
+        q: "What is TBDY 2018 and why does it matter?",
+        a: "TBDY 2018 is the Turkish Building Earthquake Code that came into force in 2018. It sets stricter design and calculation rules than earlier codes. Because Izmir is a first-degree seismic zone, it matters that a home was designed to this code.",
+      },
+      {
+        q: "What is the difference between net and gross square metres?",
+        a: "Gross area includes walls, balconies and a share of common areas; net area is the space you actually use. The gap can reach twenty per cent. When comparing projects, ask each of them for the same measure.",
+      },
+      {
+        q: "How do I know whether instalments are genuinely interest-free?",
+        a: "Ask for the cash price and the instalment total side by side. Any difference between them is a financing cost built into the price. With a genuinely interest-free plan, the two totals should match.",
+      },
+      {
+        q: "What should I ask about service charges?",
+        a: "Ask for the estimated monthly charge, what it covers, and whether the commercial units on site contribute to it. Pools, gyms and security all carry running costs that feed into the charge.",
       },
     ],
   },
