@@ -22,7 +22,7 @@ export function Hero({
           <video
             className="absolute inset-0 h-full w-full object-cover"
             src={t.video}
-            poster="/renders/dis-cephe-gunbatimi.jpg"
+            poster="/renders/hava-on-cephe.jpg"
             autoPlay
             muted
             loop
@@ -30,7 +30,7 @@ export function Hero({
           />
         ) : (
           <CoverImage
-            src="/renders/dis-cephe-gunbatimi.jpg"
+            src="/renders/hava-on-cephe.jpg"
             alt={
               locale === "en"
                 ? "Loft 777 residential complex at sunset, Gaziemir Izmir"

@@ -63,7 +63,7 @@ export default async function BlogListPage({
         kicker={ui.kicker}
         title={ui.title}
         intro={ui.intro}
-        image="/renders/dis-cephe-gunbatimi.jpg"
+        image="/renders/hava-on-cephe.jpg"
       />
 
       <section className="paper bg-paper py-24 lg:py-28">
