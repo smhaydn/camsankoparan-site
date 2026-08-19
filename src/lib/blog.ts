@@ -344,7 +344,7 @@ const POSTS_TR: BlogPost[] = [
       { type: "h2", text: "2. Ulaşım: Havalimanı ve İZBAN avantajı" },
       {
         type: "p",
-        text: "Gaziemir'in en güçlü kozu ulaşım. Adnan Menderes Havalimanı arabayla yaklaşık 9 dakika; sık seyahat edenler ve gurbetçiler için bu mesafe paha biçilmez. İZBAN Sarnıç hattı bölgeyi İzmir merkeze demiryoluyla bağlıyor — İZBAN durağına 800 metre mesafedeki bir konut, günlük ulaşımı trafiğe bağımlı olmaktan çıkarıyor. Otoban çıkışına yakınlık da şehir dışı bağlantıyı kolaylaştırıyor.",
+        text: "Gaziemir'in en güçlü kozu ulaşım. Adnan Menderes Havalimanı arabayla yaklaşık 9 dakika; sık seyahat edenler ve gurbetçiler için bu mesafe paha biçilmez. İZBAN hattı ilçeden geçiyor ve bölgeyi İzmir merkeze demiryoluyla bağlıyor; Gaziemir ve Sarnıç olmak üzere iki istasyonu var. İstasyona 800 metre mesafedeki bir konut, günlük ulaşımı trafiğe bağımlı olmaktan çıkarıyor. Otoban çıkışına yakınlık da şehir dışı bağlantıyı kolaylaştırıyor.",
       },
       { type: "h2", text: "3. Günlük yaşam: Alışveriş, sağlık, eğitim" },
       {
@@ -516,7 +516,7 @@ const POSTS_TR: BlogPost[] = [
           "İlçede veya serbest bölgede çalışanlar: İş-ev mesafesi kısa, günlük yol maliyeti düşük.",
           "İlk evini alacaklar: İzmir'in merkez ilçelerine göre metrekare fiyatları daha erişilebilir seyreder.",
           "Raylı sistemi tercih edenler: İZBAN, trafiğe bağımlı olmayan bir günlük düzen kurmanızı sağlar.",
-          "Sakinlik arayanlar: İlçenin Sarnıç tarafı, merkez ilçelerin yoğunluğundan uzaktır.",
+          "Sakinlik arayanlar: İlçenin güney kesimi, merkez ilçelerin yoğunluğundan uzaktır.",
         ],
       },
       { type: "h2", text: "Peki kimin için uygun değil?" },
@@ -696,7 +696,7 @@ const POSTS_TR: BlogPost[] = [
     ],
   },
 
-  // ── BLOG 6 — İZBAN Sarnıç (hedef: "izban sarnıç" + yerel ulaşım aramaları)
+  // ── BLOG 6 — Gaziemir'de İZBAN (hedef: "gaziemir izban" + yerel ulaşım aramaları)
   {
     slug: "gaziemir-izban-ulasim-rehberi",
     keyword: "gaziemir izban",
@@ -1037,7 +1037,7 @@ const POSTS_EN: BlogPost[] = [
       { type: "h2", text: "2. Transport: airport and rail advantage" },
       {
         type: "p",
-        text: "Gaziemir's strongest card is transport. Adnan Menderes Airport is around 9 minutes by car; for frequent travellers and expatriates this distance is priceless. The İZBAN Sarnıç line connects the area to central Izmir by rail — a home 800 m from the İZBAN stop takes daily commuting out of traffic dependence. Proximity to the motorway junction also eases intercity connections.",
+        text: "Gaziemir's strongest card is transport. Adnan Menderes Airport is around 9 minutes by car; for frequent travellers and expatriates this distance is priceless. The İZBAN line runs through the district — with two stations, Gaziemir and Sarnıç — connecting the area to central Izmir by rail. A home 800 m from a station takes daily commuting out of traffic dependence. Proximity to the motorway junction also eases intercity connections.",
       },
       { type: "h2", text: "3. Daily life: shopping, health, education" },
       {
@@ -1208,7 +1208,7 @@ const POSTS_EN: BlogPost[] = [
           "People working in the district or the free zone: A short commute and low daily travel cost.",
           "First-time buyers: Prices per square metre tend to be more accessible than in Izmir's central districts.",
           "Rail commuters: İZBAN lets you build a daily routine that does not depend on traffic.",
-          "Those seeking quiet: The Sarnıç side is away from the density of the central districts.",
+          "Those seeking quiet: The southern part of the district is away from the density of the central areas.",
         ],
       },
       { type: "h2", text: "And who does it not suit?" },
