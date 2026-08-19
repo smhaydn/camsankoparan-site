@@ -64,7 +64,9 @@
 :root {
   --surface: #f4f1ec;
   --surface-2: #ebe7e0;
-  --card: #ffffff;
+  /* Kağıt paletinde SAF BEYAZ yok. Sıcak kağıt zemin üzerinde soğuk beyaz
+     kartlar sistemden kopuyor ve ucuz duruyordu → en açık kağıt tonu. */
+  --card: #fbf9f5;
   --text-base: #1a1d1c;
   /* AA (4.5:1) için koyulaştırıldı — açık gri zeminde de geçer */
   --text-muted: #615c54;
