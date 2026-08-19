@@ -6,6 +6,23 @@ import { Lightbox } from "./lightbox";
 import { CoverImage } from "./cover-image";
 import type { Dict } from "@/lib/dict";
 
+/**
+ * Galeri — editoryal ritim.
+ *
+ * Önceki hâlde 20 görsel de birebir aynı 4:3 kutudaydı; bu bir galeri değil
+ * katalog hissi veriyordu. Artık belirli sıralardaki kareler büyüyor:
+ * göz önce büyük kareye takılıyor, sonra küçüklerde geziniyor.
+ *
+ * Desen İNDEKSE bağlı ve deterministik — filtre değişince kayar ama
+ * her zaman aynı ritmi üretir (rastgelelik yok, sunucu/istemci farkı olmaz).
+ */
+function spanFor(i: number) {
+  const m = i % 9;
+  if (m === 0) return "col-span-2 row-span-2"; // büyük kare
+  if (m === 5) return "col-span-2"; // yatay geniş
+  return "";
+}
+
 export function Gallery({ t }: { t: Dict["gallery"] }) {
   const [cat, setCat] = useState<string>("all");
   const [idx, setIdx] = useState<number | null>(null);
@@ -24,64 +41,82 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
   ];
 
   return (
-    <section className="paper bg-sand py-28">
+    <section className="paper bg-sand py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-5 flex items-center gap-4">
-            <span className="h-px w-10 bg-bronze" />
-            <span className="kicker text-bronze">{t.kicker}</span>
+            <span className="h-px w-10 bg-accent" />
+            <span className="kicker text-accent">{t.kicker}</span>
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
-            {t.title1} <span className="text-bronze">{t.title2}</span>
+          <h2 className="font-display text-4xl leading-tight font-light text-base lg:text-5xl">
+            {t.title1} <span className="text-accent">{t.title2}</span>
           </h2>
         </Reveal>
 
         {/* Kategori filtresi */}
         <Reveal delay={0.1}>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {cats.map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => setCat(key)}
-                className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
-                  cat === key
-                    ? "bg-bronze text-onaccent"
-                    : "border border-line text-muted hover:border-accent hover:text-base"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
+          <div className="mt-9 flex flex-wrap gap-2" role="group" aria-label={t.kicker}>
+            {cats.map(([key, label]) => {
+              const on = cat === key;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => {
+                    setCat(key);
+                    setIdx(null);
+                  }}
+                  aria-pressed={on}
+                  className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
+                    on
+                      ? "bg-accent text-onaccent"
+                      : "border border-line text-muted hover:border-accent hover:text-base"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
           </div>
         </Reveal>
 
-        {/* Izgara */}
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {/* Izgara — sabit satır yüksekliği + seçili karelerde 2'li açılım */}
+        <div className="mt-9 grid auto-rows-[8.5rem] grid-cols-2 gap-2.5 sm:auto-rows-[10rem] sm:gap-3 md:auto-rows-[12rem] md:grid-cols-3 lg:auto-rows-[13.5rem] lg:grid-cols-4">
           {items.map((it, i) => (
-            <Reveal key={it.img} delay={(i % 8) * 0.04}>
-              <button
-                onClick={() => setIdx(i)}
-                className="group relative block aspect-[4/3] w-full overflow-hidden rounded-sm"
-                aria-label={it.caption}
+            <button
+              key={it.img}
+              type="button"
+              onClick={() => setIdx(i)}
+              className={`group relative block overflow-hidden bg-sand-2 outline-offset-4 ${spanFor(i)}`}
+              aria-label={it.caption}
+            >
+              <CoverImage
+                src={it.img}
+                alt={it.caption}
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+              />
+              {/* Alt karartma — açıklama okunabilsin diye. Yazı BEYAZ:
+                  önceki hâlde koyu mürekkep rengiyle koyu zemine yazılıyor,
+                  yani pratikte hiç okunmuyordu. */}
+              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <span className="pointer-events-none absolute inset-x-3 bottom-3 translate-y-1 text-left text-[12px] leading-snug font-medium text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                {it.caption}
+              </span>
+              {/* Büyütülebildiğini gösteren işaret */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-paper/90 text-sm leading-none text-ink opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               >
-                <CoverImage
-                  src={it.img}
-                  alt={it.caption}
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <span className="absolute bottom-3 left-3 text-xs font-medium text-base opacity-0 transition-opacity group-hover:opacity-100">
-                  {it.caption}
-                </span>
-              </button>
-            </Reveal>
+                +
+              </span>
+            </button>
           ))}
         </div>
 
-        <p className="mt-6 text-center text-xs text-muted">{t.hint}</p>
+        <p className="mt-7 text-center text-xs text-muted">{t.hint}</p>
       </div>
 
       <Lightbox

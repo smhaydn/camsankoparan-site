@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export type LightboxImage = { img: string; caption?: string };
 
@@ -18,6 +18,9 @@ export function Lightbox({
   onIndex: (i: number) => void;
 }) {
   const open = index !== null;
+  const panel = useRef<HTMLDivElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const touchX = useRef<number | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -25,10 +28,43 @@ export function Lightbox({
       if (e.key === "Escape") onClose();
       else if (e.key === "ArrowRight") onIndex((index! + 1) % images.length);
       else if (e.key === "ArrowLeft") onIndex((index! - 1 + images.length) % images.length);
+      else if (e.key === "Tab") {
+        // Odak tuzağı: sekme penceresinin dışına çıkmasın
+        const f = panel.current?.querySelectorAll<HTMLElement>("button");
+        if (!f || f.length === 0) return;
+        const first = f[0];
+        const last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, index, images.length, onClose, onIndex]);
+
+  // Açıkken arka planın kaymasını durdur; kapanınca odağı geldiği yere iade et.
+  // Kaydırma çubuğunun genişliği kadar dolgu eklenir, yoksa sayfa sıçrıyor.
+  useEffect(() => {
+    if (!open) return;
+    opener.current = document.activeElement as HTMLElement | null;
+    const body = document.body;
+    const prevOverflow = body.style.overflow;
+    const prevPad = body.style.paddingRight;
+    const bar = window.innerWidth - document.documentElement.clientWidth;
+    body.style.overflow = "hidden";
+    if (bar > 0) body.style.paddingRight = `${bar}px`;
+    panel.current?.focus();
+    return () => {
+      body.style.overflow = prevOverflow;
+      body.style.paddingRight = prevPad;
+      opener.current?.focus?.();
+    };
+  }, [open]);
 
   return (
     <AnimatePresence>
@@ -38,7 +74,27 @@ export function Lightbox({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/95 p-4 backdrop-blur-sm"
+          ref={panel}
+          tabIndex={-1}
+          role="dialog"
+          aria-modal="true"
+          aria-label={images[index!]?.caption ?? ""}
+          onTouchStart={(e) => {
+            touchX.current = e.touches[0].clientX;
+          }}
+          onTouchEnd={(e) => {
+            // Mobilde parmakla kaydırarak gezinme
+            if (touchX.current === null) return;
+            const dx = e.changedTouches[0].clientX - touchX.current;
+            touchX.current = null;
+            if (Math.abs(dx) < 50) return;
+            onIndex(
+              dx < 0
+                ? (index! + 1) % images.length
+                : (index! - 1 + images.length) % images.length,
+            );
+          }}
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/95 p-4 backdrop-blur-sm outline-none"
         >
           <button
             onClick={onClose}
