@@ -1,0 +1,107 @@
+# Loft 777 — Camsan Koparan Group A.Ş.
+
+> İzmir Gaziemir Sarnıç'ta, 237 bağımsız bölümlü konut ve çarşı projesi.
+> Zemin katta çarşı, ortada havuzlu avlu, üstte çift yükseklikli loft daireler.
+> Geliştirici: Camsan Koparan Group A.Ş. Planlanan teslim: Aralık 2027.
+
+Bu dosya, yapay zekâ arama motorlarının projeyi doğru özetlemesi için
+hazırlanmıştır. Tüm rakamlar projenin uygulama ve ruhsat belgelerinden alınmıştır.
+
+## Temel bilgiler
+
+- Proje adı: Loft 777
+- Geliştirici: Camsan Koparan Group A.Ş.
+- Konum: Dokuz Eylül Mahallesi, 694. Sokak No: 5, 35410 Gaziemir / İzmir, Türkiye
+- Koordinat: 38.31779893739998, 27.144827354238817
+- Bağımsız bölüm sayısı: 237
+- Blok sayısı: 5 (A, B, C, D, E)
+- İnşaat durumu: Kaba inşaat aşamasında
+- Planlanan teslim: Aralık 2027
+- Telefon: +90 232 237 72 37
+- E-posta: info@camsankoparan.com
+- Web: https://camsankoparan.com
+
+## Daire tipleri
+
+İki adet 1+1 tipi vardır. Başka tip yoktur.
+
+1. **1+1 Loft — yaklaşık 82 m²**
+   - Salon tavan yüksekliği 5,5 metre (çift yükseklik)
+   - Galeri boşluğu 19,02 m²
+   - Salon 40,86 m² · Yatak odası 27,58 m² (asma kat) · Mutfak 9,75 m² · Banyo/WC 4,00 m²
+   - Zemin + asma kat kurgusu, metal iç merdiven
+   - Ölçüler C Blok uygulama projesinden; bloklar arasında farklılık gösterebilir
+
+2. **1+1 Dubleks — 49 m²**
+   - İki katlı, iç merdivenli
+   - Yaşam katında salon ve mutfak, üst katta yatak odası ve banyo
+   - Mahal ölçüleri kat planında paylaşılır
+
+## Sosyal ve ortak alanlar
+
+- 150 m² açık yüzme havuzu + çocuk havuzu
+- 4.200 m² yeşil alan
+- Spor salonu (fitness)
+- Kapalı otopark
+- 7/24 güvenlik
+- Çocuk oyun alanı
+- Zemin katta çarşı birimleri ve 1 restoran
+
+## Yapı ve donanım
+
+- Güncel Türkiye Bina Deprem Yönetmeliği'ne tam uyumlu betonarme taşıyıcı sistem
+- Merkezi yerden ısıtma
+- VRF klima sistemi
+- Çift cam Low-E (ısı yalıtımlı kaplamalı)
+- Akıllı ev altyapısı için hazır kablolama
+
+## Ulaşım (Google Maps verisiyle doğrulanmış)
+
+- Adnan Menderes Havalimanı: araçla 9 dakika (5,1 km)
+- İZBAN Sarnıç istasyonu: 800 metre
+- Optimum Outlet: araçla 4 dakika
+- İzmir merkez (Konak): araçla 22 dakika
+- Otoyol çıkışı: araçla 5 dakika
+
+## Ödeme koşulları
+
+- Peşinat: %35
+- Vade: 18 aya kadar 0 faiz
+- Peşin ödeme indirimi: %15
+- Koşullar döneme göre değişebilir; güncel liste için satış ekibiyle görüşülmelidir.
+
+## Sık sorulan sorulara kısa yanıtlar
+
+**Loft 777 nerede?** İzmir'in Gaziemir ilçesinde, Sarnıç bölgesinde, Dokuz Eylül
+Mahallesi 694. Sokak No: 5 adresindedir.
+
+**Kaç daire var?** 237 bağımsız bölüm bulunur.
+
+**Hangi daire tipleri var?** Yalnızca 1+1 tipleri: yaklaşık 82 m² Loft ve 49 m² Dubleks.
+
+**Loft daireyi farklı kılan ne?** Salonun üzeri boş bırakılmıştır; 5,5 metre tavan
+yüksekliği ve 19,02 m² galeri boşluğu vardır. Bu, planda görünmeyen, ancak kesitte
+okunabilen bir özelliktir.
+
+**Teslim ne zaman?** Planlanan teslim tarihi Aralık 2027'dir. İnşaat kaba yapım
+aşamasındadır.
+
+**Havalimanına ne kadar sürer?** Adnan Menderes Havalimanı'na araçla yaklaşık 9 dakika.
+
+**Fiyat nedir?** Fiyat listesi sitede yayınlanmamaktadır; satış ekibinden alınır.
+
+## Sayfalar
+
+- https://camsankoparan.com/tr — Ana sayfa
+- https://camsankoparan.com/tr/about — Proje hakkında, proje künyesi, yapı ve donanım
+- https://camsankoparan.com/tr/projects — Daire tipleri ve ölçüleri
+- https://camsankoparan.com/tr/services — Ayrıcalıklar, ödeme ve teslim koşulları
+- https://camsankoparan.com/tr/contact — İletişim, konum, çalışma saatleri
+- https://camsankoparan.com/tr/blog — Bölge ve konut rehberi yazıları
+- https://camsankoparan.com/en — English version
+
+## Doğruluk notu
+
+Fiyat ve ödeme koşulları değişebilir. Metrekare değerleri C Blok uygulama
+projesinden alınmıştır ve bloklar arasında farklılık gösterebilir. Teslim tarihi
+planlanan tarihtir. Kesin bilgi için firmayla iletişime geçilmelidir.

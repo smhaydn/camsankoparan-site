@@ -6,6 +6,7 @@ import { Stats } from "@/components/site/stats";
 import { CTA } from "@/components/site/cta";
 import { Reveal } from "@/components/site/reveal";
 import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -20,6 +21,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const a = d.aboutPage;
 
   return (
+    <>
+      <JsonLd locale={locale} page="about" />
     <main>
       <PageHero kicker={a.kicker} title={a.title} intro={a.intro} image="/renders/hava-genel.jpg" />
 
@@ -140,5 +143,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <Stats labels={d.stats} />
       <CTA t={d.cta} />
     </main>
+    </>
   );
 }

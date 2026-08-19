@@ -9,6 +9,7 @@ import { CoverImage } from "@/components/site/cover-image";
 import { LoftKesit } from "@/components/site/loft-kesit";
 import { CTA } from "@/components/site/cta";
 import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -25,6 +26,8 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
   const href = path(locale, `${SEGMENTS.projects}/${project.slug}`);
 
   return (
+    <>
+      <JsonLd locale={locale} page="projects" />
     <main>
       <PageHero kicker={p.kicker} title={p.title} intro={p.intro} image={project.hero} />
 
@@ -147,5 +150,6 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
       <CTA t={d.cta} />
     </main>
+    </>
   );
 }

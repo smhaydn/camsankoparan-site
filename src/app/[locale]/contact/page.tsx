@@ -5,6 +5,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import { ContactForm } from "@/components/site/contact-form";
 import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -30,6 +31,8 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const mapLink = `https://www.google.com/maps/dir/?api=1&destination=${l.lat},${l.lng}`;
 
   return (
+    <>
+      <JsonLd locale={locale} page="contact" />
     <main>
       <PageHero kicker={c.kicker} title={c.title} intro={c.intro} image="/renders/carsi-yaya.jpg" />
 
@@ -133,5 +136,6 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         </div>
       </section>
     </main>
+    </>
   );
 }

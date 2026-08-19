@@ -14,6 +14,7 @@ import { CTA } from "@/components/site/cta";
 import { Kesit } from "@/components/site/kesit";
 import { Tez } from "@/components/site/tez";
 import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -31,6 +32,8 @@ export default async function Home({
   const d = await getContent(locale);
   const l = locale as Locale;
   return (
+    <>
+      <JsonLd locale={locale} page="home" faq={d.faq.items} />
     <main>
       <Hero t={d.hero} locale={l} />
       {/* TEZ — projeyi üç satırda anlatan sessiz bölüm */}
@@ -47,5 +50,6 @@ export default async function Home({
       <Location t={d.location} address={d.contactPage.address} />
       <CTA t={d.cta} />
     </main>
+    </>
   );
 }
