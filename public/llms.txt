@@ -1,6 +1,6 @@
 # Loft 777 — Camsan Koparan Group A.Ş.
 
-> İzmir Gaziemir Sarnıç'ta, 237 bağımsız bölümlü konut ve çarşı projesi.
+> İzmir Gaziemir'de, 237 bağımsız bölümlü konut ve çarşı projesi.
 > Zemin katta çarşı, ortada havuzlu avlu, üstte çift yükseklikli loft daireler.
 > Geliştirici: Camsan Koparan Group A.Ş. Planlanan teslim: Aralık 2027.
 
@@ -72,8 +72,8 @@ hazırlanmıştır. Tüm rakamlar projenin uygulama ve ruhsat belgelerinden alı
 
 ## Sık sorulan sorulara kısa yanıtlar
 
-**Loft 777 nerede?** İzmir'in Gaziemir ilçesinde, Sarnıç bölgesinde, Dokuz Eylül
-Mahallesi 694. Sokak No: 5 adresindedir.
+**Loft 777 nerede?** İzmir'in Gaziemir ilçesinde, Dokuz Eylül Mahallesi
+694. Sokak No: 5 adresindedir.
 
 **Kaç daire var?** 237 bağımsız bölüm bulunur.
 
