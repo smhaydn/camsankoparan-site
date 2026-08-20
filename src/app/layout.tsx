@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { getSettings } from "@/lib/supabase-admin";
@@ -60,23 +59,28 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({
+// 20 Agu 2026 — SITENIN TAMAMINI DINAMIK YAPAN SATIR BURADAYDI.
+// Eskiden burada `const lang = (await headers()).get("x-locale")` vardi.
+// `headers()` bir DINAMIK API'dir: kok layout HER sayfada calistigi icin
+// Next.js tum siteyi zorunlu olarak istek aninda uretiyordu. Sayfalara ve
+// [locale] layout'una revalidate eklemek ISE YARAMADI, sebep buydu.
+// Olculdu (canli): her istekte x-vercel-cache MISS; site Vercel'in ucretsiz
+// islemci kotasinin %14'unu yiyordu ve kota asilirsa TUM projeler
+// duraklatiliyor (pixra.co dahil, ayni hesapta).
+//
+// Dil bilgisi ARTIK ROTADAN geliyor: <html lang> etiketi [locale]/layout.tsx'e
+// tasindi, orada `params.locale` zaten var. Yani istek basligi okumaya gerek
+// kalmadi. lang degeri onceki gibi dogru ("/en" -> "en", "/tr" -> "tr");
+// canlida dogrulanmisti, davranis korunuyor.
+//
+// Bu dosya artik yalnizca font degiskenlerini ve tema saglayicisini kurar;
+// <html>/<body> alt layout'ta.
+export const FONT_SINIFLARI = `${archivo.variable} ${jakarta.variable} ${jet.variable}`;
+
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Dil, middleware'in yazdığı x-locale header'ından gelir (EN sayfalarda "en").
-  const lang = (await headers()).get("x-locale") ?? "tr";
-  return (
-    <html
-      lang={lang}
-      data-scroll-behavior="smooth"
-      suppressHydrationWarning
-      className={`${archivo.variable} ${jakarta.variable} ${jet.variable}`}
-    >
-      <body className="bg-surface text-base antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 }

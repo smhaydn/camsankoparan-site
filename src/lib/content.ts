@@ -18,7 +18,16 @@ export async function getOverrides(): Promise<Overrides> {
   try {
     const r = await fetch(`${URL}/rest/v1/site_content?id=eq.1&select=tr,en`, {
       headers: { apikey: ANON, Authorization: `Bearer ${ANON}` },
-      cache: "no-store", // panelde değişince anında yansısın
+      // 20 Agu 2026: eskiden `cache: "no-store"` idi. Niyet dogruydu ("panelde
+      // degisince aninda yansisin") ama bedeli her ZIYARETCIYE odetiliyordu:
+      // no-store tum sayfalari zorunlu dinamik yapar, her istekte hem Supabase
+      // cagrisi hem sayfa uretimi kosar. Canlida olculdu: her istekte
+      // x-vercel-cache MISS. Vercel'in ucretsiz islemci kotasi doldu ve asilirsa
+      // TUM projeler duraklatiliyor (pixra.co dahil, ayni hesapta).
+      // Yeni yol: icerik etiketli onbellege alinir; panelden kayit yapilinca
+      // /api/admin/content icindeki revalidateTag("site-content") ANINDA
+      // tazeler. Yani "aninda yansima" korunur, bedeli kalkar.
+      next: { tags: ["site-content"], revalidate: 3600 },
     });
     if (!r.ok) return {};
     const rows = await r.json();

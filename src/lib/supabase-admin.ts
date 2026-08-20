@@ -141,7 +141,13 @@ export async function getSettings(): Promise<AppSettings> {
   try {
     const r = await fetch(`${URL}/rest/v1/app_settings?id=eq.1&select=data`, {
       headers: authHeaders(),
-      cache: "no-store",
+      // 20 Agu 2026: eskiden `cache: "no-store"` idi. Bu fonksiyon
+      // [locale]/layout.tsx icinden cagriliyor; layout HER sayfada calistigi
+      // icin tek basina TUM siteyi dinamik yapiyordu — icerik onbellege
+      // alinsa bile sayfalar yine her istekte uretiliyordu (build ciktisinda
+      // hepsi "f Dynamic" kaliyordu). Ayarlar (piksel/GA kimlikleri) nadiren
+      // degisir; kayit aninda /api/admin/settings tazeliyor.
+      next: { tags: ["app-settings"], revalidate: 3600 },
     });
     if (!r.ok) return {};
     const rows = await r.json();

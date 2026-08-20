@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { isAuthed } from "@/lib/admin-auth";
 import { saveSettings, type AppSettings } from "@/lib/supabase-admin";
 
@@ -21,6 +22,9 @@ export async function POST(req: Request) {
 
   try {
     await saveSettings(data);
+    // Ayarlar artik onbellekten okunuyor (bkz. lib/supabase-admin.ts getSettings).
+    // Tazelemezsek yeni piksel/GA kimligi siteye yansimaz.
+    revalidateTag("app-settings", "max");
     return NextResponse.json({ ok: true });
   } catch (e) {
     const msg = e instanceof Error ? e.message : "hata";
