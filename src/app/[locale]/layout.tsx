@@ -11,6 +11,7 @@ import { CatalogProvider } from "@/components/site/catalog-provider";
 import { PresencePinger } from "@/components/site/presence-pinger";
 import { TrackingScripts } from "@/components/site/tracking-scripts";
 import { CookieConsent } from "@/components/site/cookie-consent";
+import { ThemeProvider } from "@/components/site/theme-provider";
 import { getSettings } from "@/lib/supabase-admin";
 
 // 20 Agu 2026: layout da ISR olmali. Layout HER sayfada calisir ve icerik +
@@ -50,6 +51,9 @@ export default async function LocaleLayout({
       className={FONT_SINIFLARI}
     >
       <body className="bg-surface text-base antialiased">
+    {/* Tema sağlayıcısı: eskiden kök layout'taydı; /yonetim gibi bölümlerde
+        belge dışı script hatasına yol açıyordu. Artık yalnızca genel siteyi sarar. */}
+    <ThemeProvider>
     {/* overflow-x: clip → yatay taşmayı keser AMA kaydırma kabı OLUŞTURMAZ.
         (overflow-x: hidden, overflow-y'yi auto'ya zorlayıp position:sticky'yi bozuyordu.) */}
     <div className="overflow-x-clip">
@@ -70,6 +74,7 @@ export default async function LocaleLayout({
       <WhatsAppButton phone={d.contactPage.phone} message={waMessage} />
       <CookieConsent t={d.cookieBanner} locale={locale} />
     </div>
+    </ThemeProvider>
       </body>
     </html>
   );

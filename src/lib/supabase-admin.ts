@@ -1,4 +1,4 @@
-import type { Lead } from "./leads";
+import type { Lead, Activity } from "./leads";
 
 // Yönetim tarafı veri erişimi — Supabase "service_role" anahtarıyla (RLS'i aşar).
 // SADECE sunucu tarafında, giriş korumalı API'lerden çağrılır. Tarayıcıya asla sızmaz.
@@ -31,10 +31,10 @@ export async function getLeads(): Promise<Lead[]> {
   return r.json();
 }
 
-// Bir talebin durumunu / notunu günceller
+// Bir talebin durumunu / notunu / takip tarihini günceller
 export async function updateLead(
   id: string,
-  patch: Partial<Pick<Lead, "status" | "notes">>,
+  patch: Partial<Pick<Lead, "status" | "notes" | "follow_up_at">>,
 ): Promise<void> {
   if (!ready()) throw new Error("SERVICE_KEY_MISSING");
   const r = await fetch(`${URL}/rest/v1/${TABLE}?id=eq.${id}`, {
@@ -43,6 +43,46 @@ export async function updateLead(
     body: JSON.stringify(patch),
   });
   if (!r.ok) throw new Error("update_failed_" + r.status);
+}
+
+// Tek bir talebi id ile getirir (detay sayfası için)
+export async function getLead(id: string): Promise<Lead | null> {
+  if (!ready()) throw new Error("SERVICE_KEY_MISSING");
+  const r = await fetch(
+    `${URL}/rest/v1/${TABLE}?id=eq.${id}&select=*&limit=1`,
+    { headers: authHeaders(), cache: "no-store" },
+  );
+  if (!r.ok) throw new Error("lead_fetch_failed_" + r.status);
+  const rows = await r.json();
+  return Array.isArray(rows) && rows[0] ? rows[0] : null;
+}
+
+// ───────── Aday görüşme geçmişi (lead_activities) ─────────
+
+// Bir adayın tüm aktivitelerini en yeni üstte getirir
+export async function getActivities(leadId: string): Promise<Activity[]> {
+  if (!ready()) throw new Error("SERVICE_KEY_MISSING");
+  const r = await fetch(
+    `${URL}/rest/v1/lead_activities?lead_id=eq.${leadId}&select=*&order=created_at.desc`,
+    { headers: authHeaders(), cache: "no-store" },
+  );
+  if (!r.ok) throw new Error("activities_fetch_failed_" + r.status);
+  return r.json();
+}
+
+// Bir adaya yeni aktivite (arama, not, randevu…) ekler
+export async function addActivity(
+  leadId: string,
+  kind: string,
+  body: string | null,
+): Promise<void> {
+  if (!ready()) throw new Error("SERVICE_KEY_MISSING");
+  const r = await fetch(`${URL}/rest/v1/lead_activities`, {
+    method: "POST",
+    headers: { ...authHeaders(), Prefer: "return=minimal" },
+    body: JSON.stringify({ lead_id: leadId, kind, body }),
+  });
+  if (!r.ok) throw new Error("activity_create_failed_" + r.status);
 }
 
 // Panelden manuel talep ekler (telefonla gelen, fuardan tanıdık vb.)

@@ -13,9 +13,12 @@ export async function PATCH(
   const { id } = await params;
   const body = await req.json().catch(() => ({}) as Record<string, unknown>);
 
-  const patch: { status?: string; notes?: string } = {};
+  const patch: { status?: string; notes?: string; follow_up_at?: string | null } = {};
   if (typeof body.status === "string") patch.status = body.status;
   if (typeof body.notes === "string") patch.notes = body.notes;
+  // follow_up_at: ISO tarih string'i ya da null (takibi temizlemek için)
+  if (typeof body.follow_up_at === "string") patch.follow_up_at = body.follow_up_at;
+  else if (body.follow_up_at === null) patch.follow_up_at = null;
 
   if (Object.keys(patch).length === 0) {
     return NextResponse.json({ ok: false, error: "boş güncelleme" }, { status: 400 });

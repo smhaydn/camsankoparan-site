@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/site/theme-provider";
 import { getSettings } from "@/lib/supabase-admin";
 
 // TÜM FONTLAR TÜRKÇE GLİF TESTİNDEN GEÇTİ (ı İ ğ Ğ ş Ş ç Ç ö Ö ü Ü)
@@ -77,10 +76,13 @@ export async function generateMetadata(): Promise<Metadata> {
 // <html>/<body> alt layout'ta.
 export const FONT_SINIFLARI = `${archivo.variable} ${jakarta.variable} ${jet.variable}`;
 
+// Kök layout artık <html>/<body> ve tema sağlayıcısını KURMAZ. Her bölüm
+// (genel site [locale], /yonetim, /isprogrami) kendi belgesini kurar.
+// Tema sağlayıcısı yalnızca genel sitede gerektiği için [locale]/layout'a taşındı.
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return children;
 }

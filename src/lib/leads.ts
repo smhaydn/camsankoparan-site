@@ -12,7 +12,44 @@ export type Lead = {
   notes: string | null;
   unit_interest: string | null;
   budget: string | null;
+  follow_up_at: string | null; // sonraki arama/takip tarihi (boşsa takip yok)
 };
+
+// Bir adayın görüşme geçmişindeki tek kayıt (arama, not, randevu…)
+export type Activity = {
+  id: string;
+  lead_id: string;
+  created_at: string;
+  kind: string;
+  body: string | null;
+};
+
+// Aktivite türleri — detay ekranında buton olarak çıkar
+export const ACTIVITY_KINDS = [
+  { value: "call", label: "Arama", emoji: "📞" },
+  { value: "whatsapp", label: "WhatsApp", emoji: "💬" },
+  { value: "appointment", label: "Randevu", emoji: "📅" },
+  { value: "note", label: "Not", emoji: "📝" },
+] as const;
+
+export function activityMeta(value: string) {
+  return (
+    ACTIVITY_KINDS.find((k) => k.value === value) ??
+    // status/followup gibi otomatik kayıtlar için nötr etiket
+    { value, label: value, emoji: "•" }
+  );
+}
+
+// Takip tarihi bugünden geçmiş/bugün mü? (panelde "aranacak" uyarısı için)
+export function isFollowUpDue(followUpAt: string | null): boolean {
+  if (!followUpAt) return false;
+  const d = new Date(followUpAt);
+  if (Number.isNaN(d.getTime())) return false;
+  // Günün sonuna kadar olan takipler "bugün aranacak" sayılır
+  const endOfToday = new Date();
+  endOfToday.setHours(23, 59, 59, 999);
+  return d.getTime() <= endOfToday.getTime();
+}
 
 // İlgilenilen daire tipi etiketi (CRM/Excel için Türkçe)
 export function unitLabel(value: string | null) {

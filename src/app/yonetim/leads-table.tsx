@@ -14,6 +14,7 @@ import {
   waLink,
   unitLabel,
   budgetLabel,
+  isFollowUpDue,
 } from "@/lib/leads";
 
 export function LeadsBoard({
@@ -110,6 +111,12 @@ export function LeadsBoard({
         </div>
         <div className="flex items-center gap-3">
           <OnlineCount />
+          <Link
+            href="/yonetim/ozet"
+            className="rounded-full border border-bronze/40 px-4 py-2 text-sm font-semibold text-bronze transition hover:bg-bronze/10"
+          >
+            📊 Özet
+          </Link>
           <button
             onClick={() => setAddOpen(true)}
             className="rounded-full bg-bronze px-4 py-2 text-sm font-semibold text-ink transition hover:bg-bronze-light"
@@ -412,6 +419,11 @@ function LeadCard({
             >
               {meta.emoji} {meta.label}
             </span>
+            {isFollowUpDue(lead.follow_up_at) && (
+              <span className="rounded-full bg-amber-400/20 px-2 py-0.5 text-xs font-medium text-amber-300">
+                ⏰ Aranacak
+              </span>
+            )}
           </div>
           <div className="mt-0.5 text-xs text-white/40">
             {sourceLabel(lead.source)} · {date}
@@ -466,6 +478,12 @@ function LeadCard({
         >
           {copied ? "Kopyalandı ✓" : "Kopyala"}
         </button>
+        <Link
+          href={`/yonetim/leads/${lead.id}`}
+          className="rounded-full bg-bronze/20 px-3 py-1 text-xs font-semibold text-bronze transition hover:bg-bronze/30"
+        >
+          Detay / Geçmiş →
+        </Link>
         {lead.email && (
           <a
             href={`mailto:${lead.email}`}
