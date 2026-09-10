@@ -109,6 +109,8 @@ export function sourceLabel(source: string | null) {
       return "Web · Sizi Arayalım";
     case "contact-page":
       return "Web · İletişim Sayfası";
+    case "whatsapp":
+      return "WhatsApp · Site Butonu";
     case "meta-lead":
       return "Instagram / Meta Reklam";
     case "manual":
@@ -121,14 +123,17 @@ export function sourceLabel(source: string | null) {
 // Kaynak grupları — panelde filtreleme için (Web / Instagram-Meta / Manuel)
 export const SOURCE_GROUPS = [
   { value: "web", label: "Web Sitesi", emoji: "🌐", match: ["call-form", "contact-page"] },
+  { value: "whatsapp", label: "WhatsApp", emoji: "💬", match: ["whatsapp"] },
   { value: "meta", label: "Instagram / Meta", emoji: "📷", match: ["meta-lead"] },
   { value: "manual", label: "Manuel", emoji: "✍️", match: ["manual"] },
 ] as const;
 
-export function sourceGroup(source: string | null): "web" | "meta" | "manual" | "other" {
+export function sourceGroup(
+  source: string | null,
+): "web" | "whatsapp" | "meta" | "manual" | "other" {
   const s = source ?? "";
   const g = SOURCE_GROUPS.find((grp) => (grp.match as readonly string[]).includes(s));
-  return g ? (g.value as "web" | "meta" | "manual") : "other";
+  return g ? (g.value as "web" | "whatsapp" | "meta" | "manual") : "other";
 }
 
 // Telefonu WhatsApp linkine çevirir (Türkiye): 0555... → 90555...

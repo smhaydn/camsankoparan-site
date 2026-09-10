@@ -88,9 +88,28 @@ export function LeadsBoard({
   }
 
   async function removeLead(id: string) {
-    if (!confirm("Bu talebi silmek istediğinize emin misiniz?")) return;
+    const lead = leads.find((l) => l.id === id);
+    if (!lead) return;
+    if (
+      !confirm(
+        `"${lead.name}" kaydı kalıcı olarak silinecek. Geri alınamaz.
+
+Silmek istediğinize emin misiniz?`,
+      )
+    )
+      return;
+    // Önce ekrandan kaldır (hızlı hissettirir), sunucu reddederse geri koy —
+    // yoksa kayıt veritabanında durduğu halde silinmiş sanılıyordu.
     setLeads((prev) => prev.filter((l) => l.id !== id));
-    await fetch(`/api/admin/leads/${id}`, { method: "DELETE" }).catch(() => {});
+    const r = await fetch(`/api/admin/leads/${id}`, { method: "DELETE" }).catch(() => null);
+    if (!r || !r.ok) {
+      setLeads((prev) =>
+        [...prev, lead].sort(
+          (a, b) => +new Date(b.created_at) - +new Date(a.created_at),
+        ),
+      );
+      alert("Silinemedi. İnternet bağlantınızı kontrol edip tekrar deneyin.");
+    }
   }
 
   async function logout() {
@@ -478,6 +497,12 @@ function LeadCard({
         >
           {copied ? "Kopyalandı ✓" : "Kopyala"}
         </button>
+        <button
+          onClick={onDelete}
+          className="rounded-full border border-red-500/40 px-3 py-1 text-xs font-semibold text-red-400 transition hover:bg-red-500/15 hover:text-red-300"
+        >
+          🗑 Sil
+        </button>
         <Link
           href={`/yonetim/leads/${lead.id}`}
           className="rounded-full bg-bronze/20 px-3 py-1 text-xs font-semibold text-bronze transition hover:bg-bronze/30"
@@ -515,14 +540,7 @@ function LeadCard({
         />
       </div>
 
-      <div className="mt-2 text-right">
-        <button
-          onClick={onDelete}
-          className="text-xs text-white/30 transition hover:text-red-400"
-        >
-          Sil
-        </button>
-      </div>
+
     </div>
   );
 }
