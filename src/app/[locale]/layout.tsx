@@ -71,7 +71,12 @@ export default async function LocaleLayout({
         <CallForm t={d.callForm} extra={d.formExtra} />
       </CatalogProvider>
       <Footer t={d.footer} locale={locale} />
-      <WhatsAppButton phone={d.contactPage.phone} message={waMessage} />
+      <WhatsAppButton
+        phone={d.contactPage.phone}
+        message={waMessage}
+        locale={locale}
+        extra={d.formExtra}
+      />
       <CookieConsent t={d.cookieBanner} locale={locale} />
     </div>
     </ThemeProvider>
