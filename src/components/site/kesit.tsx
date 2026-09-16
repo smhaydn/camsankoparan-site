@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { WordReveal } from "./reveal";
 import { motion, useReducedMotion } from "motion/react";
 import type { Dict } from "@/lib/dict";
 
@@ -54,11 +55,7 @@ export function Kesit({ t }: { t: Dict["kesit"] }) {
         <div className="h-px w-12 bg-accent" />
         <div className="kicker mt-4 text-accent">{t.kicker}</div>
         <h2 className="mt-5 max-w-3xl font-display text-4xl font-light leading-[1.08] text-base lg:text-6xl">
-          {t.title1}
-          <br />
-          {t.title2}
-          <br />
-          <span className="text-accent">{t.title3}</span>
+          <WordReveal parts={[{ text: t.title1 }, { text: t.title2, br: true }, { text: t.title3, className: "text-accent", br: true }]} />
         </h2>
         <p className="mt-7 max-w-xl leading-relaxed text-muted">{t.intro}</p>
       </div>

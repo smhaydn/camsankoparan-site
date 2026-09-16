@@ -58,7 +58,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* PROJE KÜNYESİ — mimari föy. Süs yok, veri var. */}
-      <section className="paper bg-sand py-24 lg:py-28">
+      <section className="paper era-blue py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
@@ -130,7 +130,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Öne çıkanlar — dekoratif 01/02/03 numaraları kaldırıldı (sıra bilgisi taşımıyor) */}
-      <section className="paper bg-sand-2 py-24 lg:py-28">
+      <section className="paper bg-paper py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mb-12 flex items-center gap-4">
@@ -141,7 +141,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <div className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
             {a.values.map((v, i) => (
               <Reveal key={v.t} delay={Math.min(i * 0.07, 0.28)}>
-                <div className="h-full bg-sand-2 p-8">
+                <div className="h-full bg-cream p-8">
                   <h3 className="font-display text-xl font-medium text-base">{v.t}</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted">{v.d}</p>
                 </div>

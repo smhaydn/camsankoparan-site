@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Reveal } from "./reveal";
+import { Reveal, WordReveal } from "./reveal";
 import { CoverImage } from "./cover-image";
 import { SEGMENTS, type Dict } from "@/lib/dict";
 import { path, type Locale } from "@/lib/i18n";
@@ -15,6 +15,7 @@ export function About({ t, locale }: { t: Dict["about"]; locale: Locale }) {
                 src="/renders/teras-bahce.jpg"
                 alt={locale === "en" ? "Loft 777 terrace and garden" : "Loft 777 teras ve bahçe"}
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                className="scroll-zoom"
               />
             </div>
             <div className="dark-island absolute -bottom-8 -right-4 hidden bg-petrol px-9 py-7 text-center sm:block lg:-right-8">
@@ -31,13 +32,9 @@ export function About({ t, locale }: { t: Dict["about"]; locale: Locale }) {
               <span className="kicker text-bronze">{t.kicker}</span>
             </div>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
-              {t.title1}
-              <br />
-              <span className="text-bronze">{t.title2}</span>
-            </h2>
-          </Reveal>
+          <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
+            <WordReveal parts={[{ text: t.title1 }, { text: t.title2, className: "text-bronze", br: true }]} />
+          </h2>
           <Reveal delay={0.1}>
             <p className="mt-7 text-lg leading-relaxed text-muted">{t.body}</p>
           </Reveal>

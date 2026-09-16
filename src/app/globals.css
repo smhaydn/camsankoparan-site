@@ -7,17 +7,17 @@
 
 @theme {
   /* ── Zemin: grafit (hafif yeşile çalan siyah — soğuk teknoloji hissi vermez) */
-  --color-ink: #1a1d1c;
-  --color-ink-2: #232726;
-  --color-ink-3: #2e3332;
+  --color-ink: #17233b; /* ERA lacivert */
+  --color-ink-2: #1f2d4a;
+  --color-ink-3: #293a5a;
 
   /* ── KAĞIT KATMANLARI — derinlik karanlıktan değil, ton farkından gelir.
      Fark neredeyse görünmez; göz "katman" okur. */
-  --color-paper: #fbf9f5; /* en açık — kağıt */
-  --color-cream: #f4f1ec; /* alabaster */
-  --color-sand: #ede9e1; /* kum */
-  --color-sand-2: #e7e2d9; /* koyu kum */
-  --color-alabaster: #f4f1ec;
+  --color-paper: #f9f9f4; /* en açık — kağıt */
+  --color-cream: #f3f3ec; /* ERA kırık beyaz */ /* alabaster */
+  --color-sand: #eaeae1; /* kum */
+  --color-sand-2: #e2e2d7; /* koyu kum (mavi bant için .era-blue) */
+  --color-alabaster: #f3f3ec;
 
   /* ── Yardımcı: taş grisi (AA kontrastı için koyulaştırıldı) */
   --color-stone: #6f6a61;
@@ -29,9 +29,9 @@
   --color-brand-bronze-dark: #6d5326;
 
   /* ── Petrol yeşil sabitleri (referans) */
-  --color-petrol: #0f4f4a;
-  --color-petrol-deep: #0b3c38;
-  --color-petrol-light: #7fc9c1;
+  --color-petrol: #340c24; /* ERA mürdüm — ad korunuyor, bileşenler bozulmasın */
+  --color-petrol-deep: #22071a;
+  --color-petrol-light: #b5cedb;
 
   --font-display: var(--font-display-archivo);
   --font-body: var(--font-body-jakarta);
@@ -62,20 +62,20 @@
 
 /* AÇIK zemin (varsayılan): koyu petrol aksan */
 :root {
-  --surface: #f4f1ec;
-  --surface-2: #ebe7e0;
+  --surface: #f3f3ec;
+  --surface-2: #eaeae1;
   /* Kağıt paletinde SAF BEYAZ yok. Sıcak kağıt zemin üzerinde soğuk beyaz
      kartlar sistemden kopuyor ve ucuz duruyordu → en açık kağıt tonu. */
-  --card: #fbf9f5;
-  --text-base: #1a1d1c;
+  --card: #f9f9f4;
+  --text-base: #17233b;
   /* AA (4.5:1) için koyulaştırıldı — açık gri zeminde de geçer */
-  --text-muted: #615c54;
-  --line: #ddd8cf;
+  --text-muted: #4a5163;
+  --line: #d8d8cd;
 
-  --accent: #0f4f4a;
-  --accent-strong: #0b3c38;
-  --accent-soft: #14625c;
-  --on-accent: #f4f1ec;
+  --accent: #340c24;
+  --accent-strong: #22071a;
+  --accent-soft: #5a2046;
+  --on-accent: #f3f3ec;
 }
 
 /* KOYU ADALAR — açık tema içindeki koyu bölümler (hero, kesit, galeri, lokasyon).
@@ -84,10 +84,10 @@
 .bg-ink-2,
 .bg-ink-3,
 .dark-island {
-  --accent: #7fc9c1;
-  --accent-strong: #a8dbd5;
-  --accent-soft: #7fc9c1;
-  --on-accent: #14181a;
+  --accent: #b5cedb;
+  --accent-strong: #d3e2ea;
+  --accent-soft: #b5cedb;
+  --on-accent: #17233b;
 }
 
 /* ── Tipografi ölçeği (akışkan) ──────────────────────────────── */
@@ -101,6 +101,33 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Lenis yumuşak kaydırma açıkken tarayıcının kendi yumuşatması kapanır (çakışır) */
+html.lenis,
+html.lenis body {
+  height: auto;
+  scroll-behavior: auto;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Kaydırdıkça görselin hafifçe yakınlaşıp oturması — saf CSS, JS yok.
+   Desteklemeyen tarayıcıda (Firefox) görsel olduğu gibi durur. */
+@supports (animation-timeline: view()) {
+  .scroll-zoom {
+    animation: scroll-zoom linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+  }
+  @keyframes scroll-zoom {
+    from { transform: scale(1.18); }
+    to { transform: scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-zoom { animation: none; }
+  }
 }
 
 body {
@@ -118,6 +145,20 @@ h2 {
   font-family: var(--font-display-archivo), system-ui, sans-serif;
   font-stretch: 125%;
   letter-spacing: -0.02em;
+}
+
+/* Başlıktaki renkli vurgu kelimeler: geniş sans yerine ince italik serif.
+   Serifin gövdesi küçük kaldığı için hafif büyütülür. */
+h1 .text-accent,
+h1 .text-bronze,
+h2 .text-accent,
+h2 .text-bronze {
+  font-family: var(--font-serif-instrument), Georgia, serif;
+  font-style: italic;
+  font-stretch: 100%;
+  font-size: 1.12em;
+  letter-spacing: -0.01em;
+  line-height: 1;
 }
 
 /* Küçük büyük-harf etiketler */
@@ -143,12 +184,54 @@ h2 {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* ── ERA RİTMİ (B yönü, Semih seçti): MÜRDÜM = DAVET. Büyük mürdüm blok yalnızca
+   iletişim; mürdüm ayrıca düğmelerde, 'Sizi Arayalım' sekmesinde, italik vurgularda.
+   Açılış ve sayfa altı lacivert, arası kırık beyaz + iki açık mavi bant.
+   Değişkenler bölüm içinde yeniden tanımlanır → içindeki yazı, çizgi, kart
+   ve aksan renkleri kendiliğinden zemine uyar (bileşenlere dokunmadan). */
+.era-plum {
+  background-color: #340c24;
+  --text-base: #f3f3ec;
+  --text-muted: rgba(243, 243, 236, 0.72);
+  --line: rgba(243, 243, 236, 0.16);
+  --card: rgba(243, 243, 236, 0.06);
+  --surface-2: rgba(243, 243, 236, 0.08);
+  --accent: #b5cedb;
+  --accent-strong: #d3e2ea;
+  --accent-soft: #b5cedb;
+  --on-accent: #17233b;
+}
+.era-navy {
+  background-color: #17233b;
+  --text-base: #f3f3ec;
+  --text-muted: rgba(243, 243, 236, 0.72);
+  --line: rgba(243, 243, 236, 0.16);
+  --card: rgba(243, 243, 236, 0.06);
+  --surface-2: rgba(243, 243, 236, 0.08);
+  --accent: #b5cedb;
+  --accent-strong: #d3e2ea;
+  --accent-soft: #b5cedb;
+  --on-accent: #17233b;
+}
+.era-blue {
+  background-color: #b5cedb;
+  --text-base: #17233b;
+  --text-muted: #33415c;
+  --line: rgba(23, 35, 59, 0.18);
+  --card: #c7dbe5;
+  --surface-2: #c7dbe5;
+  --accent: #340c24;
+  --accent-strong: #22071a;
+  --accent-soft: #5a2046;
+  --on-accent: #f3f3ec;
+}
+
 /* Tam taşma görsel bandı — koyu blok yerine "koyu an" görevini görsel üstlenir */
 .bleed-band {
-  --accent: #7fc9c1;
-  --accent-strong: #a8dbd5;
-  --accent-soft: #7fc9c1;
-  --on-accent: #14181a;
+  --accent: #b5cedb;
+  --accent-strong: #d3e2ea;
+  --accent-soft: #b5cedb;
+  --on-accent: #17233b;
 }
 
 /* Gölge yok — kartlar yalnızca hairline ile tanımlanır (mimari disiplin) */

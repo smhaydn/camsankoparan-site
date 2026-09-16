@@ -47,7 +47,7 @@ export default async function ServicesPage({
 
       {/* Projeye özgü avantajlar — gerçek proje verilerinden.
           Dekoratif 01/02/03 numaraları kaldırıldı: içerik bir sıra değil. */}
-      <section className="paper bg-sand py-24 lg:py-28">
+      <section className="paper bg-cream py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mb-4 flex items-center gap-4">
@@ -63,7 +63,7 @@ export default async function ServicesPage({
           <div className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
             {d.servicesPage.reasons.map((r, i) => (
               <Reveal key={r.t} delay={Math.min(i * 0.06, 0.24)}>
-                <div className="group h-full bg-sand p-8 transition-colors duration-500 hover:bg-sand-2">
+                <div className="group h-full bg-card p-8 transition-colors duration-500 hover:bg-sand">
                   <span className="block h-px w-8 bg-accent transition-all duration-500 group-hover:w-14" />
                   <h3 className="mt-5 font-display text-lg font-medium text-base">{r.t}</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted">{r.d}</p>

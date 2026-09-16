@@ -6,7 +6,7 @@ import type { Dict } from "@/lib/dict";
 
 export function Footer({ t, locale }: { t: Dict["footer"]; locale: Locale }) {
   return (
-    <footer className="paper bg-sand-2 pt-20 pb-9">
+    <footer className="paper era-navy pt-20 pb-9">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-12 border-b border-line pb-12 lg:grid-cols-2">
           <div className="max-w-sm">

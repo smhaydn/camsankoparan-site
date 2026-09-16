@@ -96,7 +96,7 @@ export default async function ProjectDetail({
       </section>
 
       {/* Daire Çeşitleri */}
-      <section className="bg-surface-2 py-24">
+      <section className="paper bg-paper py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mb-3 flex items-center gap-4">
@@ -134,7 +134,7 @@ export default async function ProjectDetail({
       </section>
 
       {/* Ortak Alanlar & Sosyal Donatılar */}
-      <section className="paper bg-sand py-28">
+      <section className="paper era-blue py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mb-3 flex items-center gap-4">

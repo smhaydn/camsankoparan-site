@@ -287,7 +287,7 @@ export default async function BlogDetailPage({
       </section>
 
       {/* CTA — projeye yönlendir */}
-      <section className="paper bg-sand py-20">
+      <section className="paper era-plum py-20">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
           <Reveal>
             <div className="mb-4 flex items-center justify-center gap-4">
@@ -311,7 +311,7 @@ export default async function BlogDetailPage({
 
       {/* İlgili yazılar */}
       {related.length > 0 && (
-        <section className="bg-surface-2 py-20">
+        <section className="paper bg-paper py-20">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <div className="mb-10 flex items-center gap-4">
               <span className="h-px w-10 bg-bronze" />
