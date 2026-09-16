@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
@@ -22,6 +22,17 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
     kvkk: false,
   });
   const [kvkkErr, setKvkkErr] = useState(false);
+
+  // Telefonda sekme sayfa altındaki iletişim sütununun üstüne biniyordu →
+  // sayfa altı görününce sekmeyi gizle (masaüstünde yer var, dokunulmaz).
+  const [atFooter, setAtFooter] = useState(false);
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const io = new IntersectionObserver(([e]) => setAtFooter(e.isIntersecting));
+    io.observe(footer);
+    return () => io.disconnect();
+  }, [pathname]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -61,7 +72,7 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
       {/* Sağ kenardaki dikey sekme */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 origin-bottom-right items-center gap-2 rounded-t-md bg-bronze px-4 py-3 ring-1 ring-cream/25 text-sm font-semibold text-onaccent transition hover:bg-bronze-light"
+        className={`fixed right-0 top-1/2 z-40 flex -translate-y-1/2 origin-bottom-right items-center gap-2 rounded-t-md bg-bronze px-4 py-3 ring-1 ring-cream/25 text-sm font-semibold text-onaccent transition hover:bg-bronze-light ${atFooter ? "max-lg:pointer-events-none max-lg:opacity-0" : ""}`}
         style={{ writingMode: "vertical-rl" }}
         aria-label={t.tab}
       >
