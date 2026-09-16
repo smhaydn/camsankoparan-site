@@ -84,6 +84,7 @@ export function CallForm({ t, extra }: { t: Dict["callForm"]; extra: Dict["formE
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              data-lenis-prevent
               className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col overflow-y-auto bg-ink p-8 sm:p-10"
             >
               <button

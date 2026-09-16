@@ -1,4 +1,4 @@
-import { Reveal } from "./reveal";
+import { Reveal, WordReveal } from "./reveal";
 import type { Dict } from "@/lib/dict";
 
 export function Construction({ t }: { t: Dict["construction"] }) {
@@ -14,11 +14,9 @@ export function Construction({ t }: { t: Dict["construction"] }) {
 
         <div className="max-w-3xl">
           <div>
-            <Reveal delay={0.05}>
-              <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
-                {t.title1} <span className="text-bronze">{t.title2}</span>
-              </h2>
-            </Reveal>
+            <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
+              <WordReveal parts={[{ text: t.title1 }, { text: t.title2, className: "text-bronze" }]} />
+            </h2>
             <Reveal delay={0.1}>
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-bronze/15 px-4 py-1.5 text-sm font-semibold text-bronze">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-bronze" />

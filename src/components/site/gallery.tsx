@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Reveal } from "./reveal";
+import { Reveal, WordReveal } from "./reveal";
 import { Lightbox } from "./lightbox";
 import { CoverImage } from "./cover-image";
 import type { Dict } from "@/lib/dict";
@@ -49,11 +49,9 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
             <span className="kicker text-accent">{t.kicker}</span>
           </div>
         </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="font-display text-4xl leading-tight font-light text-base lg:text-5xl">
-            {t.title1} <span className="text-accent">{t.title2}</span>
-          </h2>
-        </Reveal>
+        <h2 className="font-display text-4xl leading-tight font-light text-base lg:text-5xl">
+          <WordReveal parts={[{ text: t.title1 }, { text: t.title2, className: "text-accent" }]} />
+        </h2>
 
         {/* Kategori filtresi */}
         <Reveal delay={0.1}>

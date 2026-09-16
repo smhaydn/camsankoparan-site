@@ -12,6 +12,7 @@ import { PresencePinger } from "@/components/site/presence-pinger";
 import { TrackingScripts } from "@/components/site/tracking-scripts";
 import { CookieConsent } from "@/components/site/cookie-consent";
 import { ThemeProvider } from "@/components/site/theme-provider";
+import { SmoothScroll } from "@/components/site/smooth-scroll";
 import { getSettings } from "@/lib/supabase-admin";
 
 // 20 Agu 2026: layout da ISR olmali. Layout HER sayfada calisir ve icerik +
@@ -64,6 +65,7 @@ export default async function LocaleLayout({
         googleAdsLabel={settings.google_ads_label}
       />
       <PresencePinger />
+      <SmoothScroll />
       <Intro />
       <CatalogProvider dict={d.catalog}>
         <Header dict={d.nav} locale={locale} />

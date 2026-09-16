@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { Reveal } from "./reveal";
+import { Reveal, WordReveal } from "./reveal";
 import { CoverImage } from "./cover-image";
 import type { Dict } from "@/lib/dict";
 
@@ -42,13 +42,9 @@ export function LoftKesit({ t }: { t: Dict["loftKesit"] }) {
               <div className="h-px w-12 bg-accent" />
               <div className="kicker mt-4 text-accent">{t.kicker}</div>
             </Reveal>
-            <Reveal delay={0.05}>
-              <h2 className="mt-5 font-display text-4xl leading-[1.1] font-light text-base lg:text-5xl">
-                {t.title1}
-                <br />
-                <span className="text-accent">{t.title2}</span>
-              </h2>
-            </Reveal>
+            <h2 className="mt-5 font-display text-4xl leading-[1.1] font-light text-base lg:text-5xl">
+              <WordReveal parts={[{ text: t.title1 }, { text: t.title2, className: "text-accent", br: true }]} />
+            </h2>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-md leading-relaxed text-muted">{t.body}</p>
             </Reveal>
@@ -191,7 +187,7 @@ export function LoftKesit({ t }: { t: Dict["loftKesit"] }) {
                 Asma kat ve metal merdiven bu karede net görünüyor. */}
             <figure className="mt-8">
               <div className="relative aspect-[16/9] w-full overflow-hidden">
-                <CoverImage src={t.proofImg} alt={t.proofAlt} sizes="(max-width: 1024px) 100vw, 50vw" />
+                <CoverImage src={t.proofImg} alt={t.proofAlt} sizes="(max-width: 1024px) 100vw, 50vw" className="scroll-zoom" />
               </div>
               <figcaption className="mt-3 flex items-start gap-2.5 text-xs leading-relaxed text-muted">
                 <span className="mt-1.5 block h-px w-5 shrink-0 bg-accent" />

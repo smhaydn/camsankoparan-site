@@ -101,3 +101,56 @@ export function MaskLines({
     </span>
   );
 }
+
+/**
+ * Başlığı KELİME KELİME, görünüme girince maskeden açar (ERA tarzı).
+ * `parts` birden fazla parça alır → renkli ikinci yarı gibi vurgular korunur.
+ * Kelimeler satır sonunda doğal kırılır; ekran okuyucu tam metni okur.
+ */
+export function WordReveal({
+  parts,
+  delay = 0,
+}: {
+  parts: { text: string; className?: string; br?: boolean }[]; // br: parçadan önce satır kır
+  delay?: number;
+}) {
+  const reduce = useReducedMotion();
+  if (reduce) {
+    return parts.map((p, i) => (
+      <span key={i} className={p.className}>
+        {i > 0 && (p.br ? <br /> : " ")}
+        {p.text}
+      </span>
+    ));
+  }
+
+  let n = 0;
+  return (
+    <motion.span
+      initial="hidden"
+      whileInView="shown"
+      viewport={{ once: true, margin: "-80px" }}
+      aria-label={parts.map((p) => p.text).join(" ")}
+    >
+      {parts.map((p, pi) =>
+        p.text.split(" ").map((w, wi) => {
+          const i = n++;
+          return (
+            <span key={`${pi}-${wi}`} aria-hidden="true">
+              {i > 0 && (wi === 0 && p.br ? <br /> : " ")}
+              <span className="inline-block overflow-hidden pb-[0.12em] align-bottom">
+                <motion.span
+                  className={`inline-block ${p.className ?? ""}`}
+                  variants={{ hidden: { y: "110%" }, shown: { y: "0%" } }}
+                  transition={{ duration: 0.9, delay: delay + i * 0.045, ease: EASE }}
+                >
+                  {w}
+                </motion.span>
+              </span>
+            </span>
+          );
+        }),
+      )}
+    </motion.span>
+  );
+}

@@ -103,6 +103,33 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Lenis yumuşak kaydırma açıkken tarayıcının kendi yumuşatması kapanır (çakışır) */
+html.lenis,
+html.lenis body {
+  height: auto;
+  scroll-behavior: auto;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Kaydırdıkça görselin hafifçe yakınlaşıp oturması — saf CSS, JS yok.
+   Desteklemeyen tarayıcıda (Firefox) görsel olduğu gibi durur. */
+@supports (animation-timeline: view()) {
+  .scroll-zoom {
+    animation: scroll-zoom linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+  }
+  @keyframes scroll-zoom {
+    from { transform: scale(1.18); }
+    to { transform: scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-zoom { animation: none; }
+  }
+}
+
 body {
   background: var(--surface);
   color: var(--text-base);

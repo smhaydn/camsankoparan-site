@@ -1,4 +1,4 @@
-import { Reveal } from "./reveal";
+import { Reveal, WordReveal } from "./reveal";
 import { CoverImage } from "./cover-image";
 import type { Dict } from "@/lib/dict";
 
@@ -17,13 +17,9 @@ export function Services({ t }: { t: Dict["services"] }) {
               <span className="kicker text-bronze">{t.kicker}</span>
             </div>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
-              {t.title1}
-              <br />
-              <span className="text-bronze">{t.title2}</span>
-            </h2>
-          </Reveal>
+          <h2 className="font-display text-4xl font-light leading-tight text-base lg:text-5xl">
+            <WordReveal parts={[{ text: t.title1 }, { text: t.title2, className: "text-bronze", br: true }]} />
+          </h2>
         </div>
 
         {/* Dekoratif 01/02/03 numaraları kaldırıldı — içerik bir sıra değil (jenerik şablon işareti) */}
