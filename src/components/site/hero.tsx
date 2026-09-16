@@ -16,7 +16,7 @@ export function Hero({
   locale: Locale;
 }) {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-ink">
+    <section className="relative flex min-h-screen items-center overflow-hidden era-plum">
       <div className="absolute inset-0">
         {t.video ? (
           <video
@@ -41,8 +41,8 @@ export function Hero({
             className="kenburns"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-petrol via-petrol/85 to-petrol/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-petrol via-transparent to-petrol/40" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 lg:px-10">

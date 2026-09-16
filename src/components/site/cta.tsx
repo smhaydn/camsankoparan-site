@@ -4,7 +4,7 @@ import type { Dict } from "@/lib/dict";
 export function CTA({ t }: { t: Dict["cta"] }) {
   return (
     // Sayfanın TEK doygun renk bloğu — göz doğal olarak buraya gider (lead odağı)
-    <section className="dark-island relative overflow-hidden bg-petrol py-36">
+    <section className="dark-island relative overflow-hidden era-plum py-36">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <Reveal>
           <span className="kicker text-bronze">{t.kicker}</span>

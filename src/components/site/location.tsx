@@ -16,7 +16,7 @@ export function Location({
   const mapSrc = `https://www.google.com/maps?q=${t.lat},${t.lng}&z=16&output=embed`;
 
   return (
-    <section className="paper bg-sand py-28">
+    <section className="paper era-blue py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-5 flex items-center gap-4">
