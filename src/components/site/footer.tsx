@@ -13,9 +13,14 @@ export function Footer({ t, locale }: { t: Dict["footer"]; locale: Locale }) {
             <Logo light />
             <p className="mt-6 leading-relaxed text-muted">{t.tagline}</p>
           </div>
-          <div className="grid grid-cols-3 gap-8">
+          {/* Telefonda 3 dar sütuna e-posta sığmıyordu (88px) → telefonda 2 sütun */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {t.cols.map((c) => (
-              <div key={c.title}>
+              // İletişim sütunu (e-posta içeren) telefonda tam genişlik — adres bölünmeden sığsın
+              <div
+                key={c.title}
+                className={c.links.some((l) => l.href.startsWith("mailto:")) ? "col-span-2 sm:col-span-1" : ""}
+              >
                 <h4 className="mb-4 text-xs font-semibold tracking-[0.2em] text-bronze uppercase">
                   {c.title}
                 </h4>
@@ -34,7 +39,7 @@ export function Footer({ t, locale }: { t: Dict["footer"]; locale: Locale }) {
                     return (
                       <li key={l.label}>
                         {external ? (
-                          <a href={href} className="text-sm text-muted transition hover:text-bronze">
+                          <a href={href} className="text-sm text-muted transition [overflow-wrap:anywhere] hover:text-bronze">
                             {l.label}
                           </a>
                         ) : (
