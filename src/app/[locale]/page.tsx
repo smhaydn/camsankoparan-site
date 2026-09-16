@@ -58,7 +58,7 @@ export default async function Home({
       <Construction t={d.construction} />
       <Services t={d.services} />
       <Faq t={d.faq} />
-      <Location t={d.location} address={d.contactPage.address} />
+      <Location t={d.location} address={d.contactPage.address} locale={l} />
       <CTA t={d.cta} />
     </main>
     </>

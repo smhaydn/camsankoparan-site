@@ -12,7 +12,9 @@ export type BlogBlock =
   | { type: "h2"; text: string }
   | { type: "list"; items: string[] }
   | { type: "image"; src: string; alt: string; caption?: string }
-  | { type: "quote"; text: string };
+  | { type: "quote"; text: string }
+  // Harita — "nerede" aramalarina cevap. Sorgu Google'a birakilir, koordinat uydurulmaz.
+  | { type: "map"; query: string; zoom: number; title: string; caption?: string };
 
 export type BlogFAQ = { q: string; a: string };
 
@@ -442,9 +444,9 @@ const POSTS_TR: BlogPost[] = [
     slug: "gaziemir-yasam-rehberi",
     keyword: "gaziemir",
     category: "Bölge Rehberi",
-    title: "Gaziemir Yaşam Rehberi: İzmir'in Havalimanı İlçesinde Yaşamak",
+    title: "Gaziemir Nerede? Havalimanı İlçesinde Yaşam Rehberi",
     description:
-      "Gaziemir nerede, nasıl bir yer, kimler için uygun? Ulaşım, alışveriş, doğa ve günlük hayat başlıklarıyla İzmir Gaziemir'de yaşamayı anlatan tarafsız rehber.",
+      "Gaziemir nerede, nasıl bir yer? İzmir'in güneyindeki havalimanı ilçesi Gaziemir'i ulaşım, alışveriş, doğa ve günlük hayat başlıklarıyla anlatan rehber.",
     excerpt:
       "Havalimanı, serbest bölge, fuar alanı ve İZBAN aynı ilçede. Gaziemir'i İzmir'in diğer ilçelerinden ayıran şey ne, günlük hayat nasıl işliyor?",
     hero: "/renders/hava-carsi.jpg",
@@ -452,6 +454,17 @@ const POSTS_TR: BlogPost[] = [
     updated: "2026-08-19",
     readingMin: 9,
     blocks: [
+      {
+        type: "p",
+        text: "Gaziemir, İzmir'in güneyinde yer alan bir merkez ilçedir. Adnan Menderes Havalimanı, Ege Serbest Bölgesi ve Fuar İzmir ilçe sınırları içindedir. Alsancak ve Konak'a İZBAN banliyö hattıyla ve karayoluyla bağlanır.",
+      },
+      {
+        type: "map",
+        query: "Gaziemir, İzmir",
+        zoom: 12,
+        title: "Gaziemir ilçesi haritası",
+        caption: "Gaziemir, İzmir'in güneyinde; havalimanı ilçenin sınırları içinde.",
+      },
       {
         type: "p",
         text: "İzmir'de ev arayan çoğu kişi önce Karşıyaka, Bornova ya da Buca'ya bakar. Gaziemir genelde listenin biraz aşağısında kalır. Oysa İzmir'in havalimanı, serbest bölgesi ve fuar alanı bu ilçenin sınırları içinde. Bu yazıda Gaziemir'i abartmadan anlatıyoruz: ne sunuyor, neyi sunmuyor, kime göre bir yer.",
@@ -701,9 +714,9 @@ const POSTS_TR: BlogPost[] = [
     slug: "gaziemir-izban-ulasim-rehberi",
     keyword: "gaziemir izban",
     category: "Ulaşım",
-    title: "Gaziemir'de İZBAN ile Ulaşım: Şehre Trafiğe Girmeden",
+    title: "Gaziemir İZBAN Durağı: İstasyonlar ve Şehre Ulaşım",
     description:
-      "Gaziemir'de İZBAN istasyonları nerede, Alsancak'a kaç durak, havalimanına nasıl gidilir? Gaziemir'den raylı sistemle İzmir ulaşım rehberi.",
+      "Gaziemir İZBAN durağı nerede? İlçedeki Gaziemir ve Sarnıç istasyonları, Alsancak'a kaç durak olduğu ve havalimanına trenle tek durak ulaşım.",
     excerpt:
       "Gaziemir'de iki İZBAN istasyonu var ve havalimanı bir sonraki durak. Alsancak'a dokuz durak, metroya iki aktarma. Raylı sistemle yaşamak ne demek?",
     hero: "/renders/hava-carsi.jpg",
@@ -711,6 +724,17 @@ const POSTS_TR: BlogPost[] = [
     updated: "2026-08-19",
     readingMin: 6,
     blocks: [
+      {
+        type: "p",
+        text: "Gaziemir'de iki İZBAN durağı vardır: Gaziemir istasyonu ve Sarnıç istasyonu. İkisi de İZBAN hattının güney kolundadır. Sarnıç'tan bir sonraki durak Adnan Menderes Havalimanı'dır; Alsancak ise Gaziemir istasyonundan sekiz durak uzaktadır.",
+      },
+      {
+        type: "map",
+        query: "Gaziemir İZBAN İstasyonu, Gaziemir, İzmir",
+        zoom: 14,
+        title: "Gaziemir İZBAN istasyonu haritası",
+        caption: "Gaziemir İZBAN istasyonu. Sarnıç istasyonu hattın bir durak güneyindedir.",
+      },
       {
         type: "p",
         text: "İzmir'de ev seçerken sorulması gereken sorulardan biri şu: işe giderken trafiğe mecbur musunuz? Cevap evetse, günlük hayatınızın bir bölümünü her sabah yeniden kumar oynayarak geçirirsiniz. Raylı sistem bu belirsizliği ortadan kaldırır — tren sabah da akşam da aynı süreyi alır. Bu yazıda Gaziemir'den İZBAN ile ulaşımı anlatıyoruz.",
@@ -1134,9 +1158,9 @@ const POSTS_EN: BlogPost[] = [
     slug: "gaziemir-yasam-rehberi",
     keyword: "living in gaziemir izmir",
     category: "Area Guide",
-    title: "Living in Gaziemir: A Guide to Izmir's Airport District",
+    title: "Where Is Gaziemir? A Guide to Izmir's Airport District",
     description:
-      "Where is Gaziemir, what is it like and who does it suit? A straightforward guide to living in Gaziemir, Izmir — transport, shopping, nature and daily life.",
+      "Where is Gaziemir and what is it like? A guide to Izmir's southern airport district — transport, shopping, nature and daily life.",
     excerpt:
       "The airport, the free zone, the fair grounds and the commuter rail are all in one district. What sets Gaziemir apart, and how does daily life actually work there?",
     hero: "/renders/hava-carsi.jpg",
@@ -1144,6 +1168,17 @@ const POSTS_EN: BlogPost[] = [
     updated: "2026-08-19",
     readingMin: 9,
     blocks: [
+      {
+        type: "p",
+        text: "Gaziemir is a central district in the south of Izmir. Adnan Menderes Airport, the Aegean Free Zone and Fuar İzmir all lie within its boundaries. It is linked to Alsancak and Konak by the İZBAN commuter rail line and by road.",
+      },
+      {
+        type: "map",
+        query: "Gaziemir, İzmir",
+        zoom: 12,
+        title: "Map of the Gaziemir district",
+        caption: "Gaziemir lies in the south of Izmir, with the airport inside the district.",
+      },
       {
         type: "p",
         text: "Most people house-hunting in Izmir look at Karşıyaka, Bornova or Buca first. Gaziemir usually sits further down the list — even though Izmir's airport, its free zone and its fair grounds all lie within this district. This guide describes Gaziemir without overselling it: what it offers, what it does not, and who it suits.",
@@ -1391,9 +1426,9 @@ const POSTS_EN: BlogPost[] = [
     slug: "gaziemir-izban-ulasim-rehberi",
     keyword: "gaziemir izban",
     category: "Transport",
-    title: "Commuting From Gaziemir on İZBAN: Reaching Izmir Without Traffic",
+    title: "Gaziemir İZBAN Stations: Where They Are and Getting Around",
     description:
-      "Where are Gaziemir's İZBAN stations, how far is Alsancak and how do you reach the airport? A guide to commuting from Gaziemir by rail.",
+      "Where is the İZBAN station in Gaziemir? The district's Gaziemir and Sarnıç stations, the stops to Alsancak and the one-stop rail link to the airport.",
     excerpt:
       "Gaziemir has two İZBAN stations and the airport is the next stop along. Nine stops to Alsancak, two metro interchanges. What does living on a rail line mean?",
     hero: "/renders/hava-carsi.jpg",
@@ -1401,6 +1436,17 @@ const POSTS_EN: BlogPost[] = [
     updated: "2026-08-19",
     readingMin: 6,
     blocks: [
+      {
+        type: "p",
+        text: "Gaziemir has two İZBAN stations: Gaziemir and Sarnıç. Both are on the southern arm of the line. The stop after Sarnıç is Adnan Menderes Airport, and Alsancak is eight stops from Gaziemir station.",
+      },
+      {
+        type: "map",
+        query: "Gaziemir İZBAN İstasyonu, Gaziemir, İzmir",
+        zoom: 14,
+        title: "Map of Gaziemir İZBAN station",
+        caption: "Gaziemir İZBAN station. Sarnıç station is one stop south on the line.",
+      },
       {
         type: "p",
         text: "One question worth asking when choosing a home in Izmir: will you be forced into traffic to get to work? If the answer is yes, part of your day becomes a gamble every morning. Rail removes that uncertainty — a train takes the same time at eight in the morning as it does at noon. This guide covers commuting from Gaziemir on the İZBAN line.",

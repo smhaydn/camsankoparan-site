@@ -118,6 +118,23 @@ function Block({ b }: { b: BlogBlock }) {
           </p>
         </blockquote>
       );
+    case "map":
+      return (
+        <figure className="mt-10">
+          <div className="aspect-[16/10] overflow-hidden rounded-sm border border-line">
+            <iframe
+              src={`https://www.google.com/maps?q=${encodeURIComponent(b.query)}&z=${b.zoom}&output=embed`}
+              title={b.title}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full w-full"
+            />
+          </div>
+          {b.caption && (
+            <figcaption className="mt-3 text-center text-sm text-muted">{b.caption}</figcaption>
+          )}
+        </figure>
+      );
   }
 }
 

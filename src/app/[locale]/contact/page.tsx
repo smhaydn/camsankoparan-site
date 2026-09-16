@@ -9,8 +9,9 @@
 // korunuyor, bedeli her ziyaretciye odetilmiyor.
 export const revalidate = 3600;
 
+import Link from "next/link";
 import { getContent } from "@/lib/content";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, path } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
@@ -118,6 +119,22 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                     </div>
                   ))}
                 </dl>
+              </Reveal>
+
+              {/* Rehber yazılarına bağlantı */}
+              <Reveal delay={0.18}>
+                <ul className="mt-6 space-y-2">
+                  {l.guides.map((g) => (
+                    <li key={g.href}>
+                      <Link
+                        href={path(locale, g.href)}
+                        className="inline-flex items-center gap-2 text-sm text-muted underline decoration-line underline-offset-2 transition hover:text-accent"
+                      >
+                        {g.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
 
               <Reveal delay={0.2}>

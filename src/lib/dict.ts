@@ -409,6 +409,11 @@ const tr = {
       { t: "Otoyol", d: "Otoyol çıkışına 5 dk" },
       { t: "Merkez", d: "İzmir merkezine 22 dk · Optimum Outlet 4 dk" },
     ],
+    // Bloglara ic baglanti — ana sayfanin gucu bloglara aksin (GSC: iki yazi 11. sirada)
+    guides: [
+      { label: "Gaziemir İZBAN durakları ve şehre ulaşım", href: "blog/gaziemir-izban-ulasim-rehberi" },
+      { label: "Gaziemir nerede, nasıl bir yer?", href: "blog/gaziemir-yasam-rehberi" },
+    ],
   },
   catalog: {
     title: "Dijital Katalog",
@@ -961,6 +966,10 @@ const en: typeof tr = {
       { t: "İZBAN", d: "800 m to İZBAN Sarnıç station" },
       { t: "Highway", d: "5 min to the highway exit" },
       { t: "Centre", d: "22 min to Izmir centre · Optimum Mall 4 min" },
+    ],
+    guides: [
+      { label: "Gaziemir İZBAN stations and getting around", href: "blog/gaziemir-izban-ulasim-rehberi" },
+      { label: "Where is Gaziemir, and what is it like?", href: "blog/gaziemir-yasam-rehberi" },
     ],
   },
   catalog: {
