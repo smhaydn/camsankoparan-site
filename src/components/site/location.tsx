@@ -1,12 +1,16 @@
+import Link from "next/link";
 import { Reveal } from "./reveal";
 import type { Dict } from "@/lib/dict";
+import { path, type Locale } from "@/lib/i18n";
 
 export function Location({
   t,
   address,
+  locale,
 }: {
   t: Dict["location"];
   address: string;
+  locale: Locale;
 }) {
   // Projenin tam koordinatı (Dokuz Eylül Mah. 694 Sok.) — jenerik arama değil, gerçek pin
   const mapSrc = `https://www.google.com/maps?q=${t.lat},${t.lng}&z=16&output=embed`;
@@ -43,6 +47,22 @@ export function Location({
                 </Reveal>
               ))}
             </div>
+
+            {/* Rehber yazılarına bağlantı — ana sayfanın gücü bloglara aksın */}
+            <Reveal delay={0.28}>
+              <ul className="mt-7 space-y-2">
+                {t.guides.map((g) => (
+                  <li key={g.href}>
+                    <Link
+                      href={path(locale, g.href)}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all hover:gap-3"
+                    >
+                      {g.label} <span aria-hidden="true">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
 
             <Reveal delay={0.3}>
               <div className="mt-8 border-t border-line pt-5">
