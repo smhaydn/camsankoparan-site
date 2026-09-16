@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Archivo, Plus_Jakarta_Sans, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { getSettings } from "@/lib/supabase-admin";
 
@@ -18,6 +18,15 @@ const archivo = Archivo({
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
   variable: "--font-body-jakarta",
+  display: "swap",
+});
+
+// Vurgu: başlıkların renkli ikinci yarısı — ince, italik editoryal serif
+const serif = Instrument_Serif({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif-instrument",
   display: "swap",
 });
 
@@ -74,7 +83,7 @@ export async function generateMetadata(): Promise<Metadata> {
 //
 // Bu dosya artik yalnizca font degiskenlerini ve tema saglayicisini kurar;
 // <html>/<body> alt layout'ta.
-export const FONT_SINIFLARI = `${archivo.variable} ${jakarta.variable} ${jet.variable}`;
+export const FONT_SINIFLARI = `${archivo.variable} ${jakarta.variable} ${jet.variable} ${serif.variable}`;
 
 // Kök layout artık <html>/<body> ve tema sağlayıcısını KURMAZ. Her bölüm
 // (genel site [locale], /yonetim, /isprogrami) kendi belgesini kurar.

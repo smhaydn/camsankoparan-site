@@ -147,6 +147,20 @@ h2 {
   letter-spacing: -0.02em;
 }
 
+/* Başlıktaki renkli vurgu kelimeler: geniş sans yerine ince italik serif.
+   Serifin gövdesi küçük kaldığı için hafif büyütülür. */
+h1 .text-accent,
+h1 .text-bronze,
+h2 .text-accent,
+h2 .text-bronze {
+  font-family: var(--font-serif-instrument), Georgia, serif;
+  font-style: italic;
+  font-stretch: 100%;
+  font-size: 1.12em;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
 /* Küçük büyük-harf etiketler */
 .kicker {
   font-family: var(--font-mono-jet), ui-monospace, monospace;
