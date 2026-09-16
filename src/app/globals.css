@@ -7,17 +7,17 @@
 
 @theme {
   /* ── Zemin: grafit (hafif yeşile çalan siyah — soğuk teknoloji hissi vermez) */
-  --color-ink: #1a1d1c;
-  --color-ink-2: #232726;
-  --color-ink-3: #2e3332;
+  --color-ink: #17233b; /* ERA lacivert */
+  --color-ink-2: #1f2d4a;
+  --color-ink-3: #293a5a;
 
   /* ── KAĞIT KATMANLARI — derinlik karanlıktan değil, ton farkından gelir.
      Fark neredeyse görünmez; göz "katman" okur. */
-  --color-paper: #fbf9f5; /* en açık — kağıt */
-  --color-cream: #f4f1ec; /* alabaster */
-  --color-sand: #ede9e1; /* kum */
-  --color-sand-2: #e7e2d9; /* koyu kum */
-  --color-alabaster: #f4f1ec;
+  --color-paper: #f9f9f4; /* en açık — kağıt */
+  --color-cream: #f3f3ec; /* ERA kırık beyaz */ /* alabaster */
+  --color-sand: #eaeae1; /* kum */
+  --color-sand-2: #b5cedb; /* ERA açık mavi */
+  --color-alabaster: #f3f3ec;
 
   /* ── Yardımcı: taş grisi (AA kontrastı için koyulaştırıldı) */
   --color-stone: #6f6a61;
@@ -29,9 +29,9 @@
   --color-brand-bronze-dark: #6d5326;
 
   /* ── Petrol yeşil sabitleri (referans) */
-  --color-petrol: #0f4f4a;
-  --color-petrol-deep: #0b3c38;
-  --color-petrol-light: #7fc9c1;
+  --color-petrol: #340c24; /* ERA mürdüm — ad korunuyor, bileşenler bozulmasın */
+  --color-petrol-deep: #22071a;
+  --color-petrol-light: #b5cedb;
 
   --font-display: var(--font-display-archivo);
   --font-body: var(--font-body-jakarta);
@@ -62,20 +62,20 @@
 
 /* AÇIK zemin (varsayılan): koyu petrol aksan */
 :root {
-  --surface: #f4f1ec;
-  --surface-2: #ebe7e0;
+  --surface: #f3f3ec;
+  --surface-2: #eaeae1;
   /* Kağıt paletinde SAF BEYAZ yok. Sıcak kağıt zemin üzerinde soğuk beyaz
      kartlar sistemden kopuyor ve ucuz duruyordu → en açık kağıt tonu. */
-  --card: #fbf9f5;
-  --text-base: #1a1d1c;
+  --card: #f9f9f4;
+  --text-base: #17233b;
   /* AA (4.5:1) için koyulaştırıldı — açık gri zeminde de geçer */
-  --text-muted: #615c54;
-  --line: #ddd8cf;
+  --text-muted: #4a5163;
+  --line: #d8d8cd;
 
-  --accent: #0f4f4a;
-  --accent-strong: #0b3c38;
-  --accent-soft: #14625c;
-  --on-accent: #f4f1ec;
+  --accent: #340c24;
+  --accent-strong: #22071a;
+  --accent-soft: #5a2046;
+  --on-accent: #f3f3ec;
 }
 
 /* KOYU ADALAR — açık tema içindeki koyu bölümler (hero, kesit, galeri, lokasyon).
@@ -84,10 +84,10 @@
 .bg-ink-2,
 .bg-ink-3,
 .dark-island {
-  --accent: #7fc9c1;
-  --accent-strong: #a8dbd5;
-  --accent-soft: #7fc9c1;
-  --on-accent: #14181a;
+  --accent: #b5cedb;
+  --accent-strong: #d3e2ea;
+  --accent-soft: #b5cedb;
+  --on-accent: #17233b;
 }
 
 /* ── Tipografi ölçeği (akışkan) ──────────────────────────────── */
@@ -186,10 +186,10 @@ h2 .text-bronze {
 
 /* Tam taşma görsel bandı — koyu blok yerine "koyu an" görevini görsel üstlenir */
 .bleed-band {
-  --accent: #7fc9c1;
-  --accent-strong: #a8dbd5;
-  --accent-soft: #7fc9c1;
-  --on-accent: #14181a;
+  --accent: #b5cedb;
+  --accent-strong: #d3e2ea;
+  --accent-soft: #b5cedb;
+  --on-accent: #17233b;
 }
 
 /* Gölge yok — kartlar yalnızca hairline ile tanımlanır (mimari disiplin) */
