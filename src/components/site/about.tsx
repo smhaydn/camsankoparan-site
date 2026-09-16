@@ -18,7 +18,7 @@ export function About({ t, locale }: { t: Dict["about"]; locale: Locale }) {
                 className="scroll-zoom"
               />
             </div>
-            <div className="dark-island absolute -bottom-8 -right-4 hidden bg-petrol px-9 py-7 text-center sm:block lg:-right-8">
+            <div className="dark-island absolute -bottom-8 -right-4 hidden bg-ink px-9 py-7 text-center sm:block lg:-right-8">
               <div className="font-display text-4xl font-bold text-bronze">237</div>
               <div className="mt-1 text-xs tracking-widest text-white/75">{t.badge}</div>
             </div>

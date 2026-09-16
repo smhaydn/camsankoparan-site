@@ -10,7 +10,7 @@ export function Footer({ t, locale }: { t: Dict["footer"]; locale: Locale }) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-12 border-b border-line pb-12 lg:grid-cols-2">
           <div className="max-w-sm">
-            <Logo />
+            <Logo light />
             <p className="mt-6 leading-relaxed text-muted">{t.tagline}</p>
           </div>
           <div className="grid grid-cols-3 gap-8">
