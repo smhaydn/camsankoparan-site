@@ -87,7 +87,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ZİYARET & HARİTA — iletişim sayfasında harita yoktu, en temel eksik buydu */}
-      <section className="paper bg-sand py-24 lg:py-28">
+      <section className="paper era-blue py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>

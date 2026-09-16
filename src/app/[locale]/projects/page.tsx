@@ -117,7 +117,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
       {/* İKİNCİ İMZA — dairenin kesiti: çift yükseklik sadece burada okunur */}
       <LoftKesit t={d.loftKesit} />
 
-      <section className="paper bg-cream py-24 lg:py-28">
+      <section className="paper era-blue py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mb-10 flex items-center gap-4">

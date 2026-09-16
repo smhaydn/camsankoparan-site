@@ -33,7 +33,7 @@ export function LoftKesit({ t }: { t: Dict["loftKesit"] }) {
   const dim = (id: RoomId) => (hover && !isOn(id) ? 0.35 : 1);
 
   return (
-    <section className="paper bg-sand py-32" aria-label={t.kicker}>
+    <section className="paper bg-cream py-32" aria-label={t.kicker}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:items-center">
           {/* Sol: metin + mahal listesi */}
