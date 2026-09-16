@@ -3,7 +3,7 @@ import type { Dict } from "@/lib/dict";
 // Proje künye şeridi — gerçek proje bilgileri (sahte sayaç yok)
 export function Stats({ labels }: { labels: Dict["stats"] }) {
   return (
-    <section className="paper era-plum py-24">
+    <section className="paper bg-cream py-24">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-12 px-6 lg:grid-cols-4 lg:px-10">
         {labels.map((s, i) => (
           <div key={i} className="text-center">

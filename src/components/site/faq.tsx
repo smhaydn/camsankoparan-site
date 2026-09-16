@@ -9,7 +9,7 @@ export function Faq({ t }: { t: Dict["faq"] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="paper bg-cream py-32">
+    <section className="paper bg-paper py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-5 flex items-center gap-4">

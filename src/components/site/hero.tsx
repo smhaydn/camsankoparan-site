@@ -16,7 +16,7 @@ export function Hero({
   locale: Locale;
 }) {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden era-plum">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-ink">
       <div className="absolute inset-0">
         {t.video ? (
           <video
@@ -41,8 +41,8 @@ export function Hero({
             className="kenburns"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-petrol via-petrol/85 to-petrol/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-petrol via-transparent to-petrol/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 lg:px-10">
@@ -100,7 +100,7 @@ export function Hero({
           >
             <Link
               href={path(locale, SEGMENTS.projects)}
-              className="rounded-full bg-bronze px-8 py-3.5 text-sm font-semibold tracking-wide text-onaccent transition hover:bg-bronze-light"
+              className="rounded-full bg-petrol px-8 py-3.5 text-sm font-semibold tracking-wide text-cream transition hover:bg-petrol-deep"
             >
               {t.ctaPrimary}
             </Link>

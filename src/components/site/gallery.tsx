@@ -41,7 +41,7 @@ export function Gallery({ t }: { t: Dict["gallery"] }) {
   ];
 
   return (
-    <section className="paper bg-cream py-24 lg:py-28">
+    <section className="paper bg-paper py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-5 flex items-center gap-4">
